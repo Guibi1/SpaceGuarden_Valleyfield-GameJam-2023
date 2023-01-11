@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7917570691604872071}
   - component: {fileID: 5360800108805587084}
   - component: {fileID: 1078594863}
+  - component: {fileID: 454164889}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -97,7 +98,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3252224991405807402, guid: 087ab64230c3bb84281f8ca3c01b6633, type: 3}
 --- !u!114 &5360800108805587084
@@ -112,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ade51ffe676f80645b07daa374351398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedMultiplier: 50
+  speedMultiplier: 100
   controlsInverted: 0
   maxHealth: 100
   currentHealth: 100
@@ -132,3 +133,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &454164889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530729297781859804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be04cc799d1ae2f4dbbf9655d0fa549b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraSpeed: 0
