@@ -8,9 +8,9 @@ public class SplashDamage : MonoBehaviour
     [SerializeReference] Rigidbody rb;
     [SerializeReference] TextMeshProUGUI text;
 
-    public void setDamage(int damage)
+    public void SetDamage(float damage)
     {
-        text.text = damage.ToString();
+        text.text = Mathf.RoundToInt(damage).ToString();
     }
 
     void Start()

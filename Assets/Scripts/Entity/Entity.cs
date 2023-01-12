@@ -1,18 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using Lean.Pool;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public float HP;
-    public bool allowPooling;
-    public bool deathAnimation;
+    [SerializeField] public float HP;
+    [SerializeField] public bool allowPooling;
+    [SerializeReference] SplashDamage splashDamagePrefab;
+    [SerializeField] public bool deathAnimation;
 
     [ShowIf("deathAnimation")]
-    public float deathAnimationTime;
+    [SerializeField] public float deathAnimationTime;
 
     public bool dying;
 
@@ -29,6 +28,11 @@ public class Entity : MonoBehaviour
         }
 
         HP -= damage;
+
+        if (damage > 0)
+        {
+            LeanPool.Spawn(splashDamagePrefab, transform).SetDamage(damage);
+        }
     }
 
     public IEnumerator Die()
