@@ -14,7 +14,6 @@ public class PlayerMouvement : MonoBehaviour
     public float speedMultiplier = 50f;
     public float spinTime = 8f;
     public float knockbackForce = 2000f;
-    public int knockbackFrames = 4;
     [HideInInspector] public Rigidbody rb;
 
     [Header("Misc")]
@@ -125,16 +124,6 @@ public class PlayerMouvement : MonoBehaviour
 
     public void Fire()
     {
-        playerState = PlayerStates.Knockback;
-        // TODO : Activate animation
-        rb.velocity = (sprite.transform.localScale.x == 1 ?
-            cameraVectorRight * -knockbackForce : // Facing left
-            cameraVectorRight * knockbackForce  // Facing right
-            );
-
-        StartCoroutine(SimpleRoutines.WaitForFrames(knockbackFrames, () =>
-        {
-            playerState = PlayerStates.Normal;
-        }));
+        SpriteManager.instance.attack();
     }
 }
