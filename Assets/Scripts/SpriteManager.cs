@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SpriteManager : MonoBehaviour
@@ -27,5 +28,11 @@ public class SpriteManager : MonoBehaviour
     {
         animator.SetTrigger("ResetAnim");
         animator.SetInteger("Type", (int)type);
+    }
+
+    internal void attack()
+    {
+        print("Attacking...");
+        animator.SetTrigger("Attack");
     }
 }
