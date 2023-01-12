@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class CameraMovement : MonoBehaviour
 {
 
-    public static CameraFollow instance;
+    public static CameraMovement instance;
     Camera cam = null;
 
     private Vector3 targetRotation = Vector3.zero;
@@ -15,6 +15,11 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] private float cameraOffset = 7;
     [SerializeField] private float cameraSmoothingSpeed = 10;
     [SerializeField] private float cameraSmoothingRotationSpeed = 5;
+    [SerializeField] private float cameraYMin = 0;
+    [SerializeField] private float cameraYMax = 45;
+
+
+    [Header ("Settings")]
     public float sensitivity = 2;
     public float sensitivityYMultiplier = 0.05f;
 
@@ -28,18 +33,33 @@ public class CameraFollow : MonoBehaviour
         cam = Camera.main;
         cam.transform.localPosition = new Vector3(0, 0, -cameraOffset);
         targetRotation = Camera_Rotate_Around.transform.eulerAngles;
+        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         float camMovementX = Input.GetAxis("Mouse X");
         float camMovementY = Input.GetAxis("Mouse Y");
 
         targetRotation += new Vector3(camMovementY * sensitivity * sensitivityYMultiplier, camMovementX * sensitivity, 0);
+        print(targetRotation.x);
+        if(targetRotation.x < cameraYMin)
+        {
+            targetRotation = new Vector3(cameraYMin, targetRotation.y, targetRotation.z);
+        }
+        else if(targetRotation.x > cameraYMax)
+        {
+            targetRotation = new Vector3(cameraYMax, targetRotation.y, targetRotation.z);
+        }
+
         Camera_Rotate_Around.transform.rotation = Quaternion.Lerp(Camera_Rotate_Around.transform.rotation, Quaternion.Euler(targetRotation), Time.deltaTime * cameraSmoothingRotationSpeed);
-        Camera_Rotate_Around.transform.position = Vector3.Lerp(Camera_Rotate_Around.transform.position, transform.position, cameraSmoothingSpeed * Time.deltaTime);
+        Camera_Rotate_Around.transform.position = transform.position;
+        Vector3 forward = Camera_Rotate_Around.transform.forward;
+        forward = new Vector3(forward.x, 0, forward.z);
+        forward.Normalize();
+        PlayerMouvement.instance.setRotation(forward, Camera_Rotate_Around.transform.right);
         
     }
 }
