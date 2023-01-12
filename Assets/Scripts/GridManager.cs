@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GridManager : MonoBehaviour
@@ -14,13 +12,13 @@ public class GridManager : MonoBehaviour
 
     private GameObject[,] tiles;
 
-    // Start is called before the first frame update
+    private TileManager selectedTile;
+
     void Start()
     {
         createGrid();
     }
 
-    // Update is called once per frame
     void Update()
     {
         int x = Mathf.FloorToInt(player.transform.position.x - transform.position.x + 1f);
@@ -28,10 +26,27 @@ public class GridManager : MonoBehaviour
 
         if (x >= 0 && z >= 0 && x < width && z < height)
         {
-            Vector3 position = tiles[x, z].transform.position;
-            position.y = 2;
+            TileManager newSelection = tiles[x, z].GetComponent<TileManager>();
 
-            tiles[x, z].transform.position = position;
+            if (selectedTile != newSelection)
+            {
+                if (selectedTile != null)
+                {
+                    selectedTile.Selected = false;
+                }
+
+                newSelection.Selected = true;
+                selectedTile = newSelection;
+            }
+        }
+
+        else
+        {
+            if (selectedTile != null)
+            {
+                selectedTile.Selected = false;
+                selectedTile = null;
+            }
         }
     }
 

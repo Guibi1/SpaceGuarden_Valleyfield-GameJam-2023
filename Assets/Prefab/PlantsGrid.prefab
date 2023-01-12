@@ -46,5 +46,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 20
   height: 20
-  tilePrefab: {fileID: 5139806265037869733, guid: 6af3e5c3b59e30643ab3c7a5f9d910e5, type: 3}
+  tilePrefab: {fileID: 5139806265037869733, guid: 148cdfbf4f765d04da6bc0da7191c476, type: 3}
   player: {fileID: 1530729297781859804, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
