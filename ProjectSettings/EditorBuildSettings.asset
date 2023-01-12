@@ -11,7 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Options Menu.unity
     guid: 487d7d04b3ad3724ca697ddb72b7189e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 6cdd660daa80d7e42be74f0a7c3cd6cb
+  - enabled: 1
+    path: Assets/Scenes/Emile 1.unity
+    guid: 1612a6d3e0aac614c8e2e87bdc96d5c9
   m_configObjects: {}
