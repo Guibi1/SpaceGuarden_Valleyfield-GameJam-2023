@@ -12,6 +12,10 @@ public class Tomato : Plant
 
     public override void DrawAoE()
     {
-        
+    }
+
+    public override void HideAoE()
+    {
+        throw new NotImplementedException();
     }
 }

@@ -7,6 +7,7 @@ using UnityEngine;
 public abstract class Plant : MonoBehaviour
 {
     [SerializeField] private PlantData plantData;
+    [SerializeField] private AoEPlant aoEPlant;
     
     protected bool useAnimator;
     [ShowIf("useAnimator")]
@@ -19,6 +20,7 @@ public abstract class Plant : MonoBehaviour
 
     public abstract void Execute();
     public abstract void DrawAoE();
+    public abstract void HideAoE();
     
     public enum State {Construction, Active, DeActive}
     private State state;
