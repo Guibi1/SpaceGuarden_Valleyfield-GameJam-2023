@@ -17,8 +17,8 @@ public class PlayerMouvement : MonoBehaviour
     [Header ("Settings")]
     public float speedMultiplier = 50f;
     public float spinTime = 8f;
-    public float knockbackForce = 10000f;
-
+    public float knockbackForce = 2000f;
+    public int knockbackFrames = 4;
     [HideInInspector] public Rigidbody rb;
 
     [Header("Misc")]
@@ -49,8 +49,10 @@ public class PlayerMouvement : MonoBehaviour
         else if (horizontalAxis < 0)
         {
             sprite.transform.localScale = new Vector3(-1, 1, 1);
-
         }
+
+        SpriteManager.instance.SetWalking(!(horizontalAxis == 0 && verticalAxis == 0));
+
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerState == PlayerStates.Normal)
         {
@@ -68,13 +70,12 @@ public class PlayerMouvement : MonoBehaviour
     public void Fire()
     {
         playerState = PlayerStates.Knockback;
-        print("Hello, world!");
         // TODO : Activate animation
-        rb.AddForce(sprite.transform.localScale.x == 1 ?
+        rb.velocity = (sprite.transform.localScale.x == 1 ?
             cameraVectorRight * -knockbackForce : // Facing left
             cameraVectorRight * knockbackForce  // Facing right
             );
-        StartCoroutine(SimpleRoutines.WaitTime(1, () =>
+        StartCoroutine(SimpleRoutines.WaitForFrames(knockbackFrames, () =>
         {
             playerState = PlayerStates.Normal;
         }));
