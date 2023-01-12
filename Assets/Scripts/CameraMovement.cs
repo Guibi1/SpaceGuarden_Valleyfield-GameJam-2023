@@ -19,7 +19,7 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] private float cameraYMax = 45;
 
 
-    [Header ("Settings")]
+    [Header("Settings")]
     public float sensitivity = 2;
     public float sensitivityYMultiplier = 0.05f;
 
@@ -43,24 +43,19 @@ public class CameraMovement : MonoBehaviour
         float camMovementX = Input.GetAxis("Mouse X");
         float camMovementY = Input.GetAxis("Mouse Y");
 
-        targetRotation += new Vector3(camMovementY * sensitivity * sensitivityYMultiplier, camMovementX * sensitivity, 0);
-        print(targetRotation.x);
-        if(targetRotation.x < cameraYMin)
-        {
-            targetRotation = new Vector3(cameraYMin, targetRotation.y, targetRotation.z);
-        }
-        else if(targetRotation.x > cameraYMax)
-        {
-            targetRotation = new Vector3(cameraYMax, targetRotation.y, targetRotation.z);
-        }
+        float targetRotationX = camMovementY * sensitivity * sensitivityYMultiplier;
+        if (targetRotation.x < cameraYMin)
+            targetRotationX = cameraYMin;
+        else if (targetRotation.x > cameraYMax)
+            targetRotationX = cameraYMax;
+
+        targetRotation += new Vector3(targetRotationX, camMovementX * sensitivity, 0);
 
         Camera_Rotate_Around.transform.rotation = Quaternion.Lerp(Camera_Rotate_Around.transform.rotation, Quaternion.Euler(targetRotation), Time.deltaTime * cameraSmoothingRotationSpeed);
         Camera_Rotate_Around.transform.position = transform.position;
         Vector3 forward = Camera_Rotate_Around.transform.forward;
         forward = new Vector3(forward.x, 0, forward.z);
         forward.Normalize();
-        PlayerMouvement.instance.setRotation(forward, Camera_Rotate_Around.transform.right);
-        
-        
+        PlayerMouvement.instance.SetCameraVectors(forward, Camera_Rotate_Around.transform.right);
     }
 }

@@ -1,12 +1,6 @@
 using Cinemachine;
-using DG.Tweening;
 using Lean.Pool;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Playables;
 
 public class PlayerMouvement : MonoBehaviour
 {
@@ -14,7 +8,7 @@ public class PlayerMouvement : MonoBehaviour
     public static PlayerMouvement instance;
     private Vector3 cameraVectorForward;
     private Vector3 cameraVectorRight;
-    private float xSpeedSave;
+    [SerializeField] public float xCamSpeed = 300f;
 
     [Header("Settings")]
     public float speedMultiplier = 50f;
@@ -41,6 +35,28 @@ public class PlayerMouvement : MonoBehaviour
         }
     }
 
+    public bool editMode
+    {
+        get => GridManager.instance.editMode;
+        set
+        {
+            GridManager.instance.editMode = value;
+
+            if (value)
+            {
+                notification.SetActive(false);
+                Cursor.lockState = CursorLockMode.None;
+                cam.m_XAxis.m_MaxSpeed = 0;
+            }
+            else
+            {
+                notification.SetActive(true);
+                Cursor.lockState = CursorLockMode.Locked;
+                cam.m_XAxis.m_MaxSpeed = xCamSpeed;
+            }
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,14 +64,18 @@ public class PlayerMouvement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         instance = this;
         rb = GetComponent<Rigidbody>();
-        xSpeedSave = cam.m_XAxis.m_MaxSpeed;
     }
+
     void Update()
     {
+        // Look at cam
+        sprite.transform.LookAt(cam.transform);
+
+        // Move
         float horizontalAxis = Input.GetAxisRaw("Horizontal");
         float verticalAxis = Input.GetAxisRaw("Vertical");
         Vector3 targetPos = new Vector3(verticalAxis, 0, horizontalAxis).normalized;
-        if (playerState == PlayerStates.Normal && !GridManager.instance.editMode)
+        if (playerState == PlayerStates.Normal && !editMode)
         {
             rb.velocity = (cameraVectorForward * targetPos.x + targetPos.z * cameraVectorRight) * speedMultiplier;
             if (horizontalAxis > 0)
@@ -67,62 +87,38 @@ public class PlayerMouvement : MonoBehaviour
                 sprite.transform.localScale = new Vector3(-1, 1, 1);
             }
         }
-        sprite.transform.LookAt(cam.transform);
-
-
-
         SpriteManager.instance.SetWalking(!(horizontalAxis == 0 && verticalAxis == 0));
 
-
+        // On mouse click
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerState == PlayerStates.Normal)
         {
-            if (!GridManager.instance.editMode)
+            if (!editMode)
             {
                 Fire();
             }
-            else
+            else if (GridManager.instance.selectedTile != null)
             {
-                if (GridManager.instance.selectedTile != null)
-                {
-                    // TODO : Change this to actual plant to plant
-                    Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
-                    // GridManager.instance.selectedTile.GetComponent<TileManager>().Plant();
-                }
+                Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
+                GridManager.instance.selectedTile.Plant(plant);
             }
         }
 
-
-        if (playertype == PlayerTypes.Plant)
+        // On space: toggle edit mode
+        if (Input.GetKeyDown(KeyCode.Space) && playertype == PlayerTypes.Plant)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GridManager.instance.editMode = !GridManager.instance.editMode;
-                if (GridManager.instance.editMode)
-                {
-                    notification.SetActive(false);
-                    Cursor.lockState = CursorLockMode.None;
-                    cam.m_XAxis.m_MaxSpeed = 0;
-                }
-                else
-                {
-                    notification.SetActive(true);
-                    print(xSpeedSave);
-                    cam.m_XAxis.m_MaxSpeed = xSpeedSave;
-                    Cursor.lockState = CursorLockMode.Locked;
-                }
-            }
+            editMode = !editMode;
         }
 
-        // TODO : REMOVE THIS SHIT
+        //! TODO : REMOVE THIS SHIT
         if (Input.GetKeyDown(KeyCode.P))
         {
             notification.SetActive(true);
             playertype = PlayerTypes.Plant;
         }
     }
-    public void setRotation(Vector3 forward, Vector3 right)
-    {
 
+    public void SetCameraVectors(Vector3 forward, Vector3 right)
+    {
         cameraVectorForward = forward;
         cameraVectorRight = right;
     }
@@ -135,6 +131,7 @@ public class PlayerMouvement : MonoBehaviour
             cameraVectorRight * -knockbackForce : // Facing left
             cameraVectorRight * knockbackForce  // Facing right
             );
+
         StartCoroutine(SimpleRoutines.WaitForFrames(knockbackFrames, () =>
         {
             playerState = PlayerStates.Normal;

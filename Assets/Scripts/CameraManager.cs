@@ -9,6 +9,6 @@ public class CameraManager : MonoBehaviour
         Vector3 right = transform.right;
         right.y = 0f;
 
-        PlayerMouvement.instance.setRotation(forward, right);
+        PlayerMouvement.instance.SetCameraVectors(forward, right);
     }
 }

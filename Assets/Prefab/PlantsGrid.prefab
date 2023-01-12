@@ -48,3 +48,6 @@ MonoBehaviour:
   height: 20
   tilePrefab: {fileID: 5139806265037869733, guid: e1f467466ff4bb846baceb09b7651580, type: 3}
   player: {fileID: 1530729297781859804, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+  cam: {fileID: 0}
+  selectedTile: {fileID: 0}
+  editMode: 0
