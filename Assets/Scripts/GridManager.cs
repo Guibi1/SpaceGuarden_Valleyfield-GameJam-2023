@@ -15,14 +15,16 @@ public class GridManager : MonoBehaviour
 
     [SerializeReference] GameObject player;
     [SerializeField] Camera cam;
-    [HideInInspector] public GameObject selectedTile;
+
+    [HideInInspector] public TileManager selectedTile;
+
     private GameObject[,] tiles;
     public bool editMode;
 
     void Start()
     {
         instance = this;
-        createGrid();
+        CreateGrid();
     }
 
     void Update()
@@ -31,38 +33,36 @@ public class GridManager : MonoBehaviour
         {
             RaycastMouse();
         }
-        else if (selectedTile != null) 
+        else if (selectedTile)
         {
-            selectedTile.GetComponent<TileManager>().Selected = false;
+            selectedTile.selected = false;
+            selectedTile = null;
         }
     }
 
 
     public void RaycastMouse()
     {
-
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        Debug.DrawRay(ray.origin, ray.direction);
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
+
         if (hit.collider == null) return;
         if (!hit.collider.CompareTag("Tile")) return;
+
         TileManager tileManager = hit.collider.gameObject.GetComponent<TileManager>();
 
-        if (tileManager)
+        if (selectedTile != null)
         {
-            if (selectedTile != null)
-            {
-                selectedTile.GetComponent<TileManager>().Selected = false;
-            }
-
-            selectedTile = hit.collider.gameObject;
-            selectedTile.GetComponent<TileManager>().Selected = true;
+            selectedTile.selected = false;
         }
+
+        selectedTile = tileManager;
+        selectedTile.selected = true;
     }
 
 
-    private void createGrid()
+    private void CreateGrid()
     {
         tiles = new GameObject[width, height];
 
