@@ -1,5 +1,6 @@
 using Cinemachine;
 using DG.Tweening;
+using Lean.Pool;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,54 +14,115 @@ public class PlayerMouvement : MonoBehaviour
     public static PlayerMouvement instance;
     private Vector3 cameraVectorForward;
     private Vector3 cameraVectorRight;
+    private float xSpeedSave;
 
-    [Header ("Settings")]
+    [Header("Settings")]
     public float speedMultiplier = 50f;
     public float spinTime = 8f;
-    public float knockbackForce = 10000f;
-
+    public float knockbackForce = 2000f;
+    public int knockbackFrames = 4;
     [HideInInspector] public Rigidbody rb;
 
     [Header("Misc")]
     [SerializeField] private GameObject sprite;
+    [SerializeField] private GameObject notification;
+    [SerializeField] private Plant plantPrefab;
+
     public PlayerStates playerState;
+
+    private PlayerTypes _playertype;
+    public PlayerTypes playertype
+    {
+        get => _playertype;
+        set
+        {
+            _playertype = value;
+            SpriteManager.instance.SetCharType(value);
+        }
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         instance = this;
         rb = GetComponent<Rigidbody>();
+        xSpeedSave = cam.m_XAxis.m_MaxSpeed;
     }
     void Update()
     {
         float horizontalAxis = Input.GetAxisRaw("Horizontal");
         float verticalAxis = Input.GetAxisRaw("Vertical");
         Vector3 targetPos = new Vector3(verticalAxis, 0, horizontalAxis).normalized;
-        if (playerState == PlayerStates.Normal)
+        if (playerState == PlayerStates.Normal && !GridManager.instance.editMode)
         {
             rb.velocity = (cameraVectorForward * targetPos.x + targetPos.z * cameraVectorRight) * speedMultiplier;
+            if (horizontalAxis > 0)
+            {
+                sprite.transform.localScale = new Vector3(1, 1, 1);
+            }
+            else if (horizontalAxis < 0)
+            {
+                sprite.transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
         sprite.transform.LookAt(cam.transform);
 
-        if (horizontalAxis > 0)
-        {
-            sprite.transform.localScale = new Vector3(1, 1, 1);
-        }
-        else if (horizontalAxis < 0)
-        {
-            sprite.transform.localScale = new Vector3(-1, 1, 1);
 
-        }
+
+        SpriteManager.instance.SetWalking(!(horizontalAxis == 0 && verticalAxis == 0));
+
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerState == PlayerStates.Normal)
         {
-            Fire();
+            if (!GridManager.instance.editMode)
+            {
+                Fire();
+            }
+            else
+            {
+                if (GridManager.instance.selectedTile != null)
+                {
+                    // TODO : Change this to actual plant to plant
+                    Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
+                    // GridManager.instance.selectedTile.GetComponent<TileManager>().Plant();
+                }
+            }
         }
-       
+
+
+        if (playertype == PlayerTypes.Plant)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                GridManager.instance.editMode = !GridManager.instance.editMode;
+                if (GridManager.instance.editMode)
+                {
+                    notification.SetActive(false);
+                    Cursor.lockState = CursorLockMode.None;
+                    cam.m_XAxis.m_MaxSpeed = 0;
+                }
+                else
+                {
+                    notification.SetActive(true);
+                    print(xSpeedSave);
+                    cam.m_XAxis.m_MaxSpeed = xSpeedSave;
+                    Cursor.lockState = CursorLockMode.Locked;
+                }
+            }
+        }
+
+        // TODO : REMOVE THIS SHIT
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            notification.SetActive(true);
+            playertype = PlayerTypes.Plant;
+        }
     }
     public void setRotation(Vector3 forward, Vector3 right)
     {
-        
+
         cameraVectorForward = forward;
         cameraVectorRight = right;
     }
@@ -68,17 +130,14 @@ public class PlayerMouvement : MonoBehaviour
     public void Fire()
     {
         playerState = PlayerStates.Knockback;
-        print("Hello, world!");
         // TODO : Activate animation
-        rb.AddForce(sprite.transform.localScale.x == 1 ?
+        rb.velocity = (sprite.transform.localScale.x == 1 ?
             cameraVectorRight * -knockbackForce : // Facing left
             cameraVectorRight * knockbackForce  // Facing right
             );
-        StartCoroutine(SimpleRoutines.WaitTime(1, () =>
+        StartCoroutine(SimpleRoutines.WaitForFrames(knockbackFrames, () =>
         {
             playerState = PlayerStates.Normal;
         }));
     }
-
-
 }
