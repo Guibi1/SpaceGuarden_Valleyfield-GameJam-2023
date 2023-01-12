@@ -13,7 +13,7 @@ public class SpriteManager : MonoBehaviour
 
     private void Start()
     {
-        SetBald(OptionsManager.instance.bald);
+        SetBald(OptionsManager.instance.Bald);
         SetCharType(PlayerTypes.Scythe);
     }
 
