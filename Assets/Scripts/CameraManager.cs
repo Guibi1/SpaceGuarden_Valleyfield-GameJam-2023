@@ -1,6 +1,3 @@
-using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -12,7 +9,6 @@ public class CameraManager : MonoBehaviour
         Vector3 right = transform.right;
         right.y = 0f;
 
-        PlayerMouvement.instance.setRotation(forward, right);       
+        PlayerMouvement.instance.setRotation(forward, right);
     }
-
 }
