@@ -7,6 +7,7 @@ public class PlantData : ScriptableObject
 {
     public float intervalBetweenExecute;
     public float executeTime;
+    public float preparingTime;
     public float health;
     public float constructionTime;
     public float radius;

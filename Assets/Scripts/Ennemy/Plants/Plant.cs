@@ -6,8 +6,8 @@ using UnityEngine;
 
 public abstract class Plant : MonoBehaviour
 {
-    [SerializeField] private PlantData plantData;
-    [SerializeField] private AoEPlant aoEPlant;
+    [SerializeField] protected PlantData plantData;
+    [SerializeField] protected AoEPlant aoEPlant;
     
     protected bool useAnimator;
     [ShowIf("useAnimator")]
@@ -18,9 +18,30 @@ public abstract class Plant : MonoBehaviour
     private Coroutine ActiveRoutine;
     private Coroutine ConstructionRoutine;
 
-    public abstract void Execute();
-    public abstract void DrawAoE();
-    public abstract void HideAoE();
+    public abstract IEnumerator Execute();
+    public abstract IEnumerator Preparing();
+
+    [Button]
+    public void TestExecute()
+    {
+        StartCoroutine(Execute());
+    }
+    
+    [Button]
+    public void TestPrepare()
+    {
+        StartCoroutine(Preparing());
+    }
+
+    public virtual void DrawAoE()
+    {
+        aoEPlant.AlphaAppear();
+    }
+
+    public virtual void HideAoE()
+    {
+        aoEPlant.AlphaDisapear();
+    }
     
     public enum State {Construction, Active, DeActive}
     private State state;
@@ -31,10 +52,12 @@ public abstract class Plant : MonoBehaviour
     [Button]
     public void ChangeState(Plant.State state)
     {
+        this.state = state;
+        
         switch (state)
         {
             case State.Construction:
-                
+
                 if (ConstructionRoutine != null)
                 {
                     StopCoroutine(RunConstruction());
@@ -44,12 +67,12 @@ public abstract class Plant : MonoBehaviour
                 
                 break;
             case State.Active:
-                
+                print("s");
                 if (ActiveRoutine != null)
                 {
                     StopCoroutine(RunActive());
                 }
-
+                print("ss");
                 ActiveRoutine = StartCoroutine(RunActive());
                 break;
             case State.DeActive:
@@ -68,19 +91,23 @@ public abstract class Plant : MonoBehaviour
 
     protected virtual IEnumerator RunActive()
     {
+
+        yield return new WaitForEndOfFrame();
         while (state == State.Active)
         {
             attackState = AttackState.Idle;
             yield return new WaitForSeconds(plantData.intervalBetweenExecute);
             
             attackState = AttackState.Attacking;
+            
             if (useAnimator)
-            {
                 animator.Play("Attack");
-            }
-            Execute();
+            
+            StartCoroutine(Execute());
 
             yield return new WaitForSeconds(plantData.executeTime);
+            
+            StartCoroutine(Preparing());
         }
     }
 
