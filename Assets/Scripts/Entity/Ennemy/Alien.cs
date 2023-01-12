@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -9,14 +10,31 @@ public class Alien : Agent
 {
     public enum BehaviorState {Inactive, WantsPlant, WantsCenter}
 
+    [ReadOnly]
     public BehaviorState Behavior ;
     
     public enum SearchState {Inactive, Center, Plant, AttackCenter, AttackPlant}
 
+    [ReadOnly]
     public SearchState searchState;
     
     private Plant currentTargetPlant;
+    
+    [InlineEditor()]
     public AlienData alienData;
+
+    public BehaviorState StartingBehaviorState;
+    
+    [Button]
+    public void StartAlienBrain()
+    {
+        Behavior = StartingBehaviorState;
+    }
+
+    private void OnEnable()
+    {
+        StartAlienBrain();
+    }
 
     private void Update()
     {
@@ -28,56 +46,12 @@ public class Alien : Agent
                 break;
             case BehaviorState.WantsPlant:
 
-                switch (searchState)
-                {
-                    case SearchState.Inactive:
-                        searchState = SearchState.Plant;
-                        break;
-                    
-                    //There is no more plant so behavior is now searching center
-                    case SearchState.Center:
-                        Behavior = BehaviorState.WantsCenter;
-                        break;
-                    case SearchState.Plant:
-                        
-                        if (currentTargetPlant == null)
-                        {
-                            currentTargetPlant = FindClosestPlant();
-                            
-                            // No more plants
-                            if (currentTargetPlant == null)
-                            {
-                                Behavior = BehaviorState.WantsCenter;
-                                return;
-                            }
-                        }
-                        
-                    
-                        if (GoToPlant())
-                        {
-                            // If reached plant
-                            searchState = SearchState.AttackPlant;
-                        }
-
-
-                        break;
-                    case SearchState.AttackCenter:
-                        AttackCenter();
-                        break;
-                    case SearchState.AttackPlant:
-                        AttackPlant();
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
+                SearchSwitchCase(SearchState.Plant);
 
                 break;
             case BehaviorState.WantsCenter:
-
-                if (GoToCenter())
-                {
-                    AttackCenter();
-                }
+                
+                SearchSwitchCase(SearchState.Center);
 
                 break;
             default:
@@ -86,10 +60,57 @@ public class Alien : Agent
         
     }
 
-    private void AttackCenter()
+    private void SearchSwitchCase(SearchState defaultSearch)
     {
-        throw new NotImplementedException();
+        switch (searchState)
+        {
+            case SearchState.Inactive:
+                searchState = defaultSearch;
+                break;
+                    
+            //There is no more plant so behavior is now searching center
+            case SearchState.Center:
+                
+                if (GoToCenter())
+                {
+                    //navMeshAgent.isStopped = true;
+                    searchState = SearchState.AttackCenter;
+                }
+                
+                break;
+            case SearchState.Plant:
+                        
+                if (currentTargetPlant == null)
+                {
+                    currentTargetPlant = FindClosestPlant();
+                            
+                    // No more plants
+                    if (currentTargetPlant == null)
+                    {
+                        Behavior = BehaviorState.WantsCenter;
+                        return;
+                    }
+                }
+                        
+                if (GoToPlant())
+                {
+                    // If reached plant
+                    //navMeshAgent.isStopped = true;
+                    searchState = SearchState.AttackPlant;
+                }
+                break;
+            case SearchState.AttackCenter:
+                AttackCenter();
+                break;
+            case SearchState.AttackPlant:
+                AttackPlant();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
+
+    
 
     private bool GoToPlant()
     {
@@ -128,18 +149,51 @@ public class Alien : Agent
 
     private void OnTriggerEnter(Collider other)
     {
-        if (searchState != SearchState.Inactive)
+        // not Already attacking plant or not inactive
+        if (searchState != SearchState.Inactive && searchState != SearchState.AttackPlant)
         {
             if (other.CompareTag("Plant"))
             {
                 currentTargetPlant = other.GetComponent<Plant>();
-                searchState = SearchState.AttackPlant;
+                searchState = SearchState.Plant;
             }
         }
     }
 
     protected virtual void AttackPlant()
     {
+        // Plant killed
+        if (currentTargetPlant == null || currentTargetPlant.dying)
+        {
+            searchState = SearchState.Inactive;
+            return;
+        }
         
+        HitEntity(currentTargetPlant);
     }
+    
+    private void AttackCenter()
+    {
+        if (PlantManager.instance.center == null || PlantManager.instance.center.dying)
+        {
+            return;
+        }
+        
+        HitEntity(PlantManager.instance.center);
+    }
+
+    private void HitEntity(Entity entity)
+    {
+        currentAttackTime += Time.deltaTime;
+
+        if (currentAttackTime > alienData.damageSpeed)
+        {
+            currentAttackTime = 0;
+            entity.OnHit(alienData.damage);
+        }
+    }
+
+    private float currentAttackTime = 0;
+    
+    
 }

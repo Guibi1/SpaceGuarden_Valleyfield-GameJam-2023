@@ -8,7 +8,7 @@ public class PlantManager : MonoBehaviour
 
     public List<Plant> plants = new List<Plant>();
 
-    public Transform center;
+    public Center center;
     
     private void Awake()
     {

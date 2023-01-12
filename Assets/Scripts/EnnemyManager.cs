@@ -6,7 +6,6 @@ public class EnnemyManager : MonoBehaviour
 {
     public static EnnemyManager instance;
 
-    public Transform PlantPosition;
 
     private void Awake()
     {

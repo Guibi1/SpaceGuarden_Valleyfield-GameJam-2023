@@ -13,7 +13,7 @@ public class Entity : MonoBehaviour
     [ShowIf("deathAnimation")]
     public float deathAnimationTime;
 
-    private bool dying;
+    public bool dying;
 
     public void OnHit(float damage)
     {
