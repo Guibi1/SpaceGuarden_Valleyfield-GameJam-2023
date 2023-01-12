@@ -13,7 +13,6 @@ public class CameraMovement : MonoBehaviour
 
     [Header("Player variables")]
     [SerializeField] private float cameraOffset = 7;
-    [SerializeField] private float cameraSmoothingSpeed = 10;
     [SerializeField] private float cameraSmoothingRotationSpeed = 5;
     [SerializeField] private float cameraYMin = 0;
     [SerializeField] private float cameraYMax = 45;
