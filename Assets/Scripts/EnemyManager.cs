@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnnemyManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
-    public static EnnemyManager instance;
+    public static EnemyManager instance;
 
 
     private void Awake()
