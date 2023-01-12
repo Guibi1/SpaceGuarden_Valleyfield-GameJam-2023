@@ -5557,6 +5557,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 783276734813666072, guid: 9efddf3ba024d3348bba8ad8e4a35461, type: 3}
+      propertyPath: RotationModule.curve.scalar
+      value: -12.56637
+      objectReference: {fileID: 0}
+    - target: {fileID: 783276734813666072, guid: 9efddf3ba024d3348bba8ad8e4a35461, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 783276734813666072, guid: 9efddf3ba024d3348bba8ad8e4a35461, type: 3}
+      propertyPath: RotationModule.curve.minScalar
+      value: 12.56637
+      objectReference: {fileID: 0}
     - target: {fileID: 1680783655862456963, guid: 9efddf3ba024d3348bba8ad8e4a35461, type: 3}
       propertyPath: m_Name
       value: Poisoned_Particle
