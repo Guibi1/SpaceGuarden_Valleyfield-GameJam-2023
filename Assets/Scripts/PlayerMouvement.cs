@@ -129,12 +129,7 @@ public class PlayerMouvement : MonoBehaviour
         // On interact
         if (Input.GetKeyDown(KeyCode.E))
         {
-<<<<<<< Updated upstream
             if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
-=======
-            // TODO : Fix this awful distance query please thank you
-            if (Vector3.Distance(transform.position, transform.position) <= distanceToInteract && false)
->>>>>>> Stashed changes
             {
                 CoinManager.instance.shopIsOpen = true;
             }
@@ -143,8 +138,6 @@ public class PlayerMouvement : MonoBehaviour
                 editMode = !editMode;
             }
         }
-<<<<<<< Updated upstream
-=======
         else if (Input.GetKey(KeyCode.E))
         {
             if (plantToHeal != null)
@@ -160,7 +153,6 @@ public class PlayerMouvement : MonoBehaviour
             notification.SetActive(true);
             playertype = PlayerTypes.Plant;
         }
->>>>>>> Stashed changes
     }
 
 
