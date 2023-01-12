@@ -227,8 +227,8 @@ MonoBehaviour:
     m_Value: {fileID: 0}
     dimension: 1
   bloomIntensity:
-    m_OverrideState: 0
-    m_Value: 0.86
+    m_OverrideState: 1
+    m_Value: 87.61
   bloomThreshold:
     m_OverrideState: 0
     m_Value: 0.75
@@ -304,8 +304,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {r: 0.5, g: 0.5, b: 1, a: 0}
   anamorphicFlaresIntensity:
-    m_OverrideState: 0
-    m_Value: 0.82
+    m_OverrideState: 1
+    m_Value: 206.55
   anamorphicFlaresThreshold:
     m_OverrideState: 0
     m_Value: 0.75
@@ -449,8 +449,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.01
   lensDirtIntensity:
-    m_OverrideState: 0
-    m_Value: 19.54
+    m_OverrideState: 1
+    m_Value: 173.83
   lensDirtThreshold:
     m_OverrideState: 0
     m_Value: 0.5
