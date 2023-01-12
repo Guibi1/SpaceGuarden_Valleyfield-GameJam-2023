@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7705340976175969782}
   - component: {fileID: 7705340976175969783}
   m_Layer: 0
-  m_Name: omato_particleGreenFall
+  m_Name: tomato_particleGreenFall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
