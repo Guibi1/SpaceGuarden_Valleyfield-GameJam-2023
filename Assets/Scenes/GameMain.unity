@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,6 +181,10 @@ PrefabInstance:
     - target: {fileID: 5683676939840238047, guid: 12765bc75164f514c8f606eb4b420e2e, type: 3}
       propertyPath: m_Name
       value: RunnerAlien
+      objectReference: {fileID: 0}
+    - target: {fileID: 5683676939840238047, guid: 12765bc75164f514c8f606eb4b420e2e, type: 3}
+      propertyPath: m_TagString
+      value: Alien
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12765bc75164f514c8f606eb4b420e2e, type: 3}
@@ -1390,15 +1394,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.013153948
+      value: -0.013153936
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000019386174
+      value: 0.0000000033981447
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -2.550268e-10
+      value: 4.470284e-11
       objectReference: {fileID: 0}
     - target: {fileID: 8238767966599743359, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalPosition.y
