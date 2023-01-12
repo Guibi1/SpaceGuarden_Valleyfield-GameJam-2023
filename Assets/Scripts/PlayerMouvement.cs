@@ -28,7 +28,7 @@ public class PlayerMouvement : MonoBehaviour
     [SerializeField] private GameObject notification;
     [SerializeField] private GameObject baseCamp;
     [SerializeField] private Plant plantPrefab;
-    
+
     private Plant plantToHeal;
 
     private float scytheLastUsed = 0f;
@@ -76,7 +76,8 @@ public class PlayerMouvement : MonoBehaviour
 
     void Update()
     {
-        if(plantToHeal!= null) {
+        if (plantToHeal != null)
+        {
             if (plantToHeal.HP >= plantToHeal.plantData.health)
             {
                 OnNotif?.Invoke("Plant is full health");
@@ -169,7 +170,7 @@ public class PlayerMouvement : MonoBehaviour
         if (scytheLastUsed < scytheCooldown) return;
         scytheLastUsed = 0;
         SpriteManager.instance.attack();
-        foreach(Alien a in AliensInRange)
+        foreach (Alien a in AliensInRange)
         {
             a.OnHit(scytheDamage);
         }
@@ -194,10 +195,10 @@ public class PlayerMouvement : MonoBehaviour
         if (other.gameObject.CompareTag("PlantHealZone"))
         {
             plantToHeal = other.gameObject.GetComponentInParent<Plant>();
-            print("selected plant : " + plantToHeal);
-
+            OnNotif?.Invoke("Plant moment");
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("PlantHealZone"))

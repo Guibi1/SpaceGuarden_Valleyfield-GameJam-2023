@@ -9,7 +9,7 @@ public abstract class Plant : Entity
 {
     [SerializeField] public PlantData plantData;
     [SerializeField] protected AoEPlant aoEPlant;
-    
+
     protected bool useAnimator;
     [ShowIf("useAnimator")]
     [SerializeField] private Animator animator;
@@ -18,7 +18,7 @@ public abstract class Plant : Entity
 
     private Coroutine ActiveRoutine;
     private Coroutine ConstructionRoutine;
-     
+
     public abstract IEnumerator Execute();
     public abstract IEnumerator Preparing();
 
@@ -26,13 +26,13 @@ public abstract class Plant : Entity
     public virtual void Start()
     {
         SetHealth(plantData.health);
-        //LeanPool.Spawn(healArea, transform).transform.localPosition = Vector3.zero;
+        LeanPool.Spawn(healArea, transform).transform.localPosition = Vector3.zero;
 
     }
 
-    public void SetHealth(float health) 
+    public void SetHealth(float health)
     {
-        HP  = Mathf.Clamp(health, 0f, plantData.health);
+        HP = Mathf.Clamp(health, 0f, plantData.health);
     }
 
 
