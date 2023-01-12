@@ -11,7 +11,7 @@ public class TileManager : MonoBehaviour
     public float animationSpeed = 16f;
 
 
-    private Rectangle rectangle;
+    public Rectangle rectangle;
 
     private TileState _state = TileState.Empty;
     public TileState state
