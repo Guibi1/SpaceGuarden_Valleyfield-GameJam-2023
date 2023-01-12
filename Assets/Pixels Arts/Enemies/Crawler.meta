@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: 39271678eb2e269429ea21252c717b1e
+<<<<<<<< HEAD:Assets/Pixels Arts/Enemies.meta
+guid: 3e0e93312f246be4ca879dfe76d743da
+========
+guid: 6448446b88ee0954796ac01fcd7ad31a
+>>>>>>>> 931765ffa302991f6deb9532b651fd0ca870cb14:Assets/Pixels Arts/Enemies/Crawler.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

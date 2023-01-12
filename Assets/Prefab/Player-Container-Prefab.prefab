@@ -194,7 +194,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1715225705516445541}
-  m_LocalRotation: {x: -0.0678143, y: 0.00000002575015, z: 0.0000000017502572, w: 0.997698}
+  m_LocalRotation: {x: -0.0678143, y: -0.000000025750161, z: -0.000000001750258, w: 0.997698}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -272,7 +272,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2081989935516776623}
-  m_LocalRotation: {x: 0.35826376, y: 1e-45, z: -0, w: 0.93362045}
+  m_LocalRotation: {x: 0.35826376, y: 1e-45, z: -1e-45, w: 0.93362045}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -350,7 +350,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4569249612588180585}
-  m_LocalRotation: {x: 0.099385425, y: -0.000000010003326, z: 9.991316e-10, w: 0.99504906}
+  m_LocalRotation: {x: 0.09938542, y: 0.0000000059872507, z: -5.980061e-10, w: 0.99504906}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -464,9 +464,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 1
   m_FollowOffset: {x: 0, y: 0.9, z: -1}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -931,11 +931,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5473836807394059290, guid: b50240f0e1129c447b1733cc5a14c82d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000031296523
+      value: 0.000000023032863
       objectReference: {fileID: 0}
     - target: {fileID: 5473836807394059290, guid: b50240f0e1129c447b1733cc5a14c82d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000031258947
+      value: -0.0000000023005207
       objectReference: {fileID: 0}
     - target: {fileID: 5473836807394059290, guid: b50240f0e1129c447b1733cc5a14c82d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
