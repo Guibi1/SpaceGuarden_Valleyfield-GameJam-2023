@@ -76,7 +76,8 @@ public class PlayerMouvement : MonoBehaviour
                 {
                     // TODO : Change this to actual plant to plant
                     Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
-                    GridManager.instance.selectedTile.GetComponent<TileManager>().Plant(plant);
+                    GridManager.instance.selectedTile.GetComponent<TileManager>().Plant();
+                    
                 }
             }
         }
