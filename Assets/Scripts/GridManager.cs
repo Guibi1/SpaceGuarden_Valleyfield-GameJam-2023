@@ -1,54 +1,66 @@
+using Lean.Pool;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
+using UnityEngine.EventSystems;
 
 public class GridManager : MonoBehaviour
 {
+    public static GridManager instance;
     [SerializeField] int width;
     [SerializeField] int height;
 
     [SerializeReference] GameObject tilePrefab;
 
     [SerializeReference] GameObject player;
-
-
+    [SerializeField] Camera cam;
+    [HideInInspector] public GameObject selectedTile;
     private GameObject[,] tiles;
-
-    private TileManager selectedTile;
+    public bool editMode;
 
     void Start()
     {
+        instance = this;
         createGrid();
     }
 
     void Update()
     {
-        int x = Mathf.FloorToInt(player.transform.position.x - transform.position.x + 1f);
-        int z = Mathf.FloorToInt(player.transform.position.z - transform.position.z + 1f);
-
-        if (x >= 0 && z >= 0 && x < width && z < height)
+        if (editMode)
         {
-            TileManager newSelection = tiles[x, z].GetComponent<TileManager>();
-
-            if (selectedTile != newSelection)
-            {
-                if (selectedTile != null)
-                {
-                    selectedTile.Selected = false;
-                }
-
-                newSelection.Selected = true;
-                selectedTile = newSelection;
-            }
+            RaycastMouse();
         }
+        else if (selectedTile != null) 
+        {
+            selectedTile.GetComponent<TileManager>().Selected = false;
+        }
+    }
 
-        else
+
+    public void RaycastMouse()
+    {
+
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Debug.DrawRay(ray.origin, ray.direction);
+        RaycastHit hit;
+        Physics.Raycast(ray, out hit);
+        if (hit.collider == null) return;
+        if (!hit.collider.CompareTag("Tile")) return;
+        TileManager tileManager = hit.collider.gameObject.GetComponent<TileManager>();
+
+        if (tileManager)
         {
             if (selectedTile != null)
             {
-                selectedTile.Selected = false;
-                selectedTile = null;
+                selectedTile.GetComponent<TileManager>().Selected = false;
             }
+
+            selectedTile = hit.collider.gameObject;
+            selectedTile.GetComponent<TileManager>().Selected = true;
         }
     }
+
 
     private void createGrid()
     {
@@ -58,7 +70,7 @@ public class GridManager : MonoBehaviour
         {
             for (int z = 0; z < height; z++)
             {
-                tiles[x, z] = Instantiate(tilePrefab, new Vector3(x, 0, z), Quaternion.identity, transform);
+                tiles[x, z] = LeanPool.Spawn(tilePrefab, new Vector3(x, 0, z), Quaternion.identity, transform);
             }
         }
     }
