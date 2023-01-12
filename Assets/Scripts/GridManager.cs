@@ -1,6 +1,7 @@
 using Lean.Pool;
 using System;
 using System.Collections.Generic;
+using Shapes;
 using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.EventSystems;
@@ -10,20 +11,31 @@ public class GridManager : MonoBehaviour
     public static GridManager instance;
     [SerializeField] int width;
     [SerializeField] int height;
+    [SerializeField] float border = 1;
+    [SerializeField] float size = 1;
+    
 
-    [SerializeReference] GameObject tilePrefab;
+    [SerializeReference] TileManager tilePrefab;
 
     [SerializeReference] GameObject player;
     [SerializeField] Camera cam;
 
     [HideInInspector] public TileManager selectedTile;
 
-    private GameObject[,] tiles;
+    private TileManager[,] tiles;
     public bool editMode;
+
+    private void Awake()
+    {
+        instance = this;
+
+    }
 
     void Start()
     {
-        instance = this;
+
+        tilePrefab.rectangle.Width = size;
+        tilePrefab.rectangle.Height = size;
         CreateGrid();
     }
 
@@ -64,13 +76,15 @@ public class GridManager : MonoBehaviour
 
     private void CreateGrid()
     {
-        tiles = new GameObject[width, height];
+        tiles = new TileManager[width, height];
 
         for (int x = 0; x < width; x++)
         {
             for (int z = 0; z < height; z++)
             {
-                tiles[x, z] = LeanPool.Spawn(tilePrefab, new Vector3(x, 0, z), Quaternion.identity, transform);
+                tiles[x, z] = LeanPool.Spawn(tilePrefab, new Vector3((x * size) + transform.localPosition.x, 0, (z * size) + transform.localPosition.z), Quaternion.Euler(0, 0, 0), transform);
+                tiles[x, z].rectangle.Height = size;
+                tiles[x, z].rectangle.Width = size;
             }
         }
     }
