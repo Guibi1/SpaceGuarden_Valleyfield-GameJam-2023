@@ -78,7 +78,7 @@ public class GridManager : MonoBehaviour
         {
             for (int z = 0; z < tilesNumberZ; z++)
             {
-                tiles[x, z] = LeanPool.Spawn(tilePrefab, new Vector3(x * tileSize, 0, z * tileSize), Quaternion.Euler(0, 0, 0), transform);
+                tiles[x, z] = LeanPool.Spawn(tilePrefab, new Vector3(x * tileSize + transform.localPosition.x, 0, z * tileSize + transform.localPosition.z), Quaternion.Euler(0, 0, 0), transform);
                 tiles[x, z].maxSize = tileSize - border;
             }
         }
