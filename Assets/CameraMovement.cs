@@ -61,5 +61,6 @@ public class CameraMovement : MonoBehaviour
         forward.Normalize();
         PlayerMouvement.instance.setRotation(forward, Camera_Rotate_Around.transform.right);
         
+        
     }
 }
