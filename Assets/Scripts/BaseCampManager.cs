@@ -34,7 +34,7 @@ public class BaseCampManager : MonoBehaviour
 
         // TODO: Handle turns (spawn ennemies)
 
-        int nbEnemies1 = Mathf.FloorToInt(4 * Mathf.Sqrt(2.5f * currentTurn) + 10);
+        int nbEnemies1 = Mathf.FloorToInt(4f * Mathf.Sqrt(2.5f * currentTurn) + 10f);
         int nbEnemies2 = 0;
         int nbEnemies3 = 0;
 
@@ -45,7 +45,7 @@ public class BaseCampManager : MonoBehaviour
 
         if (currentTurn >= 15)
         {
-            nbEnemies3 = Mathf.FloorToInt((currentTurn / 5) - 2);
+            nbEnemies3 = Mathf.FloorToInt((currentTurn / 5f) - 2f);
         }
 
         if (currentTurn == 10)
