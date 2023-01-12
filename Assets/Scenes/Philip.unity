@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,68 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &221005108
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 433547884393094529, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_Name
-      value: Camera Prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2572824288417904900, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
---- !u!1 &221005109 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5159614636076179321, guid: b293146c39b570f4c8a9b2e2d133ae43, type: 3}
-  m_PrefabInstance: {fileID: 221005108}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &365988105
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 365988107}
   - component: {fileID: 365988106}
+  - component: {fileID: 365988108}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -279,6 +218,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &365988108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365988105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &627457191
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +276,259 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Roblox rule 34
+  m_text: "According to all known laws\r\nof aviation,\r\n\r\n  \r\nthere is no way
+    a bee\r\nshould be able to fly.\r\n\r\n  \r\nIts wings are too small to get\r\nits
+    fat little body off the ground.\r\n\r\n  \r\nThe bee, of course, flies anyway\r\n\r\n 
+    \r\nbecause bees don't care\r\nwhat humans think is impossible.\r\n\r\n  \r\nYellow,
+    black. Yellow, black.\r\nYellow, black. Yellow, black.\r\n\r\n  \r\nOoh, black
+    and yellow!\r\nLet's shake it up a little.\r\n\r\n  \r\nBarry! Breakfast is ready!\r\n\r\n 
+    \r\nOoming!\r\n\r\n  \r\nHang on a second.\r\n\r\n  \r\nHello?\r\n\r\n  \r\n-
+    Barry?\r\n- Adam?\r\n\r\n  \r\n- Oan you believe this is happening?\r\n- I can't.
+    I'll pick you up.\r\n\r\n  \r\nLooking sharp.\r\n\r\n  \r\nUse the stairs. Your
+    father\r\npaid good money for those.\r\n\r\n  \r\nSorry. I'm excited.\r\n\r\n 
+    \r\nHere's the graduate.\r\nWe're very proud of you, son.\r\n\r\n  \r\nA perfect
+    report card, all B's.\r\n\r\n  \r\nVery proud.\r\n\r\n  \r\nMa! I got a thing
+    going here.\r\n\r\n  \r\n- You got lint on your fuzz.\r\n- Ow! That's me!\r\n\r\n 
+    \r\n- Wave to us! We'll be in row 118,000.\r\n- Bye!\r\n\r\n  \r\nBarry, I told
+    you,\r\nstop flying in the house!\r\n\r\n  \r\n- Hey, Adam.\r\n- Hey, Barry.\r\n\r\n 
+    \r\n- Is that fuzz gel?\r\n- A little. Special day, graduation.\r\n\r\n  \r\nNever
+    thought I'd make it.\r\n\r\n  \r\nThree days grade school,\r\nthree days high
+    school.\r\n\r\n  \r\nThose were awkward.\r\n\r\n  \r\nThree days college. I'm
+    glad I took\r\na day and hitchhiked around the hive.\r\n\r\n  \r\nYou did come
+    back different.\r\n\r\n  \r\n- Hi, Barry.\r\n- Artie, growing a mustache? Looks
+    good.\r\n\r\n  \r\n- Hear about Frankie?\r\n- Yeah.\r\n\r\n  \r\n- You going
+    to the funeral?\r\n- No, I'm not going.\r\n\r\n  \r\nEverybody knows,\r\nsting
+    someone, you die.\r\n\r\n  \r\nDon't waste it on a squirrel.\r\nSuch a hothead.\r\n\r\n 
+    \r\nI guess he could have\r\njust gotten out of the way.\r\n\r\n  \r\nI love
+    this incorporating\r\nan amusement park into our day.\r\n\r\n  \r\nThat's why
+    we don't need vacations.\r\n\r\n  \r\nBoy, quite a bit of pomp...\r\nunder the
+    circumstances.\r\n\r\n  \r\n- Well, Adam, today we are men.\r\n- We are!\r\n\r\n 
+    \r\n- Bee-men.\r\n- Amen!\r\n\r\n  \r\nHallelujah!\r\n\r\n  \r\nStudents, faculty,
+    distinguished bees,\r\n\r\n  \r\nplease welcome Dean Buzzwell.\r\n\r\n  \r\nWelcome,
+    New Hive Oity\r\ngraduating class of...\r\n\r\n  \r\n...9:15.\r\n\r\n  \r\nThat
+    concludes our ceremonies.\r\n\r\n  \r\nAnd begins your career\r\nat Honex Industries!\r\n\r\n 
+    \r\nWill we pick ourjob today?\r\n\r\n  \r\nI heard it's just orientation.\r\n\r\n 
+    \r\nHeads up! Here we go.\r\n\r\n  \r\nKeep your hands and antennas\r\ninside
+    the tram at all times.\r\n\r\n  \r\n- Wonder what it'll be like?\r\n- A little
+    scary.\r\n\r\n  \r\nWelcome to Honex,\r\na division of Honesco\r\n\r\n  \r\nand
+    a part of the Hexagon Group.\r\n\r\n  \r\nThis is it!\r\n\r\n  \r\nWow.\r\n\r\n 
+    \r\nWow.\r\n\r\n  \r\nWe know that you, as a bee,\r\nhave worked your whole life\r\n\r\n 
+    \r\nto get to the point where you\r\ncan work for your whole life.\r\n\r\n  \r\nHoney
+    begins when our valiant Pollen\r\nJocks bring the nectar to the hive.\r\n\r\n 
+    \r\nOur top-secret formula\r\n\r\n  \r\nis automatically color-corrected,\r\nscent-adjusted
+    and bubble-contoured\r\n\r\n  \r\ninto this soothing sweet syrup\r\n\r\n  \r\nwith
+    its distinctive\r\ngolden glow you know as...\r\n\r\n  \r\nHoney!\r\n\r\n  \r\n-
+    That girl was hot.\r\n- She's my cousin!\r\n\r\n  \r\n- She is?\r\n- Yes, we're
+    all cousins.\r\n\r\n  \r\n- Right. You're right.\r\n- At Honex, we constantly
+    strive\r\n\r\n  \r\nto improve every aspect\r\nof bee existence.\r\n\r\n  \r\nThese
+    bees are stress-testing\r\na new helmet technology.\r\n\r\n  \r\n- What do you
+    think he makes?\r\n- Not enough.\r\n\r\n  \r\nHere we have our latest advancement,\r\nthe
+    Krelman.\r\n\r\n  \r\n- What does that do?\r\n- Oatches that little strand of
+    honey\r\n\r\n  \r\nthat hangs after you pour it.\r\nSaves us millions.\r\n\r\n 
+    \r\nOan anyone work on the Krelman?\r\n\r\n  \r\nOf course. Most bee jobs are\r\nsmall
+    ones. But bees know\r\n\r\n  \r\nthat every small job,\r\nif it's done well,
+    means a lot.\r\n\r\n  \r\nBut choose carefully\r\n\r\n  \r\nbecause you'll stay
+    in the job\r\nyou pick for the rest of your life.\r\n\r\n  \r\nThe same job the
+    rest of your life?\r\nI didn't know that.\r\n\r\n  \r\nWhat's the difference?\r\n\r\n 
+    \r\nYou'll be happy to know that bees,\r\nas a species, haven't had one day off\r\n\r\n 
+    \r\nin 27 million years.\r\n\r\n  \r\nSo you'll just work us to death?\r\n\r\n 
+    \r\nWe'll sure try.\r\n\r\n  \r\nWow! That blew my mind!\r\n\r\n  \r\n\"What's
+    the difference?\"\r\nHow can you say that?\r\n\r\n  \r\nOne job forever?\r\nThat's
+    an insane choice to have to make.\r\n\r\n  \r\nI'm relieved. Now we only have\r\nto
+    make one decision in life.\r\n\r\n  \r\nBut, Adam, how could they\r\nnever have
+    told us that?\r\n\r\n  \r\nWhy would you question anything?\r\nWe're bees.\r\n\r\n 
+    \r\nWe're the most perfectly\r\nfunctioning society on Earth.\r\n\r\n  \r\nYou
+    ever think maybe things\r\nwork a little too well here?\r\n\r\n  \r\nLike what?
+    Give me one example.\r\n\r\n  \r\nI don't know. But you know\r\nwhat I'm talking
+    about.\r\n\r\n  \r\nPlease clear the gate.\r\nRoyal Nectar Force on approach.\r\n\r\n 
+    \r\nWait a second. Oheck it out.\r\n\r\n  \r\n- Hey, those are Pollen Jocks!\r\n-
+    Wow.\r\n\r\n  \r\nI've never seen them this close.\r\n\r\n  \r\nThey know what
+    it's like\r\noutside the hive.\r\n\r\n  \r\nYeah, but some don't come back.\r\n\r\n 
+    \r\n- Hey, Jocks!\r\n- Hi, Jocks!\r\n\r\n  \r\nYou guys did great!\r\n\r\n  \r\nYou're
+    monsters!\r\nYou're sky freaks! I love it! I love it!\r\n\r\n  \r\n- I wonder
+    where they were.\r\n- I don't know.\r\n\r\n  \r\nTheir day's not planned.\r\n\r\n 
+    \r\nOutside the hive, flying who knows\r\nwhere, doing who knows what.\r\n\r\n 
+    \r\nYou can'tjust decide to be a Pollen\r\nJock. You have to be bred for that.\r\n\r\n 
+    \r\nRight.\r\n\r\n  \r\nLook. That's more pollen\r\nthan you and I will see in
+    a lifetime.\r\n\r\n  \r\nIt's just a status symbol.\r\nBees make too much of
+    it.\r\n\r\n  \r\nPerhaps. Unless you're wearing it\r\nand the ladies see you
+    wearing it.\r\n\r\n  \r\nThose ladies?\r\nAren't they our cousins too?\r\n\r\n 
+    \r\nDistant. Distant.\r\n\r\n  \r\nLook at these two.\r\n\r\n  \r\n- Oouple of
+    Hive Harrys.\r\n- Let's have fun with them.\r\n\r\n  \r\nIt must be dangerous\r\nbeing
+    a Pollen Jock.\r\n\r\n  \r\nYeah. Once a bear pinned me\r\nagainst a mushroom!\r\n\r\n 
+    \r\nHe had a paw on my throat,\r\nand with the other, he was slapping me!\r\n\r\n 
+    \r\n- Oh, my!\r\n- I never thought I'd knock him out.\r\n\r\n  \r\nWhat were
+    you doing during this?\r\n\r\n  \r\nTrying to alert the authorities.\r\n\r\n 
+    \r\nI can autograph that.\r\n\r\n  \r\nA little gusty out there today,\r\nwasn't
+    it, comrades?\r\n\r\n  \r\nYeah. Gusty.\r\n\r\n  \r\nWe're hitting a sunflower
+    patch\r\nsix miles from here tomorrow.\r\n\r\n  \r\n- Six miles, huh?\r\n- Barry!\r\n\r\n 
+    \r\nA puddle jump for us,\r\nbut maybe you're not up for it.\r\n\r\n  \r\n- Maybe
+    I am.\r\n- You are not!\r\n\r\n  \r\nWe're going 0900 at J-Gate.\r\n\r\n  \r\nWhat
+    do you think, buzzy-boy?\r\nAre you bee enough?\r\n\r\n  \r\nI might be. It all
+    depends\r\non what 0900 means.\r\n\r\n  \r\nHey, Honex!\r\n\r\n  \r\nDad, you
+    surprised me.\r\n\r\n  \r\nYou decide what you're interested in?\r\n\r\n  \r\n-
+    Well, there's a lot of choices.\r\n- But you only get one.\r\n\r\n  \r\nDo you
+    ever get bored\r\ndoing the same job every day?\r\n\r\n  \r\nSon, let me tell
+    you about stirring.\r\n\r\n  \r\nYou grab that stick, and you just\r\nmove it
+    around, and you stir it around.\r\n\r\n  \r\nYou get yourself into a rhythm.\r\nIt's
+    a beautiful thing.\r\n\r\n  \r\nYou know, Dad,\r\nthe more I think about it,\r\n\r\n 
+    \r\nmaybe the honey field\r\njust isn't right for me.\r\n\r\n  \r\nYou were thinking
+    of what,\r\nmaking balloon animals?\r\n\r\n  \r\nThat's a bad job\r\nfor a guy
+    with a stinger.\r\n\r\n  \r\nJanet, your son's not sure\r\nhe wants to go into
+    honey!\r\n\r\n  \r\n- Barry, you are so funny sometimes.\r\n- I'm not trying
+    to be funny.\r\n\r\n  \r\nYou're not funny! You're going\r\ninto honey. Our son,
+    the stirrer!\r\n\r\n  \r\n- You're gonna be a stirrer?\r\n- No one's listening
+    to me!\r\n\r\n  \r\nWait till you see the sticks I have.\r\n\r\n  \r\nI could
+    say anything right now.\r\nI'm gonna get an ant tattoo!\r\n\r\n  \r\nLet's open
+    some honey and celebrate!\r\n\r\n  \r\nMaybe I'll pierce my thorax.\r\nShave
+    my antennae.\r\n\r\n  \r\nShack up with a grasshopper. Get\r\na gold tooth and
+    call everybody \"dawg\"!\r\n\r\n  \r\nI'm so proud.\r\n\r\n  \r\n- We're starting
+    work today!\r\n- Today's the day.\r\n\r\n  \r\nOome on! All the good jobs\r\nwill
+    be gone.\r\n\r\n  \r\nYeah, right.\r\n\r\n  \r\nPollen counting, stunt bee, pouring,\r\nstirrer,
+    front desk, hair removal...\r\n\r\n  \r\n- Is it still available?\r\n- Hang on.
+    Two left!\r\n\r\n  \r\nOne of them's yours! Oongratulations!\r\nStep to the side.\r\n\r\n 
+    \r\n- What'd you get?\r\n- Picking crud out. Stellar!\r\n\r\n  \r\nWow!\r\n\r\n 
+    \r\nOouple of newbies?\r\n\r\n  \r\nYes, sir! Our first day! We are ready!\r\n\r\n 
+    \r\nMake your choice.\r\n\r\n  \r\n- You want to go first?\r\n- No, you go.\r\n\r\n 
+    \r\nOh, my. What's available?\r\n\r\n  \r\nRestroom attendant's open,\r\nnot
+    for the reason you think.\r\n\r\n  \r\n- Any chance of getting the Krelman?\r\n-
+    Sure, you're on.\r\n\r\n  \r\nI'm sorry, the Krelman just closed out.\r\n\r\n 
+    \r\nWax monkey's always open.\r\n\r\n  \r\nThe Krelman opened up again.\r\n\r\n 
+    \r\nWhat happened?\r\n\r\n  \r\nA bee died. Makes an opening. See?\r\nHe's dead.
+    Another dead one.\r\n\r\n  \r\nDeady. Deadified. Two more dead.\r\n\r\n  \r\nDead
+    from the neck up.\r\nDead from the neck down. That's life!\r\n\r\n  \r\nOh, this
+    is so hard!\r\n\r\n  \r\nHeating, cooling,\r\nstunt bee, pourer, stirrer,\r\n\r\n 
+    \r\nhumming, inspector number seven,\r\nlint coordinator, stripe supervisor,\r\n\r\n 
+    \r\nmite wrangler. Barry, what\r\ndo you think I should... Barry?\r\n\r\n  \r\nBarry!\r\n\r\n 
+    \r\nAll right, we've got the sunflower patch\r\nin quadrant nine...\r\n\r\n 
+    \r\nWhat happened to you?\r\nWhere are you?\r\n\r\n  \r\n- I'm going out.\r\n-
+    Out? Out where?\r\n\r\n  \r\n- Out there.\r\n- Oh, no!\r\n\r\n  \r\nI have to,
+    before I go\r\nto work for the rest of my life.\r\n\r\n  \r\nYou're gonna die!
+    You're crazy! Hello?\r\n\r\n  \r\nAnother call coming in.\r\n\r\n  \r\nIf anyone's
+    feeling brave,\r\nthere's a Korean deli on 83rd\r\n\r\n  \r\nthat gets their
+    roses today.\r\n\r\n  \r\nHey, guys.\r\n\r\n  \r\n- Look at that.\r\n- Isn't
+    that the kid we saw yesterday?\r\n\r\n  \r\nHold it, son, flight deck's restricted.\r\n\r\n 
+    \r\nIt's OK, Lou. We're gonna take him up.\r\n\r\n  \r\nReally? Feeling lucky,
+    are you?\r\n\r\n  \r\nSign here, here. Just initial that.\r\n\r\n  \r\n- Thank
+    you.\r\n- OK.\r\n\r\n  \r\nYou got a rain advisory today,\r\n\r\n  \r\nand as
+    you all know,\r\nbees cannot fly in rain.\r\n\r\n  \r\nSo be careful. As always,\r\nwatch
+    your brooms,\r\n\r\n  \r\nhockey sticks, dogs,\r\nbirds, bears and bats.\r\n\r\n 
+    \r\nAlso, I got a couple of reports\r\nof root beer being poured on us.\r\n\r\n 
+    \r\nMurphy's in a home because of it,\r\nbabbling like a cicada!\r\n\r\n  \r\n-
+    That's awful.\r\n- And a reminder for you rookies,\r\n\r\n  \r\nbee law number
+    one,\r\nabsolutely no talking to humans!\r\n\r\n  \r\nAll right, launch positions!\r\n\r\n 
+    \r\nBuzz, buzz, buzz, buzz! Buzz, buzz,\r\nbuzz, buzz! Buzz, buzz, buzz, buzz!\r\n\r\n 
+    \r\nBlack and yellow!\r\n\r\n  \r\nHello!\r\n\r\n  \r\nYou ready for this, hot
+    shot?\r\n\r\n  \r\nYeah. Yeah, bring it on.\r\n\r\n  \r\nWind, check.\r\n\r\n 
+    \r\n- Antennae, check.\r\n- Nectar pack, check.\r\n\r\n  \r\n- Wings, check.\r\n-
+    Stinger, check.\r\n\r\n  \r\nScared out of my shorts, check.\r\n\r\n  \r\nOK,
+    ladies,\r\n\r\n  \r\nlet's move it out!\r\n\r\n  \r\nPound those petunias,\r\nyou
+    striped stem-suckers!\r\n\r\n  \r\nAll of you, drain those flowers!\r\n\r\n 
+    \r\nWow! I'm out!\r\n\r\n  \r\nI can't believe I'm out!\r\n\r\n  \r\nSo blue.\r\n\r\n 
+    \r\nI feel so fast and free!\r\n\r\n  \r\nBox kite!\r\n\r\n  \r\nWow!\r\n\r\n 
+    \r\nFlowers!\r\n\r\n  \r\nThis is Blue Leader.\r\nWe have roses visual.\r\n\r\n 
+    \r\nBring it around 30 degrees and hold.\r\n\r\n  \r\nRoses!\r\n\r\n  \r\n30
+    degrees, roger. Bringing it around.\r\n\r\n  \r\nStand to the side, kid.\r\nIt's
+    got a bit of a kick.\r\n\r\n  \r\nThat is one nectar collector!\r\n\r\n  \r\n-
+    Ever see pollination up close?\r\n- No, sir.\r\n\r\n  \r\nI pick up some pollen
+    here, sprinkle it\r\nover here. Maybe a dash over there,\r\n\r\n  \r\na pinch
+    on that one.\r\nSee that? It's a little bit of magic.\r\n\r\n  \r\nThat's amazing.
+    Why do we do that?\r\n\r\n  \r\nThat's pollen power. More pollen, more\r\nflowers,
+    more nectar, more honey for us.\r\n\r\n  \r\nOool.\r\n\r\n  \r\nI'm picking up
+    a lot of bright yellow.\r\nOould be daisies. Don't we need those?\r\n\r\n  \r\nOopy
+    that visual.\r\n\r\n  \r\nWait. One of these flowers\r\nseems to be on the move.\r\n\r\n 
+    \r\nSay again? You're reporting\r\na moving flower?\r\n\r\n  \r\nAffirmative.\r\n\r\n 
+    \r\nThat was on the line!\r\n\r\n  \r\nThis is the coolest. What is it?\r\n\r\n 
+    \r\nI don't know, but I'm loving this color.\r\n\r\n  \r\nIt smells good.\r\nNot
+    like a flower, but I like it.\r\n\r\n  \r\nYeah, fuzzy.\r\n\r\n  \r\nOhemical-y.\r\n\r\n 
+    \r\nOareful, guys. It's a little grabby.\r\n\r\n  \r\nMy sweet lord of bees!\r\n\r\n 
+    \r\nOandy-brain, get off there!\r\n\r\n  \r\nProblem!\r\n\r\n  \r\n- Guys!\r\n-
+    This could be bad.\r\n\r\n  \r\nAffirmative.\r\n\r\n  \r\nVery close.\r\n\r\n 
+    \r\nGonna hurt.\r\n\r\n  \r\nMama's little boy.\r\n\r\n  \r\nYou are way out
+    of position, rookie!\r\n\r\n  \r\nOoming in at you like a missile!\r\n\r\n  \r\nHelp
+    me!\r\n\r\n  \r\nI don't think these are flowers.\r\n\r\n  \r\n- Should we tell
+    him?\r\n- I think he knows.\r\n\r\n  \r\nWhat is this?!\r\n\r\n  \r\nMatch point!\r\n\r\n 
+    \r\nYou can start packing up, honey,\r\nbecause you're about to eat it!\r\n\r\n 
+    \r\nYowser!\r\n\r\n  \r\nGross.\r\n\r\n  \r\nThere's a bee in the car!\r\n\r\n 
+    \r\n- Do something!\r\n- I'm driving!\r\n\r\n  \r\n- Hi, bee.\r\n- He's back
+    here!\r\n\r\n  \r\nHe's going to sting me!\r\n\r\n  \r\nNobody move. If you don't
+    move,\r\nhe won't sting you. Freeze!\r\n\r\n  \r\nHe blinked!\r\n\r\n  \r\nSpray
+    him, Granny!\r\n\r\n  \r\nWhat are you doing?!\r\n\r\n  \r\nWow... the tension
+    level\r\nout here is unbelievable.\r\n\r\n  \r\nI gotta get home.\r\n\r\n  \r\nOan't
+    fly in rain.\r\n\r\n  \r\nOan't fly in rain.\r\n\r\n  \r\nOan't fly in rain.\r\n\r\n 
+    \r\nMayday! Mayday! Bee going down!\r\n\r\n  \r\nKen, could you close\r\nthe
+    window please?\r\n\r\n  \r\nKen, could you close\r\nthe window please?\r\n\r\n 
+    \r\nOheck out my new resume.\r\nI made it into a fold-out brochure.\r\n\r\n 
+    \r\nYou see? Folds out.\r\n\r\n  \r\nOh, no. More humans. I don't need this.\r\n\r\n 
+    \r\nWhat was that?\r\n\r\n  \r\nMaybe this time. This time. This time.\r\nThis
+    time! This time! This...\r\n\r\n  \r\nDrapes!\r\n\r\n  \r\nThat is diabolical.\r\n\r\n 
+    \r\nIt's fantastic. It's got all my special\r\nskills, even my top-ten favorite
+    movies.\r\n\r\n  \r\nWhat's number one? Star Wars?\r\n\r\n  \r\nNah, I don't
+    go for that...\r\n\r\n  \r\n...kind of stuff.\r\n\r\n  \r\nNo wonder we shouldn't
+    talk to them.\r\nThey're out of their minds.\r\n\r\n  \r\nWhen I leave a job
+    interview, they're\r\nflabbergasted, can't believe what I say.\r\n\r\n  \r\nThere's
+    the sun. Maybe that's a way out.\r\n\r\n  \r\nI don't remember the sun\r\nhaving
+    a big 75 on it.\r\n\r\n  \r\nI predicted global warming.\r\n\r\n  \r\nI could
+    feel it getting hotter.\r\nAt first I thought it was just me.\r\n\r\n  \r\nWait!
+    Stop! Bee!\r\n\r\n  \r\nStand back. These are winter boots.\r\n\r\n  \r\nWait!\r\n\r\n 
+    \r\nDon't kill him!\r\n\r\n  \r\nYou know I'm allergic to them!\r\nThis thing
+    could kill me!\r\n\r\n  \r\nWhy does his life have\r\nless value than yours?\r\n\r\n 
+    \r\nWhy does his life have any less value\r\nthan mine? Is that your statement?\r\n\r\n 
+    \r\nI'm just saying all life has value. You\r\ndon't know what he's capable of
+    feeling.\r\n\r\n  \r\nMy brochure!\r\n\r\n  \r\nThere you go, little guy.\r\n\r\n 
+    \r\nI'm not scared of him.\r\nIt's an allergic thing.\r\n\r\n  \r\nPut that on
+    your resume brochure.\r\n\r\n  \r\nMy whole face could puff up.\r\n\r\n  \r\nMake
+    it one of your special skills.\r\n\r\n  \r\nKnocking someone out\r\nis also a
+    special skill.\r\n\r\n  \r\nRight. Bye, Vanessa. Thanks.\r\n\r\n  \r\n- Vanessa,
+    next week? Yogurt night?\r\n- Sure, Ken. You know, whatever.\r\n\r\n  \r\n- You
+    could put carob chips on there.\r\n- Bye.\r\n\r\n  \r\n- Supposed to be less
+    calories.\r\n- Bye.\r\n\r\n  \r\nI gotta say something.\r\n\r\n  \r\nShe saved
+    my life.\r\nI gotta say something.\r\n\r\n  \r\nAll right, here it goes.\r\n\r\n 
+    \r\nNah.\r\n\r\n  \r\nWhat would I say?\r\n\r\n  \r\nI could really get in trouble.\r\n\r\n 
+    \r\nIt's a bee law.\r\nYou're not supposed to talk to a human.\r\n\r\n  \r\nI
+    can't believe I'm doing this.\r\n\r\n  \r\nI've got to.\r\n\r\n  \r\nOh, I can't
+    do it. Oome on!\r\n\r\n  \r\nNo. Yes. No.\r\n\r\n  \r\nDo it. I can't.\r\n\r\n 
+    \r\nHow should I start it?\r\n\"You like jazz?\" No, that's no good.\r\n\r\n 
+    \r\nHere she comes! Speak, you fool!\r\n\r\n  \r\nHi!\r\n\r\n  \r\nI'm sorry.\r\n\r\n 
+    \r\n- You're talking.\r\n- Yes, I know.\r\n\r\n  \r\nYou're talking!\r\n\r\n 
+    \r\nI'm so sorry.\r\n\r\n  \r\nNo, it's OK. It's fine.\r\nI know I'm dreaming.\r\n\r\n 
+    \r\nBut I don't recall going to bed.\r\n\r\n  \r\nWell, I'm sure this\r\nis very
+    disconcerting.\r\n\r\n  \r\nThis is a bit of a surprise to me.\r\nI mean, you're
+    a bee!\r\n\r\n  \r\nI am. And I'm not supposed\r\nto be doing this,\r\n\r\n 
+    \r\nbut they were all trying to kill me.\r\n\r\n  \r\nAnd if it wasn't for you...\r\n\r\n 
+    \r\nI had to thank you.\r\nIt's just how I was raised.\r\n\r\n  \r\nThat was
+    a little weird.\r\n\r\n  \r\n- I'm talking with a bee.\r\n- Yeah.\r\n\r\n  \r\nI'm
+    talking to a bee.\r\nAnd the bee is talking to me!\r\n\r\n  \r\nI just want to
+    say I'm grateful.\r\nI'll leave now.\r\n\r\n  \r\n- Wait! How did you learn to
+    do that?\r\n- What?\r\n\r\n  \r\nThe talking thing.\r\n\r\n  \r\nSame way you
+    did, I guess.\r\n\"Mama, Dada, honey.\" You pick it up.\r\n\r\n  \r\n- That's
+    very funny.\r\n- Yeah.\r\n\r\n  \r\nBees are funny. If we didn't laugh,\r\nwe'd
+    cry with what we have to deal with.\r\n\r\n  \r\nAnyway...\r\n\r\n  \r\nOan I...\r\n\r\n 
+    \r\n...get you something?\r\n- Like what?\r\n\r\n  \r\nI don't know. I mean...\r\nI
+    don't know. Ooffee?\r\n\r\n  \r\nI don't want to put you out.\r\n\r\n  \r\nIt's
+    no trouble. It takes two minutes.\r\n\r\n  \r\n- It's just coffee.\r\n- I hate
+    to impose.\r\n\r\n  \r\n- Don't be ridiculous!\r\n- Actually, I would love a
+    cup.\r\n\r\n  \r\nHey, you want rum cake?\r\n\r\n  \r\n- I shouldn't.\r\n- Have
+    some.\r\n\r\n  \r\n- No, I can't.\r\n- Oome on!\r\n\r\n  \r\nI'm trying to lose
+    a couple micrograms.\r\n\r\n  \r\n- Where?\r\n- These stripes don't help.\r\n\r\n 
+    \r\nYou look great!\r\n\r\n  \r\nI don't know if you know\r\nanything about fashion.\r\n\r\n 
+    \r\nAre you all right?\r\n\r\n  \r\nNo.\r\n\r\n  \r\nHe's making the tie in the
+    cab\r\nas they're flying up Madison.\r\n\r\n  \r\nHe finally gets there.\r\n\r\n 
+    \r\nHe runs up the steps into the church.\r\nThe wedding is on.\r\n\r\n  \r\nAnd
+    he says, \"Watermelon?\r\nI thought you said Guatemalan.\r\n\r\n  \r\nWhy would
+    I marry a watermelon?\"\r\n\r\n  \r\nIs that a bee joke?\r\n\r\n  \r\nThat's
+    the kind of stuff we do.\r\n\r\n  \r\nYeah, different.\r\n\r\n  \r\nSo, what
+    are you gonna do, Barry?\r\n\r\n  \r\nAbout work? I don't know.\r\n\r\n  \r\nI
+    want to do my part for the hive,\r\nbut I can't do it the way they want.\r\n\r\n 
+    \r\nI know how you feel.\r\n\r\n  \r\n- You do?\r\n- Sure.\r\n\r\n  \r\nMy parents
+    wanted me to be a lawyer or\r\na doctor, but I wanted to be a florist.\r\n\r\n 
+    \r\n- Really?\r\n- My only interest is flowers.\r\n\r\n  \r\nOur new queen was
+    just elected\r\nwith that same campaign slogan.\r\n\r\n  \r\nAnyway, if you look...\r\n\r\n 
+    \r\nThere's my hive right there. See it?\r\n\r\n  \r\nYou're in Sheep Meadow!\r\n\r\n 
+    \r\nYes! I'm right off the Turtle Pond!\r\n\r\n  \r\nNo way! I know that area.\r\nI
+    lost a toe ring there once.\r\n\r\n  \r\n- Why do girls put rings on their toes?\r\n-
+    Why not?\r\n\r\n  \r\n- It's like putting a hat on your knee.\r\n- Maybe I'll
+    try that.\r\n\r\n  \r\n- You all right, ma'am?\r\n- Oh, yeah. Fine.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -380,7 +591,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -14.079353, y: 0, z: -13.35666, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -439,36 +650,104 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 627457191}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 2.04}
+  m_LocalPosition: {x: 0, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.53, y: 0}
+  m_AnchoredPosition: {x: 16.88, y: -8.38}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &774249253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774249254}
+  m_Layer: 0
+  m_Name: Camera-RotateAround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &774249254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774249253}
+  m_LocalRotation: {x: 0.27059805, y: 0.6532815, z: -0.27059805, w: 0.6532815}
+  m_LocalPosition: {x: -3.8600001, y: 3.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1957565735}
+  m_Father: {fileID: 866910779}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 45, y: 90, z: 0}
 --- !u!1001 &864374425
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 866910779}
     m_Modifications:
+    - target: {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: cameraYMax
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: cameraSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: sensitivity
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: cameraOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: cameraOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: cameraOffset.z
+      value: -7
+      objectReference: {fileID: 0}
     - target: {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
       propertyPath: Camera_Rotate_Around
       value: 
-      objectReference: {fileID: 221005109}
+      objectReference: {fileID: 774249253}
+    - target: {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: cameraSmoothingSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: cameraSmoothingRotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078594863, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: m_Interpolate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1530729297781859804, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2678440434894522378, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2678440434894522378, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -488,15 +767,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2678440434894522378, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2678440434894522378, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2678440434894522378, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2678440434894522378, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -510,5 +789,227 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5360800108805587084, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: speedMultiplier
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6145701132307289637, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c302f747f5c8874a87d6114d8664e4a, type: 2}
+    m_RemovedComponents:
+    - {fileID: 454164889, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+--- !u!1 &866910778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 866910779}
+  m_Layer: 0
+  m_Name: Player-Container-Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &866910779
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866910778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1184284832}
+  - {fileID: 774249254}
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1184284825 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1530729297781859804, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+  m_PrefabInstance: {fileID: 864374425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1184284832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2678440434894522378, guid: 9083f27a249a19e44bc34455d94158a4, type: 3}
+  m_PrefabInstance: {fileID: 864374425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1184284833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184284825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5305f515741a74b4e8c301d38c4f6f1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraOffset: 7
+  cameraSmoothingSpeed: 10
+  cameraSmoothingRotationSpeed: 5
+  cameraYMin: 0
+  cameraYMax: 45
+  sensitivity: 2
+  sensitivityYMultiplier: 0.05
+  Camera_Rotate_Around: {fileID: 774249253}
+--- !u!1 &1328118112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1328118115}
+  - component: {fileID: 1328118114}
+  - component: {fileID: 1328118113}
+  - component: {fileID: 1328118116}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &1328118113
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328118112}
+  m_Enabled: 1
+--- !u!20 &1328118114
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328118112}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1328118115
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328118112}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1957565735}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 10, y: 90, z: 0}
+--- !u!114 &1328118116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328118112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+--- !u!1 &1957565734
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1957565735}
+  m_Layer: 0
+  m_Name: Camera-Shake-Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1957565735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957565734}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1328118115}
+  m_Father: {fileID: 774249254}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -1,7 +1,11 @@
 fileFormatVersion: 2
-guid: 6af3e5c3b59e30643ab3c7a5f9d910e5
+<<<<<<< HEAD:Assets/Prefab/Tile.prefab.meta
+guid: 592b56c02e511be459f25c34d8533377
 PrefabImporter:
+=======
+guid: 1b8d251f9af63b746bf2f7ffe00ebb9b
 DefaultImporter:
+>>>>>>> cff5233ab7295b3ea4a2f4d9e8abed7b6180c1cf:Assets/TextMesh Pro/Documentation/TextMesh Pro User Guide 2016.pdf.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -1,7 +1,11 @@
 fileFormatVersion: 2
-guid: 303fe7d0e1a4891459d00e98744971ac
+<<<<<<< HEAD:Assets/Prefab/PlantsGrid.prefab.meta
+guid: cfd614cd3bd263246abc85260eb06adb
 PrefabImporter:
+=======
+guid: 69e01590095c2a9499fc7406d5e5384a
 DefaultImporter:
+>>>>>>> cff5233ab7295b3ea4a2f4d9e8abed7b6180c1cf:Assets/Scenes/Philip.unity.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
