@@ -11,9 +11,5 @@ public abstract class PlantData : ScriptableObject
     public float constructionTime;
     public float radius;
     public bool canPierce;
-    
-    
-    
-    
-
 }
+
