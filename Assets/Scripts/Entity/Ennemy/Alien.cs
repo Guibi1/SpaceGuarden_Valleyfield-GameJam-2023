@@ -109,9 +109,9 @@ public class Alien : Agent
         }
     }
 
-    
 
-    private bool GoToPlant()
+
+    protected virtual bool GoToPlant()
     {
         return GoToPosition(currentTargetPlant);
     }

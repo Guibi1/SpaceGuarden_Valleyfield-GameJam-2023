@@ -18,13 +18,8 @@ public class Agent : Entity
             return false;
         }
         
-        print(position);
-        print(navMeshAgent.remainingDistance);
-        
         if (navMeshAgent.remainingDistance < detectCenterThresold)
         {
-            Debug.Log(navMeshAgent.remainingDistance);
-            Debug.Log(detectCenterThresold);
             return true;
         }
 

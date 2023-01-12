@@ -25,7 +25,12 @@ public abstract class Plant : Entity
 
     public virtual void Start()
     {
-        SetHealth(plantData.health);
+        if (healArea == null)
+        {
+            Debug.LogError("healarea is null aloo lmao get good");
+            return;
+        }
+            SetHealth(plantData.health);
         LeanPool.Spawn(healArea, transform).transform.localPosition = Vector3.zero;
 
     }

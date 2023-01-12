@@ -15,9 +15,9 @@ MonoBehaviour:
   cost: 5
   health: 10
   timeToShip: 4
-  intervalBetweenExecute: 1
+  intervalBetweenExecute: 2
   executeTime: 0
   preparingTime: 0
-  constructionTime: 0
-  radius: 0
+  constructionTime: 5
+  radius: 10
   canPierce: 0
