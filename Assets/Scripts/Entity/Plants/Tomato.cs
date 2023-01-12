@@ -25,10 +25,6 @@ public class Tomato : Plant
     
     public override IEnumerator Execute()
     {
-        particle1.Stop();
-        particle2.Stop();
-        particle3.Stop();
-
         yield return new WaitForEndOfFrame();
         StartCoroutine(SimpleRoutines.CustomCurveLerpCoroutine((f) =>
         {
