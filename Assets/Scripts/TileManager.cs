@@ -7,10 +7,14 @@ public class TileManager : MonoBehaviour
     [SerializeField] Color selectedColor;
     [SerializeField] Color emptyColor;
 
+    [Header("Player variables")]
+    public float animationSpeed = 16f;
+
+
     private Rectangle rectangle;
 
     private TileState _state = TileState.Empty;
-    public TileState State
+    public TileState state
     {
         get => _state;
         set
@@ -26,24 +30,33 @@ public class TileManager : MonoBehaviour
         }
     }
 
-    public bool Selected { get; set; }
+    private GridManager parent;
+
+    public bool selected { get; set; }
 
     void Start()
     {
         rectangle = GetComponentInChildren<Rectangle>();
-        State = TileState.Empty;
+        state = TileState.Empty;
     }
 
     void Update()
     {
-        Color targetColor = Selected ? selectedColor : emptyColor;
-        float targetSize = Selected ? .9f : .7f;
+        Color targetColor = selected ? selectedColor : emptyColor;
+        float targetSize = selected ? .9f : .7f;
 
-
-        rectangle.Color = Color.Lerp(rectangle.Color, targetColor, Time.deltaTime * 8f);
-        rectangle.Width = Mathf.Lerp(rectangle.Width, targetSize, Time.deltaTime * 8f);
-        rectangle.Height = Mathf.Lerp(rectangle.Height, targetSize, Time.deltaTime * 8f);
+        rectangle.Color = Color.Lerp(rectangle.Color, targetColor, Time.deltaTime * animationSpeed);
+        rectangle.Width = Mathf.Lerp(rectangle.Width, targetSize, Time.deltaTime * animationSpeed);
+        rectangle.Height = Mathf.Lerp(rectangle.Height, targetSize, Time.deltaTime * animationSpeed);
     }
+
+    public void Plant(Plant plant)
+    {
+
+        // TODO : Plant logic here
+
+    }
+
 }
 
 public enum TileState
