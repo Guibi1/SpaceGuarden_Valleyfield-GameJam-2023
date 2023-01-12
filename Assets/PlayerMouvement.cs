@@ -16,7 +16,7 @@ public class PlayerMouvement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-    void FixedUpdate()
+    void Update()
     {
         float horizontalAxis = Input.GetAxisRaw("Horizontal");
         float verticalAxis = Input.GetAxisRaw("Vertical");
@@ -26,10 +26,8 @@ public class PlayerMouvement : MonoBehaviour
             horizontalAxis = -horizontalAxis;
             verticalAxis = -verticalAxis;
         }
-
         Vector3 targetPos = new Vector3(verticalAxis, 0, horizontalAxis).normalized;
-        rb.AddForce(targetPos * speedMultiplier * Time.deltaTime * 144);
+        rb.velocity = targetPos * speedMultiplier;
 
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
 }
