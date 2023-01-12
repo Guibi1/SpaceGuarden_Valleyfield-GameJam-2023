@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpriteManager : MonoBehaviour
@@ -9,22 +7,24 @@ public class SpriteManager : MonoBehaviour
 
     private void Start()
     {
-
-        SetCharType(PlayerTypes.Scythe_Bald);
         instance = this;
+
+        SetBald(OptionsManager.instance.bald);
+        SetCharType(PlayerTypes.Scythe);
     }
+
     public void SetWalking(bool walking)
     {
-        animator.SetBool("Is_Walking", walking);
+        animator.SetBool("IsWalking", walking);
     }
 
-    public void SetCharType(int type)
+    public void SetBald(bool bald)
     {
-        animator.SetInteger("Type", type);
+        animator.SetBool("IsBald", bald);
     }
 
     public void SetCharType(PlayerTypes type)
     {
-        animator.SetInteger("Type", (int) type);
+        animator.SetInteger("Type", (int)type);
     }
 }
