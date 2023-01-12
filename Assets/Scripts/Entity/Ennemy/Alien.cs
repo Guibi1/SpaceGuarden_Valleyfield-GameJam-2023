@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 
 public class Alien : Agent
@@ -73,7 +72,7 @@ public class Alien : Agent
                 
                 if (GoToCenter())
                 {
-                    //navMeshAgent.isStopped = true;
+                    navMeshAgent.isStopped = true;
                     searchState = SearchState.AttackCenter;
                 }
                 
@@ -95,7 +94,7 @@ public class Alien : Agent
                 if (GoToPlant())
                 {
                     // If reached plant
-                    //navMeshAgent.isStopped = true;
+                    navMeshAgent.isStopped = true;
                     searchState = SearchState.AttackPlant;
                 }
                 break;
@@ -165,6 +164,7 @@ public class Alien : Agent
         // Plant killed
         if (currentTargetPlant == null || currentTargetPlant.dying)
         {
+            navMeshAgent.isStopped = false;
             searchState = SearchState.Inactive;
             return;
         }

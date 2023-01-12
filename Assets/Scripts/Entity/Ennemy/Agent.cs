@@ -13,9 +13,18 @@ public class Agent : Entity
     public bool GoToPosition(Vector3 position)
     {
         navMeshAgent.destination = position;
+        if (navMeshAgent.pathPending)
+        {
+            return false;
+        }
+        
+        print(position);
+        print(navMeshAgent.remainingDistance);
         
         if (navMeshAgent.remainingDistance < detectCenterThresold)
         {
+            Debug.Log(navMeshAgent.remainingDistance);
+            Debug.Log(detectCenterThresold);
             return true;
         }
 
@@ -25,7 +34,10 @@ public class Agent : Entity
     public bool GoToPosition(Plant plant)
     {
         navMeshAgent.destination = plant.transform.position;
-
+        if (navMeshAgent.pathPending)
+        {
+            return false;
+        }
         
         if (navMeshAgent.remainingDistance < detectPlantThreshold)
         {
