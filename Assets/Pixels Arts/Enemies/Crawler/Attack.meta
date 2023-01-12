@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 77add6c852ab31548b84b27fd2e1cdc6
+=======
+<<<<<<< HEAD:Assets/Beautify.meta
+guid: 25653edf656e24d20881aa2dfcc3c1f8
+=======
+guid: fa0f29f1a5687d24f9092c838c9126b9
+>>>>>>> f243f5e88671b74db13f7ac8f928efefdc422503:Assets/Pixels Arts/Enemies/Crawler/Attack.meta
+>>>>>>> f243f5e88671b74db13f7ac8f928efefdc422503
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
