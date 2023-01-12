@@ -5,7 +5,8 @@ public class BaseCampManager : MonoBehaviour
 {
     public static BaseCampManager instance;
 
-    private int turnsUntilNextShippement;
+    private int currentTurn = 0;
+    private int turnsUntilNextShippement = 0;
     private Plant nextShippement;
 
     void Start()
@@ -13,18 +14,22 @@ public class BaseCampManager : MonoBehaviour
         instance = this;
     }
 
-    void Update()
+    void NextTurn()
     {
+        currentTurn += 1;
+        turnsUntilNextShippement -= 1;
+
         if (turnsUntilNextShippement == 0 && nextShippement != null)
         {
             LeanPool.Spawn(nextShippement, transform);
             nextShippement = null;
         }
-    }
 
-    void NextTurn()
-    {
-        turnsUntilNextShippement -= 1;
+        if (currentTurn == 10)
+        {
+            OptionsManager.instance.TrophyWon = true;
+        }
+
         // TODO: Handle turns (spawn ennemies)
     }
 
