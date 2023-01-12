@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class PlayerMouvement : MonoBehaviour
 {
-    public CinemachineFreeLook cam;
     public static PlayerMouvement instance;
+
+    [HideInInspector] public Rigidbody rb;
+
+    [Header("Camera")]
+    [SerializeReference] public CinemachineFreeLook cam;
     private Vector3 cameraVectorForward;
     private Vector3 cameraVectorRight;
     [SerializeField] public float xCamSpeed = 300f;
 
     [Header("Settings")]
-    public float speedMultiplier = 50f;
-    public float spinTime = 8f;
-    public float knockbackForce = 2000f;
-    [HideInInspector] public Rigidbody rb;
+    [SerializeField] public float speedMultiplier = 50f;
+    [SerializeField] public float distanceToInteract = .5f;
 
-    [Header("Misc")]
+    [Header("References")]
     [SerializeField] private GameObject sprite;
     [SerializeField] private GameObject notification;
+    [SerializeField] private GameObject baseCamp;
     [SerializeField] private Plant plantPrefab;
 
     public PlayerStates playerState;
@@ -56,8 +59,6 @@ public class PlayerMouvement : MonoBehaviour
         }
     }
 
-
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -102,10 +103,10 @@ public class PlayerMouvement : MonoBehaviour
             }
         }
 
-        // On space
-        if (Input.GetKeyDown(KeyCode.Space))
+        // On interact
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (false)
+            if (Vector3.Distance(transform.position, transform.position) <= distanceToInteract)
             {
                 CoinManager.instance.shopIsOpen = true;
             }

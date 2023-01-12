@@ -23,14 +23,16 @@ public class CoinManager : MonoBehaviour
         shopCanvas.enabled = false;
     }
 
-    void Buy(int cost)
+    public void Buy(Plant plant)
     {
-        if (coins <= 0) return;
-        this.coins -= coins;
+        if (plant.plantData.cost > coins) return;
+
+        this.coins -= plant.plantData.cost;
         shopIsOpen = false;
+        BaseCampManager.instance.ShipPlant(plant);
     }
 
-    void GainCoins(int coins)
+    public void GainCoins(int coins)
     {
         if (coins <= 0) return;
         this.coins += coins;
