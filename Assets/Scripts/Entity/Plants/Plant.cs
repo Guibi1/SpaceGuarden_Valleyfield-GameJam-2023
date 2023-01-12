@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public abstract class Plant : MonoBehaviour
+public abstract class Plant : Entity
 {
     [SerializeField] protected PlantData plantData;
     [SerializeField] protected AoEPlant aoEPlant;
