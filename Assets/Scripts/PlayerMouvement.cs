@@ -1,5 +1,6 @@
 using Cinemachine;
 using Lean.Pool;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMouvement : MonoBehaviour
@@ -134,4 +135,16 @@ public class PlayerMouvement : MonoBehaviour
     {
         SpriteManager.instance.attack();
     }
+
+    public List<Alien> AliensInRange = new List<Alien>();
+    public void addAlien(Alien a)
+    {
+        AliensInRange.Add(a);
+    }
+
+    public void removeAlien(Alien a)
+    {
+        AliensInRange.Remove(a);
+    }
+
 }

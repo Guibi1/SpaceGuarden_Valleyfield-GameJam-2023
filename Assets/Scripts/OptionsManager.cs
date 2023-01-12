@@ -7,7 +7,7 @@ public class OptionsManager : MonoBehaviour
 
     [SerializeReference] Toggle baldToggle;
 
-    void Start()
+    void Awake()
     {
         instance = this;
 

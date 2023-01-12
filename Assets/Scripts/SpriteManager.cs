@@ -6,10 +6,13 @@ public class SpriteManager : MonoBehaviour
     public static SpriteManager instance;
     public Animator animator;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
+    }
 
+    private void Start()
+    {
         SetBald(OptionsManager.instance.bald);
         SetCharType(PlayerTypes.Scythe);
     }
