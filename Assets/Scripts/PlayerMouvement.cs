@@ -103,10 +103,17 @@ public class PlayerMouvement : MonoBehaviour
             }
         }
 
-        // On space: toggle edit mode
-        if (Input.GetKeyDown(KeyCode.Space) && playertype == PlayerTypes.Plant)
+        // On space
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            editMode = !editMode;
+            if (false)
+            {
+                CoinManager.instance.shopIsOpen = true;
+            }
+            else if (playertype == PlayerTypes.Plant)
+            {
+                editMode = !editMode;
+            }
         }
 
         //! TODO : REMOVE THIS SHIT
