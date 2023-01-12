@@ -30,6 +30,9 @@ public class Alien : Agent
         Behavior = StartingBehaviorState;
     }
 
+    [SerializeField] private GameObject sprite;
+
+
     private void OnEnable()
     {
         StartAlienBrain();
@@ -56,6 +59,9 @@ public class Alien : Agent
             default:
                 throw new ArgumentOutOfRangeException();
         }
+
+
+        sprite.transform.LookAt(Camera.main.transform);
         
     }
 
@@ -109,9 +115,9 @@ public class Alien : Agent
         }
     }
 
-    
 
-    private bool GoToPlant()
+
+    protected virtual bool GoToPlant()
     {
         return GoToPosition(currentTargetPlant);
     }

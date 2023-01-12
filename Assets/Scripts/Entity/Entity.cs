@@ -31,7 +31,11 @@ public class Entity : MonoBehaviour
 
         if (damage > 0)
         {
-            LeanPool.Spawn(splashDamagePrefab, transform).SetDamage(damage);
+            if (splashDamagePrefab != null)
+            {
+                LeanPool.Spawn(splashDamagePrefab, transform).SetDamage(damage);
+
+            }
         }
     }
 

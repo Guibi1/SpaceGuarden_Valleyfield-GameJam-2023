@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e244d80e429f2eb45bf7ed8532684b64, type: 3}
-  m_Name: PeaData
+  m_Name: CheeryData
   m_EditorClassIdentifier: 
-  cost: 5
-  health: 10
-  timeToShip: 4
-  intervalBetweenExecute: 2
+  cost: 0
+  health: 0
+  timeToShip: 0
+  intervalBetweenExecute: 0
   executeTime: 0
   preparingTime: 0
-  constructionTime: 5
-  radius: 10
+  constructionTime: 0
+  radius: 0
   canPierce: 0
