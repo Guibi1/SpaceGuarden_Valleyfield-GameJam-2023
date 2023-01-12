@@ -7,10 +7,19 @@ using UnityEngine;
 public abstract class Plant : MonoBehaviour
 {
     [SerializeField] private PlantData plantData;
+    
+    protected bool useAnimator;
+    [ShowIf("useAnimator")]
+    [SerializeField] private Animator animator;
+    
+    
+    
     private Coroutine ActiveRoutine;
     private Coroutine ConstructionRoutine;
 
     public abstract void Execute();
+    public abstract void DrawAoE();
+    
     public enum State {Construction, Active, DeActive}
     private State state;
     public enum AttackState {Idle, Attacking}
@@ -63,6 +72,10 @@ public abstract class Plant : MonoBehaviour
             yield return new WaitForSeconds(plantData.intervalBetweenExecute);
             
             attackState = AttackState.Attacking;
+            if (useAnimator)
+            {
+                animator.Play("Attack");
+            }
             Execute();
 
             yield return new WaitForSeconds(plantData.executeTime);
