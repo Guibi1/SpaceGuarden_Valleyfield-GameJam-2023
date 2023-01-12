@@ -87,11 +87,8 @@ public class PlayerMouvement : MonoBehaviour
                 OnNotif?.Invoke("Hold E to heal plant");
             }
         }
-
-
-
-
         scytheLastUsed += Time.deltaTime;
+
         // Look at cam
         sprite.transform.LookAt(cam.transform);
 
