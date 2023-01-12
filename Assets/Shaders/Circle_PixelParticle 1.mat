@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ICE_PixelParticle 2
+  m_Name: Circle_PixelParticle 1
   m_Shader: {fileID: -6465566751694194690, guid: bf890266245b30d408d347d40891b74d, type: 3}
   m_ValidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
@@ -37,7 +37,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 06e86bf4447aa3b4e827ae260c72e002, type: 3}
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -55,7 +55,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Bits: 128
+    - _Bits: 64
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
@@ -68,5 +68,5 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 102.75575, g: 102.75575, b: 102.75575, a: 1}
+    - _Color: {r: 39.396626, g: 39.396626, b: 39.396626, a: 1}
   m_BuildTextureStacks: []
