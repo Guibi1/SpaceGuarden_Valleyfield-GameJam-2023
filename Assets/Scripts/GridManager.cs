@@ -9,33 +9,29 @@ using UnityEngine.EventSystems;
 public class GridManager : MonoBehaviour
 {
     public static GridManager instance;
-    [SerializeField] int width;
-    [SerializeField] int height;
+
+    [SerializeField] int tilesNumberX = 20;
+    [SerializeField] int tilesNumberZ = 20;
     [SerializeField] float border = 1;
-    [SerializeField] float size = 1;
-    
+    [SerializeField] float tileSize = 1;
+
 
     [SerializeReference] TileManager tilePrefab;
-
     [SerializeReference] GameObject player;
     [SerializeField] Camera cam;
 
     [HideInInspector] public TileManager selectedTile;
+    [HideInInspector] public bool editMode;
 
     private TileManager[,] tiles;
-    public bool editMode;
 
     private void Awake()
     {
         instance = this;
-
     }
 
     void Start()
     {
-
-        tilePrefab.rectangle.Width = size;
-        tilePrefab.rectangle.Height = size;
         CreateGrid();
     }
 
@@ -47,7 +43,7 @@ public class GridManager : MonoBehaviour
         }
         else if (selectedTile)
         {
-            selectedTile.selected = false;
+            selectedTile.Selected = false;
             selectedTile = null;
         }
     }
@@ -66,25 +62,24 @@ public class GridManager : MonoBehaviour
 
         if (selectedTile != null)
         {
-            selectedTile.selected = false;
+            selectedTile.Selected = false;
         }
 
         selectedTile = tileManager;
-        selectedTile.selected = true;
+        selectedTile.Selected = true;
     }
 
 
     private void CreateGrid()
     {
-        tiles = new TileManager[width, height];
+        tiles = new TileManager[tilesNumberX, tilesNumberZ];
 
-        for (int x = 0; x < width; x++)
+        for (int x = 0; x < tilesNumberX; x++)
         {
-            for (int z = 0; z < height; z++)
+            for (int z = 0; z < tilesNumberZ; z++)
             {
-                tiles[x, z] = LeanPool.Spawn(tilePrefab, new Vector3((x * size) + transform.localPosition.x, 0, (z * size) + transform.localPosition.z), Quaternion.Euler(0, 0, 0), transform);
-                tiles[x, z].rectangle.Height = size;
-                tiles[x, z].rectangle.Width = size;
+                tiles[x, z] = LeanPool.Spawn(tilePrefab, new Vector3(x * tileSize, 0, z * tileSize), Quaternion.Euler(0, 0, 0), transform);
+                tiles[x, z].maxSize = tileSize - border;
             }
         }
     }
