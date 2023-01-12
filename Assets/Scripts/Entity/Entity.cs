@@ -19,21 +19,23 @@ public class Entity : MonoBehaviour
     {
         if (dying)
             return;
-        
-        HP -= damage;
 
-        if (HP <=0)
+
+        if (HP - damage <= 0)
         {
-           StartCoroutine(Die());
-           dying = true;
+            damage = HP;
+            StartCoroutine(Die());
+            dying = true;
         }
+
+        HP -= damage;
     }
 
     public IEnumerator Die()
     {
         if (deathAnimation)
             yield return new WaitForSeconds(deathAnimationTime);
-        
+
         if (allowPooling)
             LeanPool.Despawn(gameObject);
         else
