@@ -1,4 +1,3 @@
-using System.Collections;
 using Shapes;
 using UnityEngine;
 
@@ -6,48 +5,67 @@ public class TileManager : MonoBehaviour
 {
     [SerializeField] Color selectedColor;
     [SerializeField] Color emptyColor;
+    [SerializeField] public float maxSize;
 
-    [Header("Player variables")]
-    public float animationSpeed = 16f;
-
-
-    public Rectangle rectangle;
+    [SerializeReference] public Rectangle rectangle;
 
     private TileState _state = TileState.Empty;
-    public TileState state
+    public TileState State
     {
         get => _state;
         set
         {
-            switch (value)
-            {
-                case TileState.Empty:
-                    rectangle.Color = Color.gray;
-                    break;
-            }
-
             _state = value;
+            UpdateRectangle();
         }
     }
 
-    private GridManager parent;
+    public float Size
+    {
+        get => rectangle.Width;
+        private set
+        {
+            StartCoroutine(SimpleRoutines.LerpCoroutine(rectangle.Width, value, .2f, (size) =>
+            {
+                rectangle.Width = size;
+                rectangle.Height = size;
+            }));
+        }
+    }
 
-    public bool selected { get; set; }
+    private Color _color;
+    public Color Color
+    {
+        get => rectangle.Color;
+        set
+        {
+            StartCoroutine(SimpleRoutines.LerpCoroutine(0, 1f, .2f,
+                (t) => rectangle.Color = Color.Lerp(_color, value, t),
+                () => _color = value
+            ));
+        }
+    }
+
+    private bool _selected = false;
+    public bool Selected
+    {
+        get => _selected;
+        set
+        {
+            _selected = value;
+            UpdateRectangle();
+        }
+    }
 
     void Start()
     {
-        rectangle = GetComponentInChildren<Rectangle>();
-        state = TileState.Empty;
+        UpdateRectangle();
     }
 
-    void Update()
+    private void UpdateRectangle()
     {
-        Color targetColor = selected ? selectedColor : emptyColor;
-        float targetSize = selected ? .9f : .7f;
-
-        rectangle.Color = Color.Lerp(rectangle.Color, targetColor, Time.deltaTime * animationSpeed);
-        rectangle.Width = Mathf.Lerp(rectangle.Width, targetSize, Time.deltaTime * animationSpeed);
-        rectangle.Height = Mathf.Lerp(rectangle.Height, targetSize, Time.deltaTime * animationSpeed);
+        Color = Selected ? selectedColor : emptyColor;
+        Size = maxSize * (Selected ? 1f : .8f);
     }
 
     public void Plant(Plant plant)

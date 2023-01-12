@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Lean.Pool;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -19,7 +20,6 @@ public class Entity : MonoBehaviour
     {
         if (dying)
             return;
-
 
         if (HP - damage <= 0)
         {
