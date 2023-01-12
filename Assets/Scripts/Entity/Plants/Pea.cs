@@ -23,7 +23,7 @@ public class Pea : Plant
         if (aimedAlien == null)
             return;
         
-        Turret.transform.LookAt(aimedAlien);
+       // Turret.transform.LookAt(aimedAlien);
 
         if (aimedAlien.dying)
         {
