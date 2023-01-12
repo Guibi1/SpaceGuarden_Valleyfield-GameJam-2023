@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Beam01_PixelParticle
+  m_Name: Beam01_PixelParticle 1
   m_Shader: {fileID: -6465566751694194690, guid: bf890266245b30d408d347d40891b74d, type: 3}
   m_ValidKeywords:
   - _SURFACE_TYPE_TRANSPARENT
@@ -55,7 +55,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Bits: 8
+    - _Bits: 1
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
