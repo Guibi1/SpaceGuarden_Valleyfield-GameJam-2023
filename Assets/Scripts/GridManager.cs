@@ -7,7 +7,12 @@ public class GridManager : MonoBehaviour
     [SerializeField] int width;
     [SerializeField] int height;
 
-    public GameObject tilePrefab;
+    [SerializeReference] GameObject tilePrefab;
+
+    [SerializeReference] GameObject player;
+
+
+    private GameObject[,] tiles;
 
     // Start is called before the first frame update
     void Start()
@@ -18,16 +23,27 @@ public class GridManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int x = Mathf.FloorToInt(player.transform.position.x - transform.position.x + 1f);
+        int z = Mathf.FloorToInt(player.transform.position.z - transform.position.z + 1f);
 
+        if (x >= 0 && z >= 0 && x < width && z < height)
+        {
+            Vector3 position = tiles[x, z].transform.position;
+            position.y = 2;
+
+            tiles[x, z].transform.position = position;
+        }
     }
 
     private void createGrid()
     {
-        for (int i = 0; i < width; i++)
+        tiles = new GameObject[width, height];
+
+        for (int x = 0; x < width; x++)
         {
-            for (int j = 0; j < height; j++)
+            for (int z = 0; z < height; z++)
             {
-                Instantiate(tilePrefab, new Vector3(i, j), Quaternion.identity, transform);
+                tiles[x, z] = Instantiate(tilePrefab, new Vector3(x, 0, z), Quaternion.identity, transform);
             }
         }
     }
