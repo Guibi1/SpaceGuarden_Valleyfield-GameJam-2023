@@ -12,10 +12,11 @@ public class CameraFollow : MonoBehaviour
     private Vector3 targetRotation = Vector3.zero;
 
     [Header("Player variables")]
-    [SerializeField] private Vector3 cameraOffset;
-    [SerializeField] private float cameraSmoothingSpeed;
-    [SerializeField] private float cameraSmoothingRotationSpeed;
-    public float sensitivity;
+    [SerializeField] private float cameraOffset = 7;
+    [SerializeField] private float cameraSmoothingSpeed = 10;
+    [SerializeField] private float cameraSmoothingRotationSpeed = 5;
+    public float sensitivity = 2;
+    public float sensitivityYMultiplier = 0.05f;
 
 
     [Header("Misc")]
@@ -25,7 +26,7 @@ public class CameraFollow : MonoBehaviour
     {
         instance = this; // Un bon Singleton
         cam = Camera.main;
-        cam.transform.localPosition = cameraOffset;
+        cam.transform.localPosition = new Vector3(0, 0, -cameraOffset);
         targetRotation = Camera_Rotate_Around.transform.eulerAngles;
     }
 
@@ -33,8 +34,10 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        float camMovement = Input.GetAxis("Mouse X");
-        targetRotation += new Vector3(0, camMovement * sensitivity, 0);
+        float camMovementX = Input.GetAxis("Mouse X");
+        float camMovementY = Input.GetAxis("Mouse Y");
+
+        targetRotation += new Vector3(camMovementY * sensitivity * sensitivityYMultiplier, camMovementX * sensitivity, 0);
         Camera_Rotate_Around.transform.rotation = Quaternion.Lerp(Camera_Rotate_Around.transform.rotation, Quaternion.Euler(targetRotation), Time.deltaTime * cameraSmoothingRotationSpeed);
         Camera_Rotate_Around.transform.position = Vector3.Lerp(Camera_Rotate_Around.transform.position, transform.position, cameraSmoothingSpeed * Time.deltaTime);
         
