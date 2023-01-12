@@ -32,7 +32,6 @@ public class SpriteManager : MonoBehaviour
 
     internal void attack()
     {
-        print("Attacking...");
         animator.SetTrigger("Attack");
     }
 }

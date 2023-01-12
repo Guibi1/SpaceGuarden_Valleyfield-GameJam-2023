@@ -6,15 +6,15 @@ using UnityEngine;
 
 public abstract class Plant : Entity
 {
-    [SerializeField] protected PlantData plantData;
+    [SerializeField] public PlantData plantData;
     [SerializeField] protected AoEPlant aoEPlant;
-    
+
     protected bool useAnimator;
     [ShowIf("useAnimator")]
     [SerializeField] private Animator animator;
-    
-    
-    
+
+
+
     private Coroutine ActiveRoutine;
     private Coroutine ConstructionRoutine;
 
@@ -26,7 +26,7 @@ public abstract class Plant : Entity
     {
         StartCoroutine(Execute());
     }
-    
+
     [Button]
     public void TestPrepare()
     {
@@ -42,10 +42,10 @@ public abstract class Plant : Entity
     {
         aoEPlant.AlphaDisapear();
     }
-    
-    public enum State {Construction, Active, DeActive}
+
+    public enum State { Construction, Active, DeActive }
     private State state;
-    public enum AttackState {Idle, Attacking}
+    public enum AttackState { Idle, Attacking }
 
     private AttackState attackState;
 
@@ -53,7 +53,7 @@ public abstract class Plant : Entity
     public void ChangeState(Plant.State state)
     {
         this.state = state;
-        
+
         switch (state)
         {
             case State.Construction:
@@ -64,7 +64,7 @@ public abstract class Plant : Entity
                 }
 
                 ConstructionRoutine = StartCoroutine(RunConstruction());
-                
+
                 break;
             case State.Active:
                 print("s");
@@ -85,7 +85,7 @@ public abstract class Plant : Entity
     protected virtual IEnumerator RunConstruction()
     {
         yield return new WaitForSeconds(plantData.constructionTime);
-        
+
         ChangeState(State.Active);
     }
 
@@ -97,16 +97,16 @@ public abstract class Plant : Entity
         {
             attackState = AttackState.Idle;
             yield return new WaitForSeconds(plantData.intervalBetweenExecute);
-            
+
             attackState = AttackState.Attacking;
-            
+
             if (useAnimator)
                 animator.Play("Attack");
-            
+
             StartCoroutine(Execute());
 
             yield return new WaitForSeconds(plantData.executeTime);
-            
+
             StartCoroutine(Preparing());
         }
     }
