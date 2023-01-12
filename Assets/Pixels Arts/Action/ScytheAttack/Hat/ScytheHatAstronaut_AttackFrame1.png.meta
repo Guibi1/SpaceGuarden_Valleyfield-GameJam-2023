@@ -1,12 +1,20 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 0ade3ddd28e84c7499af58cf1af38cbb
+=======
+guid: b0ad993d423e6d84681b9f61b6601bc6
+>>>>>>> Stashed changes
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
+<<<<<<< Updated upstream
     enableMipMap: 1
+=======
+    enableMipMap: 0
+>>>>>>> Stashed changes
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -33,16 +41,27 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< Updated upstream
     filterMode: 1
+=======
+    filterMode: 0
+>>>>>>> Stashed changes
     aniso: 1
     mipBias: 0
     wrapU: 0
     wrapV: 0
     wrapW: 0
+<<<<<<< Updated upstream
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
+=======
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+>>>>>>> Stashed changes
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -53,7 +72,11 @@ TextureImporter:
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
+<<<<<<< Updated upstream
   textureType: 0
+=======
+  textureType: 8
+>>>>>>> Stashed changes
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -70,7 +93,11 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< Updated upstream
     textureCompression: 1
+=======
+    textureCompression: 0
+>>>>>>> Stashed changes
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,7 +134,11 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< Updated upstream
     spriteID: 
+=======
+    spriteID: 5e97eb03825dee720800000000000000
+>>>>>>> Stashed changes
     internalID: 0
     vertices: []
     indices: 

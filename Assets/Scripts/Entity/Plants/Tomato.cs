@@ -31,6 +31,7 @@ public class Tomato : Plant
             TopPart.transform.position = new Vector3(TopPart.transform.position.x, f, TopPart.transform.position.z);
         }, TopPart.transform.position.y, bottom, plantData.executeTime, curveCrush));
 
+<<<<<<< Updated upstream
         StartCoroutine(SimpleRoutines.WaitTime(plantData.executeTime, () =>
         {
             particle1.Play();
@@ -40,6 +41,8 @@ public class Tomato : Plant
 
 
 
+=======
+>>>>>>> Stashed changes
     }
     
     public override IEnumerator Preparing()
