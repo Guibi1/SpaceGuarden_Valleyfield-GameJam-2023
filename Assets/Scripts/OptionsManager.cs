@@ -6,6 +6,8 @@ public class OptionsManager : MonoBehaviour
     public static OptionsManager instance;
 
     [SerializeReference] Toggle baldToggle;
+    [SerializeReference] Image trophyImage;
+    [SerializeReference] Sprite trophyWonSprite;
 
     void Awake()
     {
@@ -13,11 +15,11 @@ public class OptionsManager : MonoBehaviour
 
         if (baldToggle != null)
         {
-            baldToggle.isOn = bald;
+            baldToggle.isOn = Bald;
         }
     }
 
-    public bool bald
+    public bool Bald
     {
         get => PlayerPrefs.GetInt("bald", 0) == 1;
         set
@@ -31,8 +33,22 @@ public class OptionsManager : MonoBehaviour
         }
     }
 
+    public bool TrophyWon
+    {
+        get => PlayerPrefs.GetInt("trophy", 0) == 1;
+        set
+        {
+            PlayerPrefs.SetInt("trophy", value ? 1 : 0);
+
+            if (trophyImage != null && value)
+            {
+                trophyImage.sprite = trophyWonSprite;
+            }
+        }
+    }
+
     public void UpdateBaldFromToggle()
     {
-        bald = baldToggle.isOn;
+        Bald = baldToggle.isOn;
     }
 }

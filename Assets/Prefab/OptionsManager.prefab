@@ -45,3 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baldToggle: {fileID: 0}
+  trophyImage: {fileID: 0}
+  trophyWonSprite: {fileID: 21300000, guid: 0124b0e1f6caed44f94aef7c81fa2a5d, type: 3}
