@@ -25,10 +25,7 @@ public class Alien : Agent
                 break;
             case BehaviorState.WantsTower:
 
-                switch (expression)
-                {
-                    
-                }
+                
                 
                 GoToPosition(EnnemyManager.instance.PlantPosition.position);
                 break;
