@@ -20,7 +20,15 @@ public class OptionsManager : MonoBehaviour
     public bool bald
     {
         get => PlayerPrefs.GetInt("bald", 0) == 1;
-        set => PlayerPrefs.SetInt("bald", value ? 1 : 0);
+        set
+        {
+            PlayerPrefs.SetInt("bald", value ? 1 : 0);
+
+            if (SpriteManager.instance != null)
+            {
+                SpriteManager.instance.SetBald(value);
+            }
+        }
     }
 
     public void UpdateBaldFromToggle()
