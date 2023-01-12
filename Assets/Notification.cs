@@ -1,6 +1,4 @@
 using Cinemachine;
-using DG.Tweening;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,6 +6,7 @@ using UnityEngine.UI;
 
 public class Notification : MonoBehaviour
 {
+    [SerializeReference] private float visibleY = 5f;
     [SerializeReference] private TextMeshProUGUI text;
     [SerializeReference] private List<Graphic> graphics;
     private Vector3 target;
@@ -17,7 +16,7 @@ public class Notification : MonoBehaviour
     {
         PlayerMouvement.OnNotif += (string text) =>
         {
-            target = new Vector3(0, 4, 0);
+            target = new Vector3(0, visibleY, 0);
             targetOp = 1;
             this.text.text = text;
         };
