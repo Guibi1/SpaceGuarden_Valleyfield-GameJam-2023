@@ -6004,16 +6004,20 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4118669399425662236, guid: a5b1c89fc8417874b9767a63cd39eb3f, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4118669399425662236, guid: a5b1c89fc8417874b9767a63cd39eb3f, type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4118669399425662236, guid: a5b1c89fc8417874b9767a63cd39eb3f, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
-      value: 0.2981115
+      value: 0.6328054
       objectReference: {fileID: 0}
     - target: {fileID: 4118669399425662236, guid: a5b1c89fc8417874b9767a63cd39eb3f, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
-      value: 0.040538676
+      value: 0.027027018
       objectReference: {fileID: 0}
     - target: {fileID: 4118669399425662236, guid: a5b1c89fc8417874b9767a63cd39eb3f, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
@@ -6021,15 +6025,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4118669399425662236, guid: a5b1c89fc8417874b9767a63cd39eb3f, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: -12.07783
+      value: -7.5118175
       objectReference: {fileID: 0}
     - target: {fileID: 4118669399425662236, guid: a5b1c89fc8417874b9767a63cd39eb3f, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0.14534931
+      value: 0.1421422
       objectReference: {fileID: 0}
     - target: {fileID: 4118669399425662236, guid: a5b1c89fc8417874b9767a63cd39eb3f, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
-      value: -12.07783
+      value: -7.5118175
       objectReference: {fileID: 0}
     - target: {fileID: 4118669399425662239, guid: a5b1c89fc8417874b9767a63cd39eb3f, type: 3}
       propertyPath: m_RootOrder
@@ -6141,6 +6145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4653406993347183629, guid: af51d1548246e1147a787f6a203e274c, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4653406993347183631, guid: af51d1548246e1147a787f6a203e274c, type: 3}
       propertyPath: m_Name
       value: tomato_Particle_Add
@@ -6245,6 +6253,26 @@ PrefabInstance:
     - target: {fileID: 5655091801551055070, guid: 57678143e2b6f6044900795d6e26a740, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655091801551055071, guid: 57678143e2b6f6044900795d6e26a740, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655091801551055071, guid: 57678143e2b6f6044900795d6e26a740, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655091801551055071, guid: 57678143e2b6f6044900795d6e26a740, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 33176
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655091801551055071, guid: 57678143e2b6f6044900795d6e26a740, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime1
+      value: 8609
+      objectReference: {fileID: 0}
+    - target: {fileID: 5655091801551055071, guid: 57678143e2b6f6044900795d6e26a740, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.r
+      value: 0.9150943
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57678143e2b6f6044900795d6e26a740, type: 3}
@@ -6697,6 +6725,10 @@ PrefabInstance:
     - target: {fileID: 7705340976175969780, guid: 2e7facf5a7fa1254192859049fef43a1, type: 3}
       propertyPath: m_Name
       value: omato_particleGreenFall
+      objectReference: {fileID: 0}
+    - target: {fileID: 7705340976175969782, guid: 2e7facf5a7fa1254192859049fef43a1, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7705340976175969785, guid: 2e7facf5a7fa1254192859049fef43a1, type: 3}
       propertyPath: m_RootOrder
