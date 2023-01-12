@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tile
   - Alien
+  - PlantHealZone
   layers:
   - Default
   - TransparentFX

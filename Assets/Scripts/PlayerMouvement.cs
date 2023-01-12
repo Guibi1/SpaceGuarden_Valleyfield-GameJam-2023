@@ -1,5 +1,6 @@
 using Cinemachine;
 using Lean.Pool;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,17 +17,23 @@ public class PlayerMouvement : MonoBehaviour
     [SerializeField] public float xCamSpeed = 300f;
 
     [Header("Settings")]
-    [SerializeField] public float speedMultiplier = 50f;
-    [SerializeField] public float distanceToInteract = .5f;
+    [SerializeField] private float speedMultiplier = 50f;
+    [SerializeField] private float distanceToInteract = .5f;
+    [SerializeField] private float scytheDamage = 20;
+    [SerializeField] private float scytheCooldown = 5;
+    [SerializeField] private float plantHealSpeed = 30f;
 
     [Header("References")]
     [SerializeField] private GameObject sprite;
     [SerializeField] private GameObject notification;
     [SerializeField] private GameObject baseCamp;
     [SerializeField] private Plant plantPrefab;
+    
+    private Plant plantToHeal;
+
+    private float scytheLastUsed = 0f;
 
     public PlayerStates playerState;
-
     private PlayerTypes _playertype;
     public PlayerTypes playertype
     {
@@ -69,6 +76,21 @@ public class PlayerMouvement : MonoBehaviour
 
     void Update()
     {
+        if(plantToHeal!= null) {
+            if (plantToHeal.HP >= plantToHeal.plantData.health)
+            {
+                OnNotif?.Invoke("Plant is full health");
+            }
+            else
+            {
+                OnNotif?.Invoke("Hold E to heal plant");
+            }
+        }
+
+
+
+
+        scytheLastUsed += Time.deltaTime;
         // Look at cam
         sprite.transform.LookAt(cam.transform);
 
@@ -107,7 +129,12 @@ public class PlayerMouvement : MonoBehaviour
         // On interact
         if (Input.GetKeyDown(KeyCode.E))
         {
+<<<<<<< Updated upstream
             if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
+=======
+            // TODO : Fix this awful distance query please thank you
+            if (Vector3.Distance(transform.position, transform.position) <= distanceToInteract && false)
+>>>>>>> Stashed changes
             {
                 CoinManager.instance.shopIsOpen = true;
             }
@@ -116,7 +143,27 @@ public class PlayerMouvement : MonoBehaviour
                 editMode = !editMode;
             }
         }
+<<<<<<< Updated upstream
+=======
+        else if (Input.GetKey(KeyCode.E))
+        {
+            if (plantToHeal != null)
+            {
+                print("Ohhh mon dieuu");
+                plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
+            }
+        }
+
+        //TODO : REMOVE THIS SHIT
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            notification.SetActive(true);
+            playertype = PlayerTypes.Plant;
+        }
+>>>>>>> Stashed changes
     }
+
+
 
     public void SetCameraVectors(Vector3 forward, Vector3 right)
     {
@@ -126,7 +173,14 @@ public class PlayerMouvement : MonoBehaviour
 
     public void Fire()
     {
+        if (playertype == PlayerTypes.Plant) return;
+        if (scytheLastUsed < scytheCooldown) return;
+        scytheLastUsed = 0;
         SpriteManager.instance.attack();
+        foreach(Alien a in AliensInRange)
+        {
+            a.OnHit(scytheDamage);
+        }
     }
 
     public List<Alien> AliensInRange = new List<Alien>();
@@ -139,5 +193,27 @@ public class PlayerMouvement : MonoBehaviour
     {
         AliensInRange.Remove(a);
     }
+
+    public static event Action<String> OnNotif;
+    public static event Action KillNotif;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PlantHealZone"))
+        {
+            plantToHeal = other.gameObject.GetComponentInParent<Plant>();
+            print("selected plant : " + plantToHeal);
+
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("PlantHealZone"))
+        {
+            KillNotif?.Invoke();
+            plantToHeal = null;
+        }
+    }
+
 
 }
