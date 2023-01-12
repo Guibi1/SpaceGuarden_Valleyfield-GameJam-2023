@@ -1760,6 +1760,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 138735858, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
+      propertyPath: m_Orbits.Array.data[1].m_Height
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 138735858, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
+      propertyPath: m_Orbits.Array.data[1].m_Radius
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 138735858, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
+      propertyPath: m_Orbits.Array.data[2].m_Height
+      value: 4.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8238767967956812670, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_RootOrder
       value: 2
