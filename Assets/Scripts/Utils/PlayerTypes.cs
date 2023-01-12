@@ -1,5 +1,5 @@
 public enum PlayerTypes
 {
-    Scythe = 0,
-    Plant = 1,
+    Scythe = 1,
+    Plant = 2,
 }

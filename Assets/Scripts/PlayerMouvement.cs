@@ -14,9 +14,9 @@ public class PlayerMouvement : MonoBehaviour
     public static PlayerMouvement instance;
     private Vector3 cameraVectorForward;
     private Vector3 cameraVectorRight;
-    private float xSpeedSave; 
+    private float xSpeedSave;
 
-    [Header ("Settings")]
+    [Header("Settings")]
     public float speedMultiplier = 50f;
     public float spinTime = 8f;
     public float knockbackForce = 2000f;
@@ -29,8 +29,18 @@ public class PlayerMouvement : MonoBehaviour
     [SerializeField] private Plant plantPrefab;
 
     public PlayerStates playerState;
-    public PlayerTypes playertype;
-    
+
+    private PlayerTypes _playertype;
+    public PlayerTypes playertype
+    {
+        get => _playertype;
+        set
+        {
+            _playertype = value;
+            SpriteManager.instance.SetCharType(value);
+        }
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -59,7 +69,7 @@ public class PlayerMouvement : MonoBehaviour
         }
         sprite.transform.LookAt(cam.transform);
 
-        
+
 
         SpriteManager.instance.SetWalking(!(horizontalAxis == 0 && verticalAxis == 0));
 
@@ -70,20 +80,19 @@ public class PlayerMouvement : MonoBehaviour
             {
                 Fire();
             }
-            else 
+            else
             {
-                if(GridManager.instance.selectedTile != null)
+                if (GridManager.instance.selectedTile != null)
                 {
                     // TODO : Change this to actual plant to plant
                     Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
-                    GridManager.instance.selectedTile.GetComponent<TileManager>().Plant();
-                    
+                    // GridManager.instance.selectedTile.GetComponent<TileManager>().Plant();
                 }
             }
         }
-        
 
-        if (playertype == PlayerTypes.Plant_Bald || playertype == PlayerTypes.Plant_Hat)
+
+        if (playertype == PlayerTypes.Plant)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -108,14 +117,12 @@ public class PlayerMouvement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             notification.SetActive(true);
-            playertype = PlayerTypes.Plant_Hat;
-            SpriteManager.instance.SetCharType(PlayerTypes.Plant_Bald);
-
+            playertype = PlayerTypes.Plant;
         }
     }
     public void setRotation(Vector3 forward, Vector3 right)
     {
-        
+
         cameraVectorForward = forward;
         cameraVectorRight = right;
     }
@@ -133,6 +140,4 @@ public class PlayerMouvement : MonoBehaviour
             playerState = PlayerStates.Normal;
         }));
     }
-
-
 }

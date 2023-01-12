@@ -4,7 +4,7 @@ public class SpriteManager : MonoBehaviour
 {
     public static SpriteManager instance;
     public Animator animator;
-    
+
     private void Start()
     {
         instance = this;
@@ -26,6 +26,6 @@ public class SpriteManager : MonoBehaviour
     public void SetCharType(PlayerTypes type)
     {
         animator.SetTrigger("ResetAnim");
-        animator.SetInteger("Type", (int) type);
+        animator.SetInteger("Type", (int)type);
     }
 }
