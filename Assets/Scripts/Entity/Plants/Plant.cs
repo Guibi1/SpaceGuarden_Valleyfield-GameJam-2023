@@ -26,7 +26,7 @@ public abstract class Plant : Entity
     public virtual void Start()
     {
         SetHealth(plantData.health);
-        LeanPool.Spawn(healArea, transform).transform.localPosition = Vector3.zero;
+        //LeanPool.Spawn(healArea, transform).transform.localPosition = Vector3.zero;
 
     }
 

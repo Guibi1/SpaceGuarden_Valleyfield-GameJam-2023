@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using UnityEngine;
 
 public class Tomato : Plant
@@ -14,6 +15,7 @@ public class Tomato : Plant
     public ParticleSystem particle1;
     public ParticleSystem particle2;
     public ParticleSystem particle3;
+    public GameObject[] tomatoes;
 
     private void OnEnable()
     {
@@ -29,6 +31,11 @@ public class Tomato : Plant
         StartCoroutine(SimpleRoutines.CustomCurveLerpCoroutine((f) =>
         {
             TopPart.transform.position = new Vector3(TopPart.transform.position.x, f, TopPart.transform.position.z);
+            tomatoes.ForEach(x => x.SetActive(false));
+            int pos = (int)(8 - Math.Floor((TopPart.transform.position.y + 0.8) * 8));
+            print(pos);
+            tomatoes[pos].SetActive(true);
+
         }, TopPart.transform.position.y, bottom, plantData.executeTime, curveCrush));
 
         StartCoroutine(SimpleRoutines.WaitTime(plantData.executeTime, () =>
@@ -48,6 +55,10 @@ public class Tomato : Plant
         StartCoroutine(SimpleRoutines.CustomCurveLerpCoroutine((f) =>
         {
             TopPart.transform.position = new Vector3(TopPart.transform.position.x, f, TopPart.transform.position.z);
+            tomatoes.ForEach(x => x.SetActive(false));
+            int pos = (int)(8 - Math.Floor((TopPart.transform.position.y + 0.8) * 8));
+            print(pos);
+            tomatoes[pos].SetActive(true);
         }, TopPart.transform.position.y, bottom + height, plantData.preparingTime, curveUp));
     }
 }
