@@ -107,7 +107,7 @@ public class PlayerMouvement : MonoBehaviour
         // On interact
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Vector3.Distance(transform.position, transform.position) <= distanceToInteract)
+            if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
             {
                 CoinManager.instance.shopIsOpen = true;
             }
@@ -115,13 +115,6 @@ public class PlayerMouvement : MonoBehaviour
             {
                 editMode = !editMode;
             }
-        }
-
-        //! TODO : REMOVE THIS SHIT
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            notification.SetActive(true);
-            playertype = PlayerTypes.Plant;
         }
     }
 
