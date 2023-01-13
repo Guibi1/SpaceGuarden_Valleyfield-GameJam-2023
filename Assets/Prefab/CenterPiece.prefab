@@ -111,8 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd96616a69fe9134c9bf3f3ebc930bc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 45
+  _healthPoint: 20
   allowPooling: 0
+  healthBar: {fileID: 1161017661225998166}
   splashDamagePrefab: {fileID: 0}
   deathAnimation: 0
   deathAnimationTime: 0
@@ -191,13 +192,24 @@ PrefabInstance:
     - target: {fileID: 1397917920706625530, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c9f89a768ebccc04bb51efb23d199e9d, type: 2}
+      objectReference: {fileID: 2100000, guid: 7ad80f659a7016c42be6cd2d44fed1d3, type: 2}
     - target: {fileID: 1397917920706625531, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 43810425529943374, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
+      objectReference: {fileID: 43750352888151548, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+--- !u!114 &1161017661225998166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1397917920435972218, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+  m_PrefabInstance: {fileID: 250694803336576812}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ac4bb23f66e9c4db6e9ea75f1226f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1161017661225998185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1397917920435972165, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
