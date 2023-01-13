@@ -121,7 +121,7 @@ public class PlayerMouvement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             // Shop
-            if (Vector3.Distance(transform.localPosition, BaseCampManager.instance.transform.localPosition) <= distanceToInteract)
+            if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
             {
                 CoinManager.instance.OpenShop();
             }
