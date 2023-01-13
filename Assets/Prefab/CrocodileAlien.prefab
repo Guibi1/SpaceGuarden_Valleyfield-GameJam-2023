@@ -595,6 +595,8 @@ GameObject:
   - component: {fileID: 5283719057143362280}
   - component: {fileID: 2684477766861857058}
   - component: {fileID: 4000659895368378291}
+  - component: {fileID: 8179855108390890352}
+  - component: {fileID: 378929802521105667}
   m_Layer: 0
   m_Name: CrocodileAlien
   m_TagString: Alien
@@ -713,6 +715,68 @@ MonoBehaviour:
   alienData: {fileID: 11400000, guid: 6e105decc2cc3484a9e6d11730ba5e00, type: 2}
   StartingBehaviorState: 1
   sprite: {fileID: 5283719056175312075}
+  emmitterKill: {fileID: 8179855108390890352}
+  emmiterHit: {fileID: 378929802521105667}
+--- !u!114 &8179855108390890352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555051528580036462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1143993307
+      Data2: 1155536617
+      Data3: 170316194
+      Data4: -169634350
+    Path: event:/SFX/Interactions/sfx_KillEnemy
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &378929802521105667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555051528580036462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2018179349
+      Data2: 1303344806
+      Data3: -1166178392
+      Data4: 956277195
+    Path: event:/SFX/Interactions/sfx_HitEnemy
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &555051529038566004
 GameObject:
   m_ObjectHideFlags: 0
