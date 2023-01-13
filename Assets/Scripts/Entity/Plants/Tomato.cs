@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using Sirenix.Utilities;
 using UnityEngine;
-using FMODUnity;
 
 public class Tomato : Plant
 {
@@ -15,9 +14,6 @@ public class Tomato : Plant
     public ParticleSystem particle2;
     public ParticleSystem particle3;
     public GameObject[] tomatoes;
-
-    //Sound
-    public StudioEventEmitter emitterAttack;
 
     private void OnEnable()
     {
@@ -48,9 +44,6 @@ public class Tomato : Plant
             particle1.Play();
             particle2.Play();
             particle3.Play();
-            
-            emitterAttack.Play();
-            
             hitbox.DoDamageToEnemies(plantData.damage);
         }));
 

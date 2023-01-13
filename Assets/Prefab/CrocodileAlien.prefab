@@ -705,8 +705,8 @@ MonoBehaviour:
   deathAnimationTime: 0.5
   dying: 0
   navMeshAgent: {fileID: 555051528580036463}
-  detectPlantThreshold: 6
-  detectCenterThresold: 6
+  detectPlantThreshold: 3.32
+  detectCenterThresold: 2.57
   alienAnimator: {fileID: 7257914651071241198}
   Behavior: 0
   searchState: 0

@@ -70,7 +70,7 @@ public class TileManager : MonoBehaviour
 
     public void Plant(Plant plant)
     {
-        State = TileState.Normal;
+
         // TODO : Plant logic here
 
     }
