@@ -2278,6 +2278,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 315988072363743711, guid: 902269f7df4ebdb4199569e31f26af8b, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1267946151332005532}
+    - target: {fileID: 315988072363743711, guid: 902269f7df4ebdb4199569e31f26af8b, type: 3}
+      propertyPath: shootspeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 315988072363743711, guid: 902269f7df4ebdb4199569e31f26af8b, type: 3}
+      propertyPath: customAnimator
+      value: 
+      objectReference: {fileID: 1267946151332005532}
     - target: {fileID: 3004135943406902436, guid: 902269f7df4ebdb4199569e31f26af8b, type: 3}
       propertyPath: m_Name
       value: Pea
@@ -2373,6 +2385,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!95 &1267946151332005532 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5231747511062193725, guid: 902269f7df4ebdb4199569e31f26af8b, type: 3}
+  m_PrefabInstance: {fileID: 1267946151332005525}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4350320474421087196
 PrefabInstance:
   m_ObjectHideFlags: 0

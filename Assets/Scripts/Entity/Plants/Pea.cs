@@ -11,18 +11,18 @@ public class Pea : Plant
     public GameObject PeaBall;
     public Transform aimPoint;
     public float shootspeed;
+    public Animator customAnimator;
     public override IEnumerator Execute()
     {
-        Debug.Log("execute");
-        
-        
         if (aimedAlien == null) yield break;
         
-        Debug.Log("shoot");
         
         GameObject peaBall = LeanPool.Spawn(PeaBall);
+        peaBall.transform.position = aimPoint.transform.position;
         peaBall.GetComponent<Rigidbody>().velocity = aimPoint.forward * shootspeed;
 
+        customAnimator.Play("Pea");
+        
         StartCoroutine(DeleteAfterTime(peaBall));
     }
 
@@ -37,6 +37,7 @@ public class Pea : Plant
 
     public override IEnumerator Preparing()
     {
+        customAnimator.Play("Idle");
         yield return null;
     }
 
