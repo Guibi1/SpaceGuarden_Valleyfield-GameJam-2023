@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class RunnerAlien : Alien
+public class CrawlerAlien : Alien
 {
     
 }

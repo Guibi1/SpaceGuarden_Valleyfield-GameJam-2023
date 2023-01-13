@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class LookAtCam : MonoBehaviour
 {
-    [SerializeReference] List<GameObject> children;
+    [SerializeReference] List<GameObject> children = new List<GameObject>();
 
     void Update()
     {

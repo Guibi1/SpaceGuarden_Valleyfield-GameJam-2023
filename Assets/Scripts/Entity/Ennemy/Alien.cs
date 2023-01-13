@@ -77,7 +77,9 @@ public class Alien : Agent
                     
             //There is no more plant so behavior is now searching center
             case SearchState.Center:
-                
+
+                alienAnimator.SetBool("Attacking", false);
+
                 if (GoToCenter())
                 {
                     navMeshAgent.isStopped = true;
@@ -86,7 +88,8 @@ public class Alien : Agent
                 
                 break;
             case SearchState.Plant:
-                        
+                alienAnimator.SetBool("Attacking", false);
+
                 if (currentTargetPlant == null)
                 {
                     currentTargetPlant = FindClosestPlant();
@@ -154,6 +157,11 @@ public class Alien : Agent
 
     }
 
+    public override void Die() { 
+        base.Die();
+        alienAnimator.SetTrigger("Death");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // not Already attacking plant or not inactive
@@ -184,8 +192,6 @@ public class Alien : Agent
         }
 
         alienAnimator.SetBool("Attacking", true);
-
-
         HitEntity(currentTargetPlant);
     }
     
