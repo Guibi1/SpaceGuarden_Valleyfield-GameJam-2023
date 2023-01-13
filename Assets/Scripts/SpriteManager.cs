@@ -27,13 +27,11 @@ public class SpriteManager : MonoBehaviour
 
         if (walking && walking != _lastStatus)
         {
-            print("walk play");
             _lastStatus = true;
             emitterWalk.Play();
         }
         else if (walking != _lastStatus)
         {
-            print("walk stop");
             _lastStatus = false;
             emitterWalk.Stop();
         }
