@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e244d80e429f2eb45bf7ed8532684b64, type: 3}
   m_Name: MushroomData
   m_EditorClassIdentifier: 
-  cost: 10
+  cost: 45
   health: 20
   damage: 0.2
-  timeToShip: 0
+  timeToShip: 1
   intervalBetweenExecute: 0.2
   executeTime: 0
   preparingTime: 0
