@@ -9,6 +9,7 @@ public class CoinManager : MonoBehaviour
     [SerializeReference] private Canvas shopCanvas;
     [SerializeReference] private Canvas pauseCanvas;
     [SerializeReference] private Canvas overlayCanvas;
+    [SerializeReference] private Canvas backgroundCanvas;
     [SerializeReference] private TextMeshProUGUI roundText;
     [SerializeReference] private TextMeshProUGUI moneyText;
 
@@ -32,23 +33,28 @@ public class CoinManager : MonoBehaviour
     {
         shopCanvas.enabled = true;
         overlayCanvas.enabled = false;
+        backgroundCanvas.enabled = true;
         Cursor.lockState = CursorLockMode.None;
         cam.m_XAxis.m_MaxSpeed = 0;
     }
 
     public void OpenPause()
     {
+        Time.timeScale = 0;
         pauseCanvas.enabled = true;
         overlayCanvas.enabled = false;
+        backgroundCanvas.enabled = true;
         Cursor.lockState = CursorLockMode.None;
         cam.m_XAxis.m_MaxSpeed = 0;
     }
 
     public void CloseAll()
     {
+        Time.timeScale = 1;
         shopCanvas.enabled = false;
         pauseCanvas.enabled = false;
         overlayCanvas.enabled = true;
+        backgroundCanvas.enabled = false;
         Cursor.lockState = CursorLockMode.Locked;
         cam.m_XAxis.m_MaxSpeed = xCamSpeed;
     }
@@ -61,7 +67,7 @@ public class CoinManager : MonoBehaviour
 
     void Update()
     {
-        roundText.text = "Manche " + (BaseCampManager.instance.currentTurn + 1);
+        roundText.text = "Manche " + BaseCampManager.instance.currentTurn;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
