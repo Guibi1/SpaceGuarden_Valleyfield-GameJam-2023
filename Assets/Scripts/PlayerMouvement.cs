@@ -84,7 +84,7 @@ public class PlayerMouvement : MonoBehaviour
         }
         else if (plantPrefab != null)
         {
-            notification.ShowText("Appuyez sur E pour planter votre semance");
+            notification.ShowText("Appuyez sur E pour planter votre semence");
         }
         else
         {
