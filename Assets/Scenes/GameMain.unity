@@ -4700,11 +4700,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7580056222562082408, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001589663
+      value: -0.000000015788158
       objectReference: {fileID: 0}
     - target: {fileID: 7580056222562082408, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000065845986
+      value: 0.000000006539668
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4720,15 +4720,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.0025250795
+      value: 0.0025250693
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000018223494
+      value: -0.000000015967325
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -4.6015927e-11
+      value: 4.031874e-11
       objectReference: {fileID: 0}
     - target: {fileID: 8238767966599743356, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: near clip plane
@@ -4970,7 +4970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthPoint: 0
   allowPooling: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 1671873567}
   splashDamagePrefab: {fileID: 0}
   deathAnimation: 0
   deathAnimationTime: 0
@@ -5575,6 +5575,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1397917920435972165, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
   m_PrefabInstance: {fileID: 1671873564}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1671873567 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1397917920435972218, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+  m_PrefabInstance: {fileID: 1671873564}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65ac4bb23f66e9c4db6e9ea75f1226f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1697307234
 GameObject:
   m_ObjectHideFlags: 0
@@ -7533,13 +7544,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlantsGrid
       objectReference: {fileID: 0}
+    - target: {fileID: 7630602950679962628, guid: b9d7a5161bb62cd448e617a162030e4b, type: 3}
+      propertyPath: tilesNumberX
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7630602950679962629, guid: b9d7a5161bb62cd448e617a162030e4b, type: 3}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7630602950679962629, guid: b9d7a5161bb62cd448e617a162030e4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24
+      value: -50.83
       objectReference: {fileID: 0}
     - target: {fileID: 7630602950679962629, guid: b9d7a5161bb62cd448e617a162030e4b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7547,7 +7562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7630602950679962629, guid: b9d7a5161bb62cd448e617a162030e4b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -24
+      value: -25
       objectReference: {fileID: 0}
     - target: {fileID: 7630602950679962629, guid: b9d7a5161bb62cd448e617a162030e4b, type: 3}
       propertyPath: m_LocalRotation.w
