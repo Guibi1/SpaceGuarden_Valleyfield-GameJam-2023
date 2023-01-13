@@ -114,6 +114,9 @@ MonoBehaviour:
   alien1Prefab: {fileID: 5683676939840238041, guid: 12765bc75164f514c8f606eb4b420e2e, type: 3}
   alien2Prefab: {fileID: 4000659895368378291, guid: dc228ab88c289fc4cb852ca3bd6037a2, type: 3}
   alien3Prefab: {fileID: 5683676939840238041, guid: 12765bc75164f514c8f606eb4b420e2e, type: 3}
+  bossSpawnLocation: {fileID: 0}
+  spawnLocations: []
+  currentTurn: 0
 --- !u!114 &2221486804251431474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +129,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa6cacd312920c4d8fd7cead2bfbd18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aliens:
-  - {fileID: 0}
-  - {fileID: 0}
+  aliens: []
