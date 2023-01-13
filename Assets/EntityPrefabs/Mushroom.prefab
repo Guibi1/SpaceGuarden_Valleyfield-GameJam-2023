@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5703364817951855355}
   - component: {fileID: 8795317614665242974}
+  - component: {fileID: 5655580500338488803}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -50,8 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f9a8b8c0776b14595f0dd0e7ca665b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
+  _healthPoint: 0
   allowPooling: 0
+  healthBar: {fileID: 0}
   splashDamagePrefab: {fileID: 0}
   deathAnimation: 0
   deathAnimationTime: 0
@@ -60,6 +62,37 @@ MonoBehaviour:
   aoEPlant: {fileID: 0}
   animator: {fileID: 0}
   healArea: {fileID: 0}
+  emitterKill: {fileID: 5655580500338488803}
+--- !u!114 &5655580500338488803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703364817951855354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1162525178
+      Data2: 1138112018
+      Data3: 1133317528
+      Data4: 507460155
+    Path: event:/SFX/Plant/sfx_DestroyedPlant
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5703364818075717400
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 1397917921561285991, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7ad80f659a7016c42be6cd2d44fed1d3, type: 2}
+      objectReference: {fileID: 2100000, guid: be7ab1c62b234e2499f5dde4cf863bba, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
 --- !u!4 &4750628076320231494 stripped
