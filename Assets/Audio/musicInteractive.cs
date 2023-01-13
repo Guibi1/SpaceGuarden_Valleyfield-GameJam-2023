@@ -12,8 +12,6 @@ public class musicInteractive : MonoBehaviour
     void Start()
     {
         music.Play();
-        InvokeRepeating("checkEnemyStatus", 0f, 2f);
-        
         instance = RuntimeManager.CreateInstance(fmodEvent);
         instance.start();
     }
@@ -22,11 +20,5 @@ public class musicInteractive : MonoBehaviour
     {
         instance.setParameterByName("Enemies", AlienManager.instance.aliens.Count);
         instance.setParameterByName("Healt", 1);
-    }
-
-    void checkEnemyStatus()
-    {
-        int nbAlien = AlienManager.instance.aliens.Count;
-        print("Nb alien: " + nbAlien);
     }
 }
