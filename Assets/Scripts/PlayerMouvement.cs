@@ -82,7 +82,7 @@ public class PlayerMouvement : MonoBehaviour
 
         if (EditMode)
         {
-            notification.ShowText("Cliquer sur une cases loin de vous pour la planter");
+            notification.ShowText("Cliquer sur une case loin de vous pour la planter");
         }
         else if (plantPrefab != null)
         {

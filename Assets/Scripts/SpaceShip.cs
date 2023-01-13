@@ -29,7 +29,7 @@ public class SpaceShip : MonoBehaviour
     private void Start()
     {
         instance = this;
-        ok = transform.position.y + 50f;
+        ok = transform.position.y + 25f;
     }
 
     void Update()
@@ -46,15 +46,19 @@ public class SpaceShip : MonoBehaviour
         }
         else
         {
+            print("go down");
             if (Vector3.Distance(transform.position, place.transform.position) < 0.1f)
             {
+                print("stop");
                 emitterup.Stop();
                 return;
             }
 
-
+            print("go down fo real");
             float yPos = Mathf.PerlinNoise(Time.time * noiseScale, 0.0f) * noiseStrength;
-            transform.position -= new Vector3(0.0f, yPos * speed * Time.deltaTime * 2f, 0.0f);
+            transform.position -= new Vector3(0.0f, yPos * speed * Time.deltaTime * 4f, 0.0f);
+            
+            ;
         }
     }
 
