@@ -61,7 +61,7 @@ public class Alien : Agent
         }
 
 
-        sprite.transform.LookAt(Camera.main.transform);
+//        sprite.transform.LookAt(Camera.main.transform);
         
     }
 

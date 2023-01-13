@@ -13,7 +13,12 @@ public class Pea : Plant
     public float shootspeed;
     public override IEnumerator Execute()
     {
+        Debug.Log("execute");
+        
+        
         if (aimedAlien == null) yield break;
+        
+        Debug.Log("shoot");
         
         GameObject peaBall = LeanPool.Spawn(PeaBall);
         peaBall.GetComponent<Rigidbody>().velocity = aimPoint.forward * shootspeed;
@@ -50,13 +55,11 @@ public class Pea : Plant
 
     private void OnTriggerEnter(Collider other)
     {
-        print("OnTriggerENter");
         if (aimedAlien != null)
             return;
         
         if (other.CompareTag("Alien"))
         {
-            print("CapsuleAlien");
             aimedAlien = other.GetComponent<Alien>();
 
             if (aimedAlien == null)
