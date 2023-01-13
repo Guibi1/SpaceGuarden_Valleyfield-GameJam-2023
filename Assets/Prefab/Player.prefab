@@ -766,7 +766,7 @@ MonoBehaviour:
   - Name: Enemies
     Value: 0
   - Name: Health
-    Value: 0
+    Value: 100
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -802,4 +802,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   music: {fileID: 1376079059394091784}
-  param: {fileID: 0}
+  fmodEvent:
+    Guid:
+      Data1: 1470370708
+      Data2: 1274824361
+      Data3: 1370543505
+      Data4: -133740927
+    Path: event:/Music/Music
