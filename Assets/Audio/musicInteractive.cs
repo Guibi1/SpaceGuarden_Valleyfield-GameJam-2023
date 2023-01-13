@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using FMODUnity;
 
@@ -11,18 +12,21 @@ public class musicInteractive : MonoBehaviour
     void Start()
     {
         music.Play();
+        InvokeRepeating("checkEnemyStatus", 0f, 2f);
         
         instance = RuntimeManager.CreateInstance(fmodEvent);
         instance.start();
-        
-        InvokeRepeating("checkEnemyStatus", 0f, 2f);
+    }
+
+    private void Update()
+    {
+        instance.setParameterByName("Enemies", AlienManager.instance.aliens.Count);
+        instance.setParameterByName("Healt", 1);
     }
 
     void checkEnemyStatus()
     {
         int nbAlien = AlienManager.instance.aliens.Count;
-        
-        instance.setParameterByName("Enemies", nbAlien);
-        instance.setParameterByName("Healt", 1);
+        print("Nb alien: " + nbAlien);
     }
 }
