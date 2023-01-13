@@ -16,9 +16,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] float tileSize = 1;
 
 
-    [SerializeReference] TileManager tilePrefab;
-    [SerializeReference] GameObject player;
-    [SerializeField] Camera cam;
+    [SerializeReference] GameObject tilePrefab;
 
     [HideInInspector] public TileManager selectedTile;
     [HideInInspector] public bool editMode;
@@ -51,7 +49,7 @@ public class GridManager : MonoBehaviour
 
     public void RaycastMouse()
     {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Physics.Raycast(ray, out hit);
 
@@ -78,7 +76,8 @@ public class GridManager : MonoBehaviour
         {
             for (int z = 0; z < tilesNumberZ; z++)
             {
-                tiles[x, z] = LeanPool.Spawn(tilePrefab, new Vector3(x * tileSize + transform.localPosition.x, 0, z * tileSize + transform.localPosition.z), Quaternion.Euler(0, 0, 0), transform);
+                GameObject tile = LeanPool.Spawn(tilePrefab, new Vector3(x * tileSize + transform.localPosition.x, transform.localPosition.y, z * tileSize + transform.localPosition.z), Quaternion.Euler(0, 0, 0), transform);
+                tiles[x, z] = tile.GetComponent<TileManager>();
                 tiles[x, z].maxSize = tileSize - border;
             }
         }
