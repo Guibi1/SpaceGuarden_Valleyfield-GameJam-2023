@@ -55,32 +55,22 @@ public class SpaceShip : MonoBehaviour
 
             float yPos = Mathf.PerlinNoise(Time.time * noiseScale, 0.0f) * noiseStrength;
             transform.position -= new Vector3(0.0f, yPos * speed * Time.deltaTime * 2f, 0.0f);
-
-
         }
-
-
     }
 
 
     public void PickUp()
     {
-        if (reference != null)
-        {
-            PlayerMouvement.instance.PickUpPlant(prefab);
-            Destroy(reference.gameObject);
-            prefab = null;
-        }
+        PlayerMouvement.instance.PickUpPlant(BaseCampManager.instance.nextShippement);
+        Destroy(referenceVaisseau.gameObject);
     }
 
-    public Plant prefab;
-    public Plant reference;
+    public Plant referenceVaisseau;
 
     [Button]
     public void GoDown(Plant plant)
     {
-        prefab = plant;
-        reference = LeanPool.Spawn(plant, SpawnPoint.transform.position, Quaternion.identity, transform);
+        referenceVaisseau = LeanPool.Spawn(plant, SpawnPoint.transform.position, Quaternion.identity, transform);
         goUp = false;
     }
 

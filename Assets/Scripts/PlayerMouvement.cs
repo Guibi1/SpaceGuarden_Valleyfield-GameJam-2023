@@ -137,7 +137,7 @@ public class PlayerMouvement : MonoBehaviour
             // Shop
             if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
             {
-                if (SpaceShip.instance.reference != null)
+                if (SpaceShip.instance.referenceVaisseau != null)
                 {
                     SpaceShip.instance.PickUp();
                 }
