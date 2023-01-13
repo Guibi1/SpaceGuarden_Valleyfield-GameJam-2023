@@ -8,27 +8,25 @@ using UnityEngine;
 
 public class Alien : Agent
 {
-    public enum BehaviorState {Inactive, WantsPlant, WantsCenter}
+    public enum BehaviorState { Inactive, WantsPlant, WantsCenter }
 
     [SerializeField] private Animator alienAnimator;
 
     [ReadOnly]
-    public BehaviorState Behavior ;
-    
-    public enum SearchState {Inactive, Center, Plant, AttackCenter, AttackPlant}
+    public BehaviorState Behavior;
+
+    public enum SearchState { Inactive, Center, Plant, AttackCenter, AttackPlant }
 
     [ReadOnly]
     public SearchState searchState;
-    
+
     private Plant currentTargetPlant;
-    
+
     [InlineEditor()]
     public AlienData alienData;
 
     public BehaviorState StartingBehaviorState;
 
-    public HealthBar hb;
-    
     [Button]
     public void StartAlienBrain()
     {
@@ -41,8 +39,13 @@ public class Alien : Agent
     private void OnEnable()
     {
         StartAlienBrain();
-        hb.maxHealth = alienData.health;
+    }
 
+
+    public override void Start()
+    {
+        HP = alienData.health;
+        healthBar.maxHealth = HP;
     }
 
     private void Update()
@@ -60,17 +63,13 @@ public class Alien : Agent
 
                 break;
             case BehaviorState.WantsCenter:
-                
+
                 SearchSwitchCase(SearchState.Center);
 
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
-
-
-//        sprite.transform.LookAt(Camera.main.transform);
-        
     }
 
     private void SearchSwitchCase(SearchState defaultSearch)
@@ -80,7 +79,7 @@ public class Alien : Agent
             case SearchState.Inactive:
                 searchState = defaultSearch;
                 break;
-                    
+
             //There is no more plant so behavior is now searching center
             case SearchState.Center:
 
@@ -91,7 +90,7 @@ public class Alien : Agent
                     navMeshAgent.isStopped = true;
                     searchState = SearchState.AttackCenter;
                 }
-                
+
                 break;
             case SearchState.Plant:
                 alienAnimator.SetBool("Attacking", false);
@@ -99,7 +98,7 @@ public class Alien : Agent
                 if (currentTargetPlant == null)
                 {
                     currentTargetPlant = FindClosestPlant();
-                            
+
                     // No more plants
                     if (currentTargetPlant == null)
                     {
@@ -107,7 +106,7 @@ public class Alien : Agent
                         return;
                     }
                 }
-                        
+
                 if (GoToPlant())
                 {
                     // If reached plant
@@ -142,7 +141,7 @@ public class Alien : Agent
     {
         if (PlantManager.instance.plants.Count == 0)
             return null;
-        
+
         Vector3 closestVector = PlantManager.instance.plants[0].transform.position;
         float closestDistance = Vector3.Distance(PlantManager.instance.plants[0].transform.position, transform.position);
 
@@ -159,7 +158,7 @@ public class Alien : Agent
 
             }
         }
-        
+
         return PlantManager.instance.plants[closeByIndex];
 
     }
@@ -167,13 +166,8 @@ public class Alien : Agent
     public override void OnHit(float damage)
     {
         base.OnHit(damage);
-        hb.currentHealth = HP;
-
         sprite.GetComponent<SpriteRenderer>().color = Color.red;
-
-
     }
-
 
 
     public override void Die() { 
@@ -213,7 +207,7 @@ public class Alien : Agent
         alienAnimator.SetBool("Attacking", true);
         HitEntity(currentTargetPlant);
     }
-    
+
     private void AttackCenter()
     {
 
@@ -237,8 +231,8 @@ public class Alien : Agent
     }
 
     private float currentAttackTime = 0;
-    
-    
-    
-    
+
+
+
+
 }

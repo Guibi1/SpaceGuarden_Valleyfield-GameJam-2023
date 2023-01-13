@@ -317,15 +317,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6fccec56396dfc4b8710f16a67e97e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
+  _healthPoint: 20
   allowPooling: 0
+  healthBar: {fileID: 7809237762595506528}
   splashDamagePrefab: {fileID: 0}
   deathAnimation: 0
   deathAnimationTime: 0
   dying: 0
   plantData: {fileID: 11400000, guid: fb6034e1e53bf104da9ce9fbbd0f71cf, type: 2}
   aoEPlant: {fileID: 3004135943216447811}
-  hb: {fileID: 7809237762595506528}
   animator: {fileID: 5231747511062193725}
   healArea: {fileID: 0}
   aimedAlien: {fileID: 0}
@@ -1342,7 +1342,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 746450577669488982, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
       propertyPath: visibleY
-      value: 15
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 8419056878535736794, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
       propertyPath: m_RootOrder
@@ -1461,7 +1461,7 @@ PrefabInstance:
     - target: {fileID: 1397917920706625530, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c9f89a768ebccc04bb51efb23d199e9d, type: 2}
+      objectReference: {fileID: 2100000, guid: 7ad80f659a7016c42be6cd2d44fed1d3, type: 2}
     - target: {fileID: 1397917920706625531, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Mesh
       value: 

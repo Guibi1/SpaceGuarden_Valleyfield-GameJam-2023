@@ -174,7 +174,7 @@ public class PlayerMouvement : MonoBehaviour
         if (other.gameObject.CompareTag("PlantHealZone"))
         {
             plantToHeal = other.gameObject.GetComponentInParent<Plant>();
-            plantToHeal.GetComponentInChildren<Notification>();
+            plantNotif = plantToHeal.GetComponentInChildren<Notification>();
         }
     }
 
@@ -184,6 +184,7 @@ public class PlayerMouvement : MonoBehaviour
         {
             other.gameObject.GetComponentInParent<Plant>().GetComponentInChildren<Notification>().HideText();
             plantToHeal = null;
+            plantNotif = null;
         }
     }
 }
