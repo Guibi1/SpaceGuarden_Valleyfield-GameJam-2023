@@ -460,7 +460,7 @@ MonoBehaviour:
   playerState: 0
   emitterWalk: {fileID: 4322880705023197939}
   emitterSwing: {fileID: 7989790959018338409}
-  emitterHealPlant: {fileID: 3776852740016228080}
+  emitterHeal: {fileID: 0}
   AliensInRange: []
 --- !u!54 &1078594863
 Rigidbody:
@@ -700,3 +700,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1644364916}
+  emitterWalk: {fileID: 4322880705023197939}
