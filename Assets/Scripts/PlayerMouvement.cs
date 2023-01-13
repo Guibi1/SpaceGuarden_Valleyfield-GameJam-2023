@@ -89,6 +89,7 @@ public class PlayerMouvement : MonoBehaviour
         Vector3 targetPos = new Vector3(verticalAxis, 0, horizontalAxis).normalized;
         if (playerState == PlayerStates.Normal && !EditMode)
         {
+            print("AUDIO: walkstart");
             emitterWalk.Play();
             rb.velocity = (cameraVectorForward * targetPos.x + targetPos.z * cameraVectorRight) * speedMultiplier;
             if (horizontalAxis > 0)
@@ -100,6 +101,7 @@ public class PlayerMouvement : MonoBehaviour
                 sprite.transform.localScale = new Vector3(-1, 1, 1);
             }
         }
+        print("AUDIO: walkEnd");
         emitterWalk.Stop();
         SpriteManager.instance.SetWalking(!(horizontalAxis == 0 && verticalAxis == 0));
 
@@ -135,10 +137,12 @@ public class PlayerMouvement : MonoBehaviour
         {
             if (plantToHeal != null)
             {
+                print("AUDIO: playheal");
                 emitterHeal.Play();
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
             }
         }
+        print("AUDIO: stopheal");
         emitterHeal.Stop();
 
         //TODO : REMOVE THIS SHIT
