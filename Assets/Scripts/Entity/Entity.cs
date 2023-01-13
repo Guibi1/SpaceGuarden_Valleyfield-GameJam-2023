@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] public float _healthPoint = 20;
-    [SerializeField]
+    [HideInInspector] public float _healthPoint;
+    [HideInInspector]
     public virtual float HP
     {
         get => _healthPoint;

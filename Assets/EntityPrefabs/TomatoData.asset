@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 10
   health: 5
-  damage: 0
+  damage: 2
   timeToShip: 1
   intervalBetweenExecute: 1
   executeTime: 0.24

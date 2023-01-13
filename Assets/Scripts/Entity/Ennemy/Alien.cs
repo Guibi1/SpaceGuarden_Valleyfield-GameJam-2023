@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Lean.Pool;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using FMODUnity;
 
 
 public class Alien : Agent
@@ -35,6 +36,8 @@ public class Alien : Agent
 
     [SerializeField] private GameObject sprite;
 
+    public StudioEventEmitter emmitterKill;
+    public StudioEventEmitter emmiterHit;
 
     private void OnEnable()
     {
@@ -44,8 +47,8 @@ public class Alien : Agent
 
     public override void Start()
     {
+        healthBar.maxHealth = alienData.health;
         HP = alienData.health;
-        healthBar.maxHealth = HP;
     }
 
     private void Update()
@@ -82,9 +85,6 @@ public class Alien : Agent
 
             //There is no more plant so behavior is now searching center
             case SearchState.Center:
-
-                alienAnimator.SetBool("Attacking", false);
-
                 if (GoToCenter())
                 {
                     navMeshAgent.isStopped = true;
@@ -93,8 +93,6 @@ public class Alien : Agent
 
                 break;
             case SearchState.Plant:
-                alienAnimator.SetBool("Attacking", false);
-
                 if (currentTargetPlant == null)
                 {
                     currentTargetPlant = FindClosestPlant();
@@ -161,6 +159,7 @@ public class Alien : Agent
     public override void OnHit(float damage)
     {
         base.OnHit(damage);
+        emmiterHit.Play();
         sprite.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
@@ -168,6 +167,7 @@ public class Alien : Agent
     public override void Die()
     {
         base.Die();
+        emmitterKill.Play();
         alienAnimator.SetTrigger("Death");
     }
 
@@ -200,18 +200,15 @@ public class Alien : Agent
             return;
         }
 
-        alienAnimator.SetBool("Attacking", true);
         HitEntity(currentTargetPlant);
     }
 
     private void AttackCenter()
     {
-
         if (PlantManager.instance.center == null || PlantManager.instance.center.dying)
-        {
             return;
-        }
-        alienAnimator.SetBool("Attacking", true);
+
+
         HitEntity(PlantManager.instance.center);
     }
 
@@ -222,13 +219,10 @@ public class Alien : Agent
         if (currentAttackTime > alienData.damageSpeed)
         {
             currentAttackTime = 0;
+            alienAnimator.SetTrigger("Attack");
             entity.OnHit(alienData.damage);
         }
     }
 
     private float currentAttackTime = 0;
-
-
-
-
 }
