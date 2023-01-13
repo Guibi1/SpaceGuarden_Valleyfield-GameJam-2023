@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Lean.Pool;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -172,6 +173,12 @@ public class Alien : Agent
                 searchState = SearchState.Plant;
             }
         }
+
+        if (other.CompareTag("PeaBall"))
+        {
+            OnHit(1);
+            LeanPool.Despawn(other.gameObject);
+        }
     }
 
     protected virtual void AttackPlant()
@@ -211,6 +218,8 @@ public class Alien : Agent
     }
 
     private float currentAttackTime = 0;
+    
+    
     
     
 }

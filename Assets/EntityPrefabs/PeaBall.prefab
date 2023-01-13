@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6918806769189499456}
   m_Layer: 0
   m_Name: PeaBall
-  m_TagString: Untagged
+  m_TagString: PeaBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
