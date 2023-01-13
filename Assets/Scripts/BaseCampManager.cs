@@ -18,7 +18,7 @@ public class BaseCampManager : MonoBehaviour
     private bool isFighting = false;
     public int currentTurn = 0;
     public int turnsUntilNextShippement = 0;
-    private Plant nextShippement;
+    public Plant nextShippement;
 
     void Start()
     {
@@ -40,11 +40,11 @@ public class BaseCampManager : MonoBehaviour
             NextTurn();
         }
 
-        if (nextShippement != null)
+        if (turnsUntilNextShippement > 0)
         {
             textMesh.text = "Votre plante arrive dans " + turnsUntilNextShippement + " tours";
         }
-        else if (SpaceShip.instance.reference != null)
+        else if (SpaceShip.instance.referenceVaisseau != null)
         {
             textMesh.text = "Appuyez sur E pour prendre la plante";
         }
@@ -62,7 +62,6 @@ public class BaseCampManager : MonoBehaviour
         if (turnsUntilNextShippement == 0 && nextShippement != null)
         {
             SpaceShip.instance.GoDown(nextShippement);
-            nextShippement = null;
             cooldownNextWave = 10f;
         }
 

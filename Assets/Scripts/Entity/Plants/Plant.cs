@@ -41,9 +41,6 @@ public abstract class Plant : Entity
         }
 
         ChangeState(State.Active);
-
-        if (!PlantManager.instance.plants.Contains(this))
-            PlantManager.instance.plants.Add(this);
     }
 
     public void SetHealth(float health)
