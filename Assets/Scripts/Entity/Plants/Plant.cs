@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Lean.Pool;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using FMODUnity;
 
 public abstract class Plant : Entity
 {
@@ -23,6 +24,8 @@ public abstract class Plant : Entity
     public abstract IEnumerator Execute();
     public abstract IEnumerator Preparing();
 
+    //Sound
+    public StudioEventEmitter emitterKill;
 
 
     public override void Start()
@@ -111,6 +114,7 @@ public abstract class Plant : Entity
     public override void Die()
     {
         PlantManager.instance.plants.Remove(this);
+        emitterKill.Play();
         base.Die();
     }
 
