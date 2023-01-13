@@ -17,6 +17,11 @@ public class OptionsManager : MonoBehaviour
         {
             baldToggle.isOn = Bald;
         }
+
+        if (trophyImage != null && TrophyWon)
+        {
+            trophyImage.sprite = trophyWonSprite;
+        }
     }
 
     public bool Bald
@@ -36,15 +41,7 @@ public class OptionsManager : MonoBehaviour
     public bool TrophyWon
     {
         get => PlayerPrefs.GetInt("trophy", 0) == 1;
-        set
-        {
-            PlayerPrefs.SetInt("trophy", value ? 1 : 0);
-
-            if (trophyImage != null && value)
-            {
-                trophyImage.sprite = trophyWonSprite;
-            }
-        }
+        set => PlayerPrefs.SetInt("trophy", value ? 1 : 0);
     }
 
     public void UpdateBaldFromToggle()

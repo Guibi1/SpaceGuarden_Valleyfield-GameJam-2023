@@ -53,7 +53,7 @@ public class PlayerMouvement : MonoBehaviour
             SpriteManager.instance.SetCharType(value);
         }
     }
-  
+
     public bool EditMode
     {
         get => SceneManager.GetActiveScene().name == "credits" ? false : GridManager.instance.editMode;
@@ -90,7 +90,7 @@ public class PlayerMouvement : MonoBehaviour
         }
         else
         {
-            if(notification != null)
+            if (notification != null)
             {
                 notification.HideText();
             }
