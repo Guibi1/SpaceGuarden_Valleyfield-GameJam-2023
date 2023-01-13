@@ -87,7 +87,7 @@ public class BaseCampManager : MonoBehaviour
                 {
                     boss.gameObject.transform.localScale = localScale * x;
                 }));
-                boss.alienData.health = 400;
+                boss.alienData.health = 200;
                 boss.alienData.damage = 10;
                 return;
             }
