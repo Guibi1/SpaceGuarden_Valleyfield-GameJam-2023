@@ -41,10 +41,12 @@ public class BaseCampManager : MonoBehaviour
         currentTurn += 1;
         turnsUntilNextShippement -= 1;
         isFighting = true;
+        print(turnsUntilNextShippement);
 
         if (turnsUntilNextShippement == 0 && nextShippement != null)
         {
-            LeanPool.Spawn(nextShippement, transform);
+            // LeanPool.Spawn(nextShippement, transform);
+            PlayerMouvement.instance.PickUpPlant(nextShippement);
             nextShippement = null;
         }
 
@@ -93,10 +95,11 @@ public class BaseCampManager : MonoBehaviour
     }
 
 
-    public void ShipPlant(Plant plant)
+    public void BuyPlant(Plant plant)
     {
         if (turnsUntilNextShippement != 0) return;
         nextShippement = plant;
         turnsUntilNextShippement = plant.plantData.timeToShip;
+        print(turnsUntilNextShippement);
     }
 }

@@ -1,6 +1,5 @@
 using Cinemachine;
 using Lean.Pool;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
@@ -119,11 +118,12 @@ public class PlayerMouvement : MonoBehaviour
         // On interact
         if (Input.GetKeyDown(KeyCode.E))
         {
+            // Shop
             if (Vector3.Distance(transform.localPosition, BaseCampManager.instance.transform.localPosition) <= distanceToInteract)
             {
                 CoinManager.instance.shopIsOpen = true;
             }
-
+            // Edit mode
             else if (playertype == PlayerTypes.Plant)
             {
                 EditMode = !EditMode;
@@ -136,13 +136,12 @@ public class PlayerMouvement : MonoBehaviour
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
             }
         }
+    }
 
-        //TODO : REMOVE THIS SHIT
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            notification.SetActive(true);
-            playertype = PlayerTypes.Plant;
-        }
+    public void PickUpPlant(Plant plant)
+    {
+        plantPrefab = plant;
+        playertype = PlayerTypes.Plant;
     }
 
 
