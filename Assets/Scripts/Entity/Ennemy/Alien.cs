@@ -108,7 +108,7 @@ public class Alien : Agent
                     // No more plants
                     if (currentTargetPlant == null)
                     {
-                        Behavior = BehaviorState.WantsCenter;
+                        searchState = SearchState.Center;
                         return;
                     }
                 }
