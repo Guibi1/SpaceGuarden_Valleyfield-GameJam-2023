@@ -1,10 +1,14 @@
 using System;
 using UnityEngine;
+using FMODUnity;
 
 public class SpriteManager : MonoBehaviour
 {
     public static SpriteManager instance;
+    private bool _lastStatus;
     public Animator animator;
+
+    public StudioEventEmitter emitterWalk;
 
     private void Awake()
     {
@@ -20,6 +24,19 @@ public class SpriteManager : MonoBehaviour
     public void SetWalking(bool walking)
     {
         animator.SetBool("IsWalking", walking);
+
+        if (walking && walking != _lastStatus)
+        {
+            print("walk play");
+            _lastStatus = true;
+            emitterWalk.Play();
+        }
+        else if (walking != _lastStatus)
+        {
+            print("walk stop");
+            _lastStatus = false;
+            emitterWalk.Stop();
+        }
     }
 
     public void SetBald(bool bald)
