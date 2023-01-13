@@ -18,7 +18,7 @@ public class PlayerMouvement : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private float speedMultiplier = 50f;
-    [SerializeField] private float distanceToInteract = .5f;
+    [SerializeField] private float distanceToInteract = 5f;
     [SerializeField] private float scytheDamage = 20;
     [SerializeField] private float scytheCooldown = 5;
     [SerializeField] private float plantHealSpeed = 30f;
@@ -26,14 +26,14 @@ public class PlayerMouvement : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject sprite;
     [SerializeField] private GameObject notification;
-    [SerializeField] private GameObject baseCamp;
     [SerializeField] private Plant plantPrefab;
 
-    private Plant plantToHeal;
 
+    [SerializeField] public PlayerStates playerState = PlayerStates.Normal;
+
+    private Plant plantToHeal;
     private float scytheLastUsed = 0f;
 
-    public PlayerStates playerState;
     private PlayerTypes _playertype;
     public PlayerTypes playertype
     {
@@ -45,25 +45,16 @@ public class PlayerMouvement : MonoBehaviour
         }
     }
 
-    public bool editMode
+    public bool EditMode
     {
         get => GridManager.instance.editMode;
         set
         {
             GridManager.instance.editMode = value;
 
-            if (value)
-            {
-                notification.SetActive(false);
-                Cursor.lockState = CursorLockMode.None;
-                cam.m_XAxis.m_MaxSpeed = 0;
-            }
-            else
-            {
-                notification.SetActive(true);
-                Cursor.lockState = CursorLockMode.Locked;
-                cam.m_XAxis.m_MaxSpeed = xCamSpeed;
-            }
+            notification.SetActive(!value);
+            Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
+            cam.m_XAxis.m_MaxSpeed = value ? 0 : xCamSpeed;
         }
     }
 
@@ -96,7 +87,7 @@ public class PlayerMouvement : MonoBehaviour
         float horizontalAxis = Input.GetAxisRaw("Horizontal");
         float verticalAxis = Input.GetAxisRaw("Vertical");
         Vector3 targetPos = new Vector3(verticalAxis, 0, horizontalAxis).normalized;
-        if (playerState == PlayerStates.Normal && !editMode)
+        if (playerState == PlayerStates.Normal && !EditMode)
         {
             rb.velocity = (cameraVectorForward * targetPos.x + targetPos.z * cameraVectorRight) * speedMultiplier;
             if (horizontalAxis > 0)
@@ -113,7 +104,7 @@ public class PlayerMouvement : MonoBehaviour
         // On mouse click
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerState == PlayerStates.Normal)
         {
-            if (!editMode)
+            if (!EditMode)
             {
                 Fire();
             }
@@ -127,21 +118,17 @@ public class PlayerMouvement : MonoBehaviour
         // On interact
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
+            if (Vector3.Distance(transform.localPosition, BaseCampManager.instance.transform.localPosition) <= distanceToInteract)
             {
                 CoinManager.instance.shopIsOpen = true;
             }
+            else if (plantToHeal != null)
+            {
+                plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
+            }
             else if (playertype == PlayerTypes.Plant)
             {
-                editMode = !editMode;
-            }
-        }
-        else if (Input.GetKey(KeyCode.E))
-        {
-            if (plantToHeal != null)
-            {
-                print("Ohhh mon dieuu");
-                plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
+                EditMode = !EditMode;
             }
         }
 
