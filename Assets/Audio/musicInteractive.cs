@@ -12,7 +12,7 @@ public class musicInteractive : MonoBehaviour
     {
         music.Play();
         
-        instance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+        instance = RuntimeManager.CreateInstance(fmodEvent);
         instance.start();
         
         InvokeRepeating("checkEnemyStatus", 0f, 2f);
