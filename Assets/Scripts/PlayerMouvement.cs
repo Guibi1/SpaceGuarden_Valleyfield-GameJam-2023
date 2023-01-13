@@ -146,16 +146,22 @@ public class PlayerMouvement : MonoBehaviour
         if (scytheLastUsed < scytheCooldown) return;
         scytheLastUsed = 0;
         SpriteManager.instance.attack();
+
+        List<Alien> delete = new List<Alien>();
         foreach (Alien a in AliensInRange)
         {
-            if (a != null)
+            if (a == null)
             {
-                a.OnHit(scytheDamage);
+                delete.Add(a);
+                continue;
             }
-            else
-            {
-                AliensInRange.Remove(a);
-            }
+
+            a.OnHit(scytheDamage);
+        }
+
+        foreach (Alien a in delete)
+        {
+            AliensInRange.Remove(a);
         }
     }
 

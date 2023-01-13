@@ -49,6 +49,9 @@ public class Alien : Agent
     {
         healthBar.maxHealth = alienData.health;
         HP = alienData.health;
+
+        if (!AlienManager.instance.aliens.Contains(this))
+            AlienManager.instance.aliens.Add(this);
     }
 
     private void Update()
@@ -167,6 +170,7 @@ public class Alien : Agent
     public override void Die()
     {
         base.Die();
+        AlienManager.instance.aliens.Remove(this);
         emmitterKill.Play();
         alienAnimator.SetTrigger("Death");
     }
