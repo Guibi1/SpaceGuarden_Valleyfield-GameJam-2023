@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class SlugAlien : Alien
 {
-    public override void OnHit(float damage)
-    {
-
-
-    }
 
 
 
