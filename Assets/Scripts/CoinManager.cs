@@ -43,7 +43,7 @@ public class CoinManager : MonoBehaviour
 
         this.coins -= plant.plantData.cost;
         shopIsOpen = false;
-        BaseCampManager.instance.ShipPlant(plant);
+        BaseCampManager.instance.BuyPlant(plant);
     }
 
     public void GainCoins(int coins)
