@@ -99,9 +99,14 @@ public class PlayerMouvement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerState == PlayerStates.Normal)
         {
             if (!EditMode)
+            {
                 Fire();
+            }
             else if (GridManager.instance.selectedTile != null)
-                PlacePlant();
+            {
+                Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
+                GridManager.instance.selectedTile.Plant(plant);
+            }
         }
 
         // On interact
@@ -163,12 +168,6 @@ public class PlayerMouvement : MonoBehaviour
         {
             AliensInRange.Remove(a);
         }
-    }
-
-    public void PlacePlant()
-    {
-        Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
-        GridManager.instance.selectedTile.Plant(plant);
     }
 
     public List<Alien> AliensInRange = new List<Alien>();

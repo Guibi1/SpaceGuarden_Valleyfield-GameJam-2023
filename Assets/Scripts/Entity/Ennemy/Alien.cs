@@ -88,6 +88,9 @@ public class Alien : Agent
 
             //There is no more plant so behavior is now searching center
             case SearchState.Center:
+
+                alienAnimator.SetBool("Attacking", false);
+
                 if (GoToCenter())
                 {
                     navMeshAgent.isStopped = true;
@@ -96,6 +99,8 @@ public class Alien : Agent
 
                 break;
             case SearchState.Plant:
+                alienAnimator.SetBool("Attacking", false);
+
                 if (currentTargetPlant == null)
                 {
                     currentTargetPlant = FindClosestPlant();
@@ -204,15 +209,18 @@ public class Alien : Agent
             return;
         }
 
+        alienAnimator.SetBool("Attacking", true);
         HitEntity(currentTargetPlant);
     }
 
     private void AttackCenter()
     {
+
         if (PlantManager.instance.center == null || PlantManager.instance.center.dying)
+        {
             return;
-
-
+        }
+        alienAnimator.SetBool("Attacking", true);
         HitEntity(PlantManager.instance.center);
     }
 
@@ -223,10 +231,13 @@ public class Alien : Agent
         if (currentAttackTime > alienData.damageSpeed)
         {
             currentAttackTime = 0;
-            alienAnimator.SetTrigger("Attack");
             entity.OnHit(alienData.damage);
         }
     }
 
     private float currentAttackTime = 0;
+
+
+
+
 }
