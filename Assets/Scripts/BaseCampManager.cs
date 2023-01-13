@@ -40,7 +40,7 @@ public class BaseCampManager : MonoBehaviour
 
     private void NextTurn()
     {
-        float cooldownNextWave = 2f;
+        float cooldownNextWave = 5f;
 
         turnsUntilNextShippement -= 1;
         if (turnsUntilNextShippement == 0 && nextShippement != null)
