@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e244d80e429f2eb45bf7ed8532684b64, type: 3}
   m_Name: PeaData
   m_EditorClassIdentifier: 
-  cost: 5
+  cost: 15
   health: 10
   damage: 3
-  timeToShip: 4
+  timeToShip: 1
   intervalBetweenExecute: 0.7
   executeTime: 0.7
   preparingTime: 0
