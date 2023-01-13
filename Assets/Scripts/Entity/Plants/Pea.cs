@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
+using FMODUnity;
 
 public class Pea : Plant
 {
@@ -12,6 +13,9 @@ public class Pea : Plant
     public Transform aimPoint;
     public float shootspeed;
     public Animator customAnimator;
+    
+    //Sound
+    public StudioEventEmitter emitterAttack;
     public override IEnumerator Execute()
     {
         if (aimedAlien == null) yield break;
@@ -20,9 +24,10 @@ public class Pea : Plant
         GameObject peaBall = LeanPool.Spawn(PeaBall);
         peaBall.transform.position = aimPoint.transform.position;
         peaBall.GetComponent<Rigidbody>().velocity = aimPoint.forward * shootspeed;
-
-        customAnimator.Play("Pea");
         
+        emitterAttack.Play();
+        customAnimator.Play("Pea");
+
         StartCoroutine(DeleteAfterTime(peaBall));
     }
 
