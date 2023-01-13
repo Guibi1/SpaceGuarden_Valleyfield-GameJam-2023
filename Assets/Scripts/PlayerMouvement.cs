@@ -3,6 +3,7 @@ using Lean.Pool;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMouvement : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class PlayerMouvement : MonoBehaviour
 
     public bool EditMode
     {
-        get => GridManager.instance.editMode;
+        get => SceneManager.GetActiveScene().name == "credits" ? false : GridManager.instance.editMode;
         set
         {
             GridManager.instance.editMode = value;
