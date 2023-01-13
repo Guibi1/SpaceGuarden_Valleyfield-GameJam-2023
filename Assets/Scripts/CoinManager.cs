@@ -9,6 +9,7 @@ public class CoinManager : MonoBehaviour
 
     [SerializeReference] private Canvas shopCanvas;
     [SerializeReference] private Canvas pauseCanvas;
+    [SerializeReference] private Canvas deathCanvas;
     [SerializeReference] private Canvas overlayCanvas;
     [SerializeReference] private Canvas backgroundCanvas;
     [SerializeReference] private TextMeshProUGUI roundText;
@@ -56,6 +57,17 @@ public class CoinManager : MonoBehaviour
         volume.sharedProfile.components[0].active = true;
     }
 
+    public void OpenDeath()
+    {
+        Time.timeScale = 0;
+        deathCanvas.enabled = true;
+        overlayCanvas.enabled = false;
+        backgroundCanvas.enabled = true;
+        Cursor.lockState = CursorLockMode.None;
+        cam.m_XAxis.m_MaxSpeed = 0;
+        volume.sharedProfile.components[0].active = true;
+    }
+
     public void CloseAll()
     {
         Time.timeScale = 1;
@@ -88,7 +100,7 @@ public class CoinManager : MonoBehaviour
             {
                 OpenPause();
             }
-            else
+            else if (!deathCanvas.enabled)
             {
                 CloseAll();
             }
