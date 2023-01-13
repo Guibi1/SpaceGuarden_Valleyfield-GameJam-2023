@@ -214,6 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2192080856558194290}
   - component: {fileID: 2192080856558194289}
+  - component: {fileID: 7995980789960120964}
   m_Layer: 0
   m_Name: Tomato
   m_TagString: Untagged
@@ -265,11 +266,11 @@ MonoBehaviour:
   aoEPlant: {fileID: 2192080856954426260}
   animator: {fileID: 0}
   healArea: {fileID: 5283655757623206501, guid: 7ddb5dda9d384814bac4b80143f63dd1, type: 3}
+  emitterKill: {fileID: 7995980789960120964}
   TopPart: {fileID: 3685613409987274535}
   tomato: {fileID: 6412683909649566996}
   height: 1
   bottom: 0
-  damage: 0
   particle1: {fileID: 4838115250303343281}
   particle2: {fileID: 2656491009094428389}
   particle3: {fileID: 3126169794227057779}
@@ -323,6 +324,36 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   hitbox: {fileID: 849384510522588331}
+--- !u!114 &7995980789960120964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2192080856558194291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1162525178
+      Data2: 1138112018
+      Data3: 1133317528
+      Data4: 507460155
+    Path: event:/SFX/Plant/sfx_DestroyedPlant
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &2192080856954426257
 GameObject:
   m_ObjectHideFlags: 0
