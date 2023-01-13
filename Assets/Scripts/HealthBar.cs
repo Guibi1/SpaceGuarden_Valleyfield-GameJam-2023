@@ -1,5 +1,6 @@
 using Shapes;
 using System;
+using TMPro;
 using UnityEngine;
 
 public class HealthBar : MonoBehaviour
@@ -8,6 +9,9 @@ public class HealthBar : MonoBehaviour
     [SerializeReference] public Line hitLine;
     [SerializeField] public Color lowHealthColor;
     private Color healthColor;
+
+    public bool displayHP;
+    public TextMeshPro displayText;
 
     public float maxHealth { get; set; } = 100;
 
@@ -47,7 +51,14 @@ public class HealthBar : MonoBehaviour
                     StartCoroutine(SimpleRoutines.LerpCoroutine(0, 1, .3f, (t) => healthLine.Color = Color.Lerp(lowHealthColor, healthColor, t)));
                 }
 
-                _currentHealth = value;
+                if (displayHP)
+                {
+                    displayText.text = ((int) value ).ToString();
+                }
+
+                    _currentHealth = value;
+                
+                
             }
             catch (Exception)
             {
