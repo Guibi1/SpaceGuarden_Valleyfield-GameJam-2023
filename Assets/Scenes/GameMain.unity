@@ -7715,15 +7715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2195955249878243685, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -1.001509
-      objectReference: {fileID: 0}
-    - target: {fileID: 2343413585969355322, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 45.632
-      objectReference: {fileID: 0}
-    - target: {fileID: 2343413585969355322, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -118.91
       objectReference: {fileID: 0}
     - target: {fileID: 5434498395498023244, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalPosition.y

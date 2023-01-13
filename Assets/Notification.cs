@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Notification : MonoBehaviour
 {
     [SerializeReference] private float visibleY = 5f;
-    [SerializeReference] private TextMeshProUGUI text;
+    [SerializeReference] public TextMeshProUGUI tmp;
     [SerializeReference] private List<Graphic> graphics;
 
     private Vector3 targetPosition;
@@ -17,7 +17,7 @@ public class Notification : MonoBehaviour
     {
         targetPosition = new Vector3(0, visibleY, 0);
         targetOpacity = 1;
-        text.text = messgae;
+        tmp.text = messgae;
     }
 
     public void HideText()
