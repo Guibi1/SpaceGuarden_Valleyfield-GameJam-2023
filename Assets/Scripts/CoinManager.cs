@@ -28,6 +28,8 @@ public class CoinManager : MonoBehaviour
         set
         {
             moneyText.text = value + " $";
+            moneyTMP.text = value + " $";
+
             _coins = value;
         }
     }
@@ -72,10 +74,14 @@ public class CoinManager : MonoBehaviour
         CloseAll();
     }
 
+    public TextMeshProUGUI moneyTMP; 
+    public TextMeshProUGUI roundTMP; 
+
     void Update()
     {
         roundText.text = "Manche " + BaseCampManager.instance.currentTurn;
-
+        roundTMP.text = "Manche " + BaseCampManager.instance.currentTurn;
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (overlayCanvas.enabled)
@@ -87,6 +93,8 @@ public class CoinManager : MonoBehaviour
                 CloseAll();
             }
         }
+        
+        
     }
 
     public void Buy(Plant plant)
