@@ -9,6 +9,8 @@ public class Alien : Agent
 {
     public enum BehaviorState {Inactive, WantsPlant, WantsCenter}
 
+    [SerializeField] private Animator alienAnimator;
+
     [ReadOnly]
     public BehaviorState Behavior ;
     
@@ -45,7 +47,6 @@ public class Alien : Agent
         {
             case BehaviorState.Inactive:
                 return;
-                break;
             case BehaviorState.WantsPlant:
 
                 SearchSwitchCase(SearchState.Plant);
@@ -174,17 +175,21 @@ public class Alien : Agent
             searchState = SearchState.Inactive;
             return;
         }
-        
+
+        alienAnimator.SetBool("Attacking", true);
+
+
         HitEntity(currentTargetPlant);
     }
     
     private void AttackCenter()
     {
+
         if (PlantManager.instance.center == null || PlantManager.instance.center.dying)
         {
             return;
         }
-        
+        alienAnimator.SetBool("Attacking", true);
         HitEntity(PlantManager.instance.center);
     }
 

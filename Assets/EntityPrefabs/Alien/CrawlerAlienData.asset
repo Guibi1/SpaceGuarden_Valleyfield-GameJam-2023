@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e06336353230b3441accf6fd073dc838, type: 3}
-  m_Name: Alien #3
+  m_Name: CrawlerAlienData
   m_EditorClassIdentifier: 
   health: 40
   damageSpeed: 0.5
