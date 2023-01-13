@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alien1Prefab: {fileID: 5683676939840238041, guid: 12765bc75164f514c8f606eb4b420e2e, type: 3}
   alien2Prefab: {fileID: 4000659895368378291, guid: dc228ab88c289fc4cb852ca3bd6037a2, type: 3}
-  alien3Prefab: {fileID: 5683676939840238041, guid: 12765bc75164f514c8f606eb4b420e2e, type: 3}
+  alien3Prefab: {fileID: 2299772247275639786, guid: 1c7165d553a1b744cadfa5eaf1b76898, type: 3}
   bossSpawnLocation: {fileID: 0}
   spawnLocations:
   - {fileID: 0}
@@ -63,6 +63,7 @@ MonoBehaviour:
   - {fileID: 0}
   textMesh: {fileID: 0}
   currentTurn: 0
+  turnsUntilNextShippement: 0
   nextShippement: {fileID: 0}
 --- !u!114 &2221486804251431474
 MonoBehaviour:
