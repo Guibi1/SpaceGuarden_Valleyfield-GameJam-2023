@@ -24,9 +24,15 @@ public class SpriteManager : MonoBehaviour
     {
         animator.SetBool("IsWalking", walking);
         if (walking)
+        {
+            print("walk play");
             emitterWalk.Play();
+        }
         else
+        {
+            print("walk stop");
             emitterWalk.Stop();
+        }
     }
 
     public void SetBald(bool bald)
