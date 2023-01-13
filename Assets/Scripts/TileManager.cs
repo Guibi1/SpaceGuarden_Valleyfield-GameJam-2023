@@ -1,3 +1,4 @@
+using Lean.Pool;
 using Shapes;
 using UnityEngine;
 
@@ -68,11 +69,10 @@ public class TileManager : MonoBehaviour
         Size = maxSize * (Selected ? 1f : .8f);
     }
 
-    public void Plant(Plant plant)
+    public void Plant(Plant prefab)
     {
-
-        // TODO : Plant logic here
-
+        Plant plant = LeanPool.Spawn(prefab, transform).GetComponent<Plant>();
+        plant.transform.localPosition = Vector3.zero;
     }
 
 }

@@ -1,6 +1,5 @@
 using Cinemachine;
 using Lean.Pool;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
@@ -111,19 +110,22 @@ public class PlayerMouvement : MonoBehaviour
             }
             else if (GridManager.instance.selectedTile != null)
             {
-                Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
-                GridManager.instance.selectedTile.Plant(plant);
+                GridManager.instance.selectedTile.Plant(plantPrefab);
+                EditMode = false;
+                plantPrefab = null;
+                playertype = PlayerTypes.Scythe;
             }
         }
 
         // On interact
         if (Input.GetKeyDown(KeyCode.E))
         {
+            // Shop
             if (Vector3.Distance(transform.localPosition, BaseCampManager.instance.transform.localPosition) <= distanceToInteract)
             {
-                CoinManager.instance.shopIsOpen = true;
+                CoinManager.instance.OpenShop();
             }
-
+            // Edit mode
             else if (playertype == PlayerTypes.Plant)
             {
                 EditMode = !EditMode;
@@ -134,22 +136,29 @@ public class PlayerMouvement : MonoBehaviour
             if (plantToHeal != null)
             {
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
+                if(!plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Play();
             }
         }
-
-        //TODO : REMOVE THIS SHIT
-        if (Input.GetKeyDown(KeyCode.P))
+        else
         {
-            notification.SetActive(true);
-            playertype = PlayerTypes.Plant;
+            if (plantToHeal != null)
+            {
+                if (plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Stop();
+            }
         }
+    }
+
+    public void PickUpPlant(Plant plant)
+    {
+        plantPrefab = plant;
+        playertype = PlayerTypes.Plant;
     }
 
 
     public void SetCameraVectors(Vector3 forward, Vector3 right)
     {
-        cameraVectorForward = forward;
-        cameraVectorRight = right;
+        cameraVectorForward = forward.normalized;
+        cameraVectorRight = right.normalized;
     }
 
     public void Fire()

@@ -1,39 +1,78 @@
 using Cinemachine;
 using UnityEngine;
+using TMPro;
 
 public class CoinManager : MonoBehaviour
 {
     public static CoinManager instance;
 
-    [SerializeReference] public Canvas shopCanvas;
+    [SerializeReference] private Canvas shopCanvas;
+    [SerializeReference] private Canvas pauseCanvas;
+    [SerializeReference] private Canvas overlayCanvas;
+    [SerializeReference] private TextMeshProUGUI roundText;
+    [SerializeReference] private TextMeshProUGUI moneyText;
+
 
     [Header("Camera")]
-    [SerializeReference] public CinemachineFreeLook cam;
-    [SerializeField] public float xCamSpeed = 300f;
+    [SerializeReference] private CinemachineFreeLook cam;
+    [SerializeField] private float xCamSpeed = 300f;
 
-    public int coins { get; private set; } = 100;
-    public bool shopIsOpen
+    private int _coins = 100;
+    public int coins
     {
-        get => shopCanvas.enabled;
+        get => _coins;
         set
         {
-            shopCanvas.enabled = value;
-            Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
-            cam.m_XAxis.m_MaxSpeed = value ? 0 : xCamSpeed;
+            moneyText.text = value + " $";
+            _coins = value;
         }
+    }
+
+    public void OpenShop()
+    {
+        shopCanvas.enabled = true;
+        overlayCanvas.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        cam.m_XAxis.m_MaxSpeed = 0;
+    }
+
+    public void OpenPause()
+    {
+        pauseCanvas.enabled = true;
+        overlayCanvas.enabled = false;
+        Cursor.lockState = CursorLockMode.None;
+        cam.m_XAxis.m_MaxSpeed = 0;
+    }
+
+    public void CloseAll()
+    {
+        shopCanvas.enabled = false;
+        pauseCanvas.enabled = false;
+        overlayCanvas.enabled = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        cam.m_XAxis.m_MaxSpeed = xCamSpeed;
     }
 
     void Start()
     {
         instance = this;
-        shopCanvas.enabled = false;
+        CloseAll();
     }
 
     void Update()
     {
+        roundText.text = "Manche " + (BaseCampManager.instance.currentTurn + 1);
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            shopIsOpen = false;
+            if (overlayCanvas.enabled)
+            {
+                OpenPause();
+            }
+            else
+            {
+                CloseAll();
+            }
         }
     }
 
@@ -42,8 +81,8 @@ public class CoinManager : MonoBehaviour
         if (plant.plantData.cost > coins) return;
 
         this.coins -= plant.plantData.cost;
-        shopIsOpen = false;
-        BaseCampManager.instance.ShipPlant(plant);
+        CloseAll();
+        BaseCampManager.instance.BuyPlant(plant);
     }
 
     public void GainCoins(int coins)

@@ -57,6 +57,7 @@ public class GridManager : MonoBehaviour
         if (!hit.collider.CompareTag("Tile")) return;
 
         TileManager tileManager = hit.collider.gameObject.GetComponent<TileManager>();
+        print(tileManager.gameObject.transform.position);
 
         if (selectedTile != null)
         {
