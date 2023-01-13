@@ -23,7 +23,7 @@ public class Entity : MonoBehaviour
         if (HP - damage <= 0)
         {
             damage = HP;
-            StartCoroutine(Die());
+            Die();
             dying = true;
         }
 
@@ -39,7 +39,12 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public IEnumerator Die()
+    public virtual void Die()
+    {
+        StartCoroutine(DieRoutine());
+    }
+
+    public IEnumerator DieRoutine()
     {
         if (deathAnimation)
             yield return new WaitForSeconds(deathAnimationTime);
