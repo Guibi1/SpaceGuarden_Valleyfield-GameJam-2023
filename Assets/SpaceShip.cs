@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using Sirenix.OdinInspector;
+using Lean.Pool;
 
 public class SpaceShip : MonoBehaviour
 {
@@ -66,17 +67,20 @@ public class SpaceShip : MonoBehaviour
     {
         if (reference != null)
         {
-            PlayerMouvement.instance.PickUpPlant(reference);
+            PlayerMouvement.instance.PickUpPlant(prefab);
             Destroy(reference.gameObject);
+            prefab = null;
         }
     }
 
+    public Plant prefab;
     public Plant reference;
 
     [Button]
     public void GoDown(Plant plant)
     {
-        reference = Instantiate(plant, SpawnPoint.transform.position, Quaternion.identity, transform);
+        prefab = plant;
+        reference = LeanPool.Spawn(plant, SpawnPoint.transform.position, Quaternion.identity, transform);
         goUp = false;
     }
 
