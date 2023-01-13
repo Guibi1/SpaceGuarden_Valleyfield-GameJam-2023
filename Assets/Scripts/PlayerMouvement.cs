@@ -123,7 +123,7 @@ public class PlayerMouvement : MonoBehaviour
             // Shop
             if (Vector3.Distance(transform.localPosition, BaseCampManager.instance.transform.localPosition) <= distanceToInteract)
             {
-                CoinManager.instance.shopIsOpen = true;
+                CoinManager.instance.OpenShop();
             }
             // Edit mode
             else if (playertype == PlayerTypes.Plant)
@@ -136,6 +136,14 @@ public class PlayerMouvement : MonoBehaviour
             if (plantToHeal != null)
             {
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
+                if(!plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Play();
+            }
+        }
+        else
+        {
+            if (plantToHeal != null)
+            {
+                if (plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Stop();
             }
         }
     }
