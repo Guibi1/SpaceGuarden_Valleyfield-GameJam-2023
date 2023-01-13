@@ -68,7 +68,6 @@ public class PlayerMouvement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         instance = this;
         rb = GetComponent<Rigidbody>();
-         notification.ShowText("Choisissez un emplacement où placer la plante");
     }
 
     void Update()
@@ -78,18 +77,18 @@ public class PlayerMouvement : MonoBehaviour
             plantNotif.ShowText(plantToHeal.HP >= plantToHeal.plantData.health ? "La plante est en bonne santé" : "Laissez E enfoncé pour soigner la plante");
         }
 
-        // if (EditMode)
-        // {
-        //     notification.ShowText("Choisissez un emplacement où placer la plante");
-        // }
-        // else if (plantPrefab != null)
-        // {
-        //     notification.ShowText("Appuyez sur E pour planter votre semance");
-        // }
-        // else
-        // {
-        // notification.HideText();
-        // }
+        if (EditMode)
+        {
+            notification.ShowText("Choisissez un emplacement où placer la plante");
+        }
+        else if (plantPrefab != null)
+        {
+            notification.ShowText("Appuyez sur E pour planter votre semance");
+        }
+        else
+        {
+            notification.HideText();
+        }
 
         scytheLastUsed += Time.deltaTime;
 

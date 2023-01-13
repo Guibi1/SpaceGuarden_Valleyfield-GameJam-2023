@@ -11,6 +11,8 @@ public class BaseCampManager : MonoBehaviour
     [SerializeReference] Alien alien3Prefab;
     [SerializeReference] Transform bossSpawnLocation;
     [SerializeReference] List<Transform> spawnLocations;
+    [SerializeField] private Notification notification;
+
 
     private bool isFighting = false;
     public int currentTurn = 0;
@@ -26,7 +28,7 @@ public class BaseCampManager : MonoBehaviour
         }
 
         instance = this;
-        NextTurn();
+        // NextTurn();
     }
 
     void Update()
@@ -35,6 +37,16 @@ public class BaseCampManager : MonoBehaviour
         {
             isFighting = false;
             NextTurn();
+        }
+
+        // Shop
+        if (Vector3.Distance(transform.position, PlayerMouvement.instance.transform.position) <= 6f)
+        {
+            notification.ShowText("Appuyez sur E pour acheter une plante");
+        }
+        else
+        {
+            notification.HideText();
         }
     }
 
