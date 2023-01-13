@@ -153,7 +153,14 @@ public class PlayerMouvement : MonoBehaviour
         SpriteManager.instance.attack();
         foreach (Alien a in AliensInRange)
         {
-            a.OnHit(scytheDamage);
+            if (a != null)
+            {
+                a.OnHit(scytheDamage);
+            }
+            else
+            {
+                AliensInRange.Remove(a);
+            }
         }
     }
 
