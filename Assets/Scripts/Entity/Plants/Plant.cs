@@ -107,6 +107,13 @@ public abstract class Plant : Entity
         }
     }
 
+
+    public override void Die()
+    {
+        PlantManager.instance.plants.Remove(this);
+        base.Die();
+    }
+
     protected virtual IEnumerator RunConstruction()
     {
         yield return new WaitForSeconds(plantData.constructionTime);

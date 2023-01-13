@@ -142,25 +142,20 @@ public class Alien : Agent
         if (PlantManager.instance.plants.Count == 0)
             return null;
 
-        Vector3 closestVector = PlantManager.instance.plants[0].transform.position;
-        float closestDistance = Vector3.Distance(PlantManager.instance.plants[0].transform.position, transform.position);
+        float closestDistance = float.MaxValue;
 
         int closeByIndex = 0;
-
-        for (int i = 1; i < PlantManager.instance.plants.Count; i++)
+        for (int i = 0; i < PlantManager.instance.plants.Count; i++)
         {
             float distance = Vector3.Distance(PlantManager.instance.plants[i].transform.position, transform.position);
-            if (distance < closestDistance)
+            if (distance <= closestDistance)
             {
-                closestVector = PlantManager.instance.plants[i].transform.position;
                 closestDistance = distance;
                 closeByIndex = i;
-
             }
         }
 
         return PlantManager.instance.plants[closeByIndex];
-
     }
 
     public override void OnHit(float damage)
@@ -170,7 +165,8 @@ public class Alien : Agent
     }
 
 
-    public override void Die() { 
+    public override void Die()
+    {
         base.Die();
         alienAnimator.SetTrigger("Death");
     }
