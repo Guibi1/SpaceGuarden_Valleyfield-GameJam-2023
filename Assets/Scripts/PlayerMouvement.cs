@@ -123,7 +123,7 @@ public class PlayerMouvement : MonoBehaviour
             // Shop
             if (Vector3.Distance(transform.localPosition, BaseCampManager.instance.transform.localPosition) <= distanceToInteract)
             {
-                CoinManager.instance.shopIsOpen = true;
+                CoinManager.instance.OpenShop();
             }
             // Edit mode
             else if (playertype == PlayerTypes.Plant)
