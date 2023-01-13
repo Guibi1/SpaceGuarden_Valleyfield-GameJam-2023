@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [HideInInspector] public float _healthPoint;
-    [HideInInspector]
+     public float _healthPoint;
+
     public virtual float HP
     {
         get => _healthPoint;
