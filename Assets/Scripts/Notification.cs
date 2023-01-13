@@ -26,12 +26,6 @@ public class Notification : MonoBehaviour
         targetOpacity = 0;
     }
 
-    private void OnEnable()
-    {
-        // PlayerMouvement.OnNotif += ShowText;
-        // PlayerMouvement.KillNotif += HideText;
-    }
-
     private void FixedUpdate()
     {
         transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, 8f * Time.deltaTime);
