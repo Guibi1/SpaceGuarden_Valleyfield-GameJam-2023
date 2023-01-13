@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1397917920435972164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -145, y: 79, z: -15}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1397917920870913566}
@@ -136,7 +136,7 @@ MonoBehaviour:
   end: {x: 0.5, y: 0, z: 0}
   thickness: 0.1
   thicknessSpace: 0
-  endCaps: 0
+  endCaps: 2
   matchDashSpacingToSize: 1
   dashed: 0
   dashStyle:
@@ -154,7 +154,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397917920706625476}
-  m_Mesh: {fileID: 43100795730674332, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
+  m_Mesh: {fileID: 43750352888151548, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
 --- !u!23 &1397917920706625530
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -175,7 +175,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6afefec347ded4848ac07cf2cc259ae2, type: 2}
+  - {fileID: 2100000, guid: 7ad80f659a7016c42be6cd2d44fed1d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 0.16078432, g: 0.5372549, b: 0.16078432, a: 1}
+  color: {r: 0.3578124, g: 0.7924528, b: 0.35510856, a: 1}
   detailLevel: 4
   renderQueue: -1
   zTest: 4
@@ -264,7 +264,7 @@ MonoBehaviour:
   end: {x: 0.5, y: 0, z: 0}
   thickness: 0.1
   thicknessSpace: 0
-  endCaps: 0
+  endCaps: 2
   matchDashSpacingToSize: 1
   dashed: 0
   dashStyle:
@@ -282,7 +282,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397917920870913561}
-  m_Mesh: {fileID: 43810425529943374, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
+  m_Mesh: {fileID: 43750352888151548, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
 --- !u!23 &1397917920870913567
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c9f89a768ebccc04bb51efb23d199e9d, type: 2}
+  - {fileID: 2100000, guid: 7ad80f659a7016c42be6cd2d44fed1d3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -392,7 +392,7 @@ MonoBehaviour:
   end: {x: 0.5, y: 0, z: 0}
   thickness: 0.1
   thicknessSpace: 0
-  endCaps: 0
+  endCaps: 2
   matchDashSpacingToSize: 1
   dashed: 0
   dashStyle:
@@ -431,7 +431,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6afefec347ded4848ac07cf2cc259ae2, type: 2}
+  - {fileID: 2100000, guid: d8dcf53039a8e5f468fb44f7e1a08f76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blendMode: 1
   scaleMode: 0
-  color: {r: 0, g: 0, b: 0, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 0.6666667}
   detailLevel: 2
   renderQueue: -1
   zTest: 4
@@ -516,11 +516,11 @@ MonoBehaviour:
   geometry: 1
   colorMode: 0
   colorEnd: {r: 1, g: 1, b: 1, a: 1}
-  start: {x: -0.45, y: 0, z: 0}
-  end: {x: 0.45, y: 0, z: 0}
-  thickness: 0.175
+  start: {x: -0.5, y: 0, z: 0}
+  end: {x: 0.5, y: 0, z: 0}
+  thickness: 0.15
   thicknessSpace: 0
-  endCaps: 1
+  endCaps: 2
   matchDashSpacingToSize: 1
   dashed: 0
   dashStyle:
@@ -559,7 +559,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6d5367d4e909c754683970d02f6ca8fe, type: 2}
+  - {fileID: 2100000, guid: d8dcf53039a8e5f468fb44f7e1a08f76, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
