@@ -3,6 +3,8 @@ using Lean.Pool;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using UnityEngine.SceneManagement;
 
 public class PlayerMouvement : MonoBehaviour
 {
@@ -35,6 +37,10 @@ public class PlayerMouvement : MonoBehaviour
     private Notification plantNotif;
     private float scytheLastUsed = 0f;
 
+    public StudioEventEmitter emitterWalk;
+    public StudioEventEmitter emitterSwing;
+    public StudioEventEmitter emitterHeal;
+
     private PlayerTypes _playertype;
     public PlayerTypes playertype
     {
@@ -48,7 +54,7 @@ public class PlayerMouvement : MonoBehaviour
 
     public bool EditMode
     {
-        get => GridManager.instance.editMode;
+        get => SceneManager.GetActiveScene().name == "credits" ? false : GridManager.instance.editMode;
         set
         {
             GridManager.instance.editMode = value;
@@ -83,6 +89,7 @@ public class PlayerMouvement : MonoBehaviour
         Vector3 targetPos = new Vector3(verticalAxis, 0, horizontalAxis).normalized;
         if (playerState == PlayerStates.Normal && !EditMode)
         {
+            emitterWalk.Play();
             rb.velocity = (cameraVectorForward * targetPos.x + targetPos.z * cameraVectorRight) * speedMultiplier;
             if (horizontalAxis > 0)
             {
@@ -93,6 +100,7 @@ public class PlayerMouvement : MonoBehaviour
                 sprite.transform.localScale = new Vector3(-1, 1, 1);
             }
         }
+        emitterWalk.Stop();
         SpriteManager.instance.SetWalking(!(horizontalAxis == 0 && verticalAxis == 0));
 
         // On mouse click
@@ -101,6 +109,7 @@ public class PlayerMouvement : MonoBehaviour
             if (!EditMode)
             {
                 Fire();
+                emitterSwing.Play();
             }
             else if (GridManager.instance.selectedTile != null)
             {
@@ -126,8 +135,11 @@ public class PlayerMouvement : MonoBehaviour
         {
             if (plantToHeal != null)
             {
+                emitterHeal.Play();
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
             }
+            //--- HEAL ---
+            emitterHeal.Stop();
         }
 
         //TODO : REMOVE THIS SHIT
