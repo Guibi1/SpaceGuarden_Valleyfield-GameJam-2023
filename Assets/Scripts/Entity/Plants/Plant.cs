@@ -9,7 +9,7 @@ public abstract class Plant : Entity
 {
     [SerializeField] public PlantData plantData;
     [SerializeField] protected AoEPlant aoEPlant;
-    
+
     protected bool useAnimator;
     [ShowIf("useAnimator")]
     [SerializeField] private Animator animator;
@@ -18,7 +18,7 @@ public abstract class Plant : Entity
 
     private Coroutine ActiveRoutine;
     private Coroutine ConstructionRoutine;
-     
+
     public abstract IEnumerator Execute();
     public abstract IEnumerator Preparing();
 
@@ -27,17 +27,18 @@ public abstract class Plant : Entity
     {
         if (healArea == null)
         {
-            Debug.LogError("healarea is null aloo lmao get good");
+            Debug.LogError("healarea is null aloo lmao get good REKT");
             return;
         }
-            SetHealth(plantData.health);
+
+        SetHealth(plantData.health);
         LeanPool.Spawn(healArea, transform).transform.localPosition = Vector3.zero;
 
     }
 
-    public void SetHealth(float health) 
+    public void SetHealth(float health)
     {
-        HP  = Mathf.Clamp(health, 0f, plantData.health);
+        HP = Mathf.Clamp(health, 0f, plantData.health);
     }
 
 
