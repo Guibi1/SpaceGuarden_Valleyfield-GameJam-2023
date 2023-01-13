@@ -31,7 +31,7 @@ public class Entity : MonoBehaviour
         healthBar.maxHealth = HP;
     }
 
-    public void OnHit(float damage)
+    public virtual void OnHit(float damage)
     {
         if (dying)
             return;
