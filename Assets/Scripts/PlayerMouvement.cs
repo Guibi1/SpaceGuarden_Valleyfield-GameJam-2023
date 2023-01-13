@@ -32,6 +32,7 @@ public class PlayerMouvement : MonoBehaviour
     [SerializeField] public PlayerStates playerState = PlayerStates.Normal;
 
     private Plant plantToHeal;
+    private Notification plantNotif;
     private float scytheLastUsed = 0f;
 
     private PlayerTypes _playertype;
@@ -69,14 +70,7 @@ public class PlayerMouvement : MonoBehaviour
     {
         if (plantToHeal != null)
         {
-            if (plantToHeal.HP >= plantToHeal.plantData.health)
-            {
-                OnNotif?.Invoke("Plant is full health");
-            }
-            else
-            {
-                OnNotif?.Invoke("Hold E to heal plant");
-            }
+            plantNotif.ShowText(plantToHeal.HP >= plantToHeal.plantData.health ? "Plant is full health" : "Hold E to heal plant");
         }
         scytheLastUsed += Time.deltaTime;
 
@@ -122,13 +116,17 @@ public class PlayerMouvement : MonoBehaviour
             {
                 CoinManager.instance.shopIsOpen = true;
             }
-            else if (plantToHeal != null)
-            {
-                plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
-            }
+
             else if (playertype == PlayerTypes.Plant)
             {
                 EditMode = !EditMode;
+            }
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            if (plantToHeal != null)
+            {
+                plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
             }
         }
 
@@ -139,7 +137,6 @@ public class PlayerMouvement : MonoBehaviour
             playertype = PlayerTypes.Plant;
         }
     }
-
 
 
     public void SetCameraVectors(Vector3 forward, Vector3 right)
@@ -171,15 +168,13 @@ public class PlayerMouvement : MonoBehaviour
         AliensInRange.Remove(a);
     }
 
-    public static event Action<String> OnNotif;
-    public static event Action KillNotif;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("PlantHealZone"))
         {
             plantToHeal = other.gameObject.GetComponentInParent<Plant>();
-            OnNotif?.Invoke("Plant moment");
+            plantNotif = plantToHeal.GetComponentInChildren<Notification>();
         }
     }
 
@@ -187,10 +182,9 @@ public class PlayerMouvement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlantHealZone"))
         {
-            KillNotif?.Invoke();
+            other.gameObject.GetComponentInParent<Plant>().GetComponentInChildren<Notification>().HideText();
             plantToHeal = null;
+            plantNotif = null;
         }
     }
-
-
 }

@@ -5,8 +5,19 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] public float HP;
+    [SerializeField] public float _healthPoint = 20;
+    [SerializeField]
+    public virtual float HP
+    {
+        get => _healthPoint;
+        set
+        {
+            _healthPoint = value;
+            healthBar.currentHealth = value;
+        }
+    }
     [SerializeField] public bool allowPooling;
+    [SerializeReference] protected HealthBar healthBar;
     [SerializeReference] SplashDamage splashDamagePrefab;
     [SerializeField] public bool deathAnimation;
 
@@ -15,7 +26,12 @@ public class Entity : MonoBehaviour
 
     public bool dying;
 
-    public void OnHit(float damage)
+    public virtual void Start()
+    {
+        healthBar.maxHealth = HP;
+    }
+
+    public virtual void OnHit(float damage)
     {
         if (dying)
             return;
@@ -34,7 +50,6 @@ public class Entity : MonoBehaviour
             if (splashDamagePrefab != null)
             {
                 LeanPool.Spawn(splashDamagePrefab, transform).SetDamage(damage);
-
             }
         }
     }
