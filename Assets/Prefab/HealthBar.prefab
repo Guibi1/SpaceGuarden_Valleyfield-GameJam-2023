@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1397917920435972165}
   - component: {fileID: 1397917920435972218}
+  - component: {fileID: 8234606443305415032}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_GameObject: {fileID: 1397917920435972164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -145, y: 79, z: -15}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1397917920870913566}
   - {fileID: 1397917920706625477}
@@ -51,6 +52,23 @@ MonoBehaviour:
   healthLine: {fileID: 1397917920870913565}
   hitLine: {fileID: 1397917920706625528}
   lowHealthColor: {r: 0.8679245, g: 0.06959773, b: 0.06959773, a: 1}
+--- !u!114 &8234606443305415032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397917920435972164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4f768198e987d4fa1ff6eafb9e0e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  children:
+  - {fileID: 1397917920870913561}
+  - {fileID: 1397917920706625476}
+  - {fileID: 1397917921299880685}
+  - {fileID: 1397917921561285985}
 --- !u!1 &1397917920706625476
 GameObject:
   m_ObjectHideFlags: 0
@@ -100,7 +118,7 @@ MonoBehaviour:
   blendMode: 1
   scaleMode: 0
   color: {r: 0.8113208, g: 0.71294075, b: 0.11863652, a: 1}
-  detailLevel: 2
+  detailLevel: 4
   renderQueue: -1
   zTest: 4
   zOffsetFactor: 0
@@ -111,7 +129,7 @@ MonoBehaviour:
   stencilRefID: 0
   stencilReadMask: 255
   stencilWriteMask: 255
-  geometry: 1
+  geometry: 2
   colorMode: 0
   colorEnd: {r: 1, g: 1, b: 1, a: 1}
   start: {x: -0.5, y: 0, z: 0}
@@ -228,7 +246,7 @@ MonoBehaviour:
   blendMode: 1
   scaleMode: 0
   color: {r: 0.16078432, g: 0.5372549, b: 0.16078432, a: 1}
-  detailLevel: 2
+  detailLevel: 4
   renderQueue: -1
   zTest: 4
   zOffsetFactor: 0
@@ -239,7 +257,7 @@ MonoBehaviour:
   stencilRefID: 0
   stencilReadMask: 255
   stencilWriteMask: 255
-  geometry: 1
+  geometry: 2
   colorMode: 0
   colorEnd: {r: 1, g: 1, b: 1, a: 1}
   start: {x: -0.5, y: 0, z: 0}
@@ -264,7 +282,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397917920870913561}
-  m_Mesh: {fileID: 43100795730674332, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
+  m_Mesh: {fileID: 43810425529943374, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
 --- !u!23 &1397917920870913567
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -285,7 +303,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6afefec347ded4848ac07cf2cc259ae2, type: 2}
+  - {fileID: 2100000, guid: c9f89a768ebccc04bb51efb23d199e9d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
