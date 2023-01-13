@@ -37,6 +37,8 @@ public class PlayerMouvement : MonoBehaviour
     private Notification plantNotif;
     private float scytheLastUsed = 0f;
 
+    private GameObject instruction;
+
     public StudioEventEmitter emitterWalk;
     public StudioEventEmitter emitterSwing;
     public StudioEventEmitter emitterHeal;
@@ -51,7 +53,7 @@ public class PlayerMouvement : MonoBehaviour
             SpriteManager.instance.SetCharType(value);
         }
     }
-
+  
     public bool EditMode
     {
         get => SceneManager.GetActiveScene().name == "credits" ? false : GridManager.instance.editMode;
