@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerMouvement : MonoBehaviour
 {
@@ -157,7 +158,6 @@ public class PlayerMouvement : MonoBehaviour
         {
             if (plantToHeal != null)
             {
-
                 if (plantToHeal.plantSweat.isPlaying)
                 {
                     plantToHeal.plantSweat.Stop();
@@ -229,8 +229,12 @@ public class PlayerMouvement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlantHealZone"))
         {
-            other.gameObject.GetComponentInParent<Plant>().GetComponentInChildren<Notification>().HideText();
-            plantToHeal.plantSweat.Stop();
+            try
+            {
+                other.gameObject.GetComponentInParent<Plant>().GetComponentInChildren<Notification>().HideText();
+                plantToHeal.plantSweat.Stop();
+            }
+            catch(Exception e){}
             plantToHeal = null;
             plantNotif = null;
         }
