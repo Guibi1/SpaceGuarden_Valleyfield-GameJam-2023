@@ -252,7 +252,7 @@ MonoBehaviour:
   scytheCooldown: 0.4
   plantHealSpeed: 5
   sprite: {fileID: 592834260801822005}
-  notification: {fileID: 9010955559103554230}
+  notification: {fileID: 4262172526655869469}
   plantPrefab: {fileID: 0}
   playerState: 0
   emitterWalk: {fileID: 4322880705023197939}
@@ -662,13 +662,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+--- !u!114 &4262172526655869469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 746450577669488982, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+  m_PrefabInstance: {fileID: 3566195101130593099}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fce743300b4c8b42b1d6dc86634da78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5020339388615159441 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8419056878535736794, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
-  m_PrefabInstance: {fileID: 3566195101130593099}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &9010955559103554230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5508170462063129085, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
   m_PrefabInstance: {fileID: 3566195101130593099}
   m_PrefabAsset: {fileID: 0}
