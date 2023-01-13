@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: cdb35650ac5b60646915aa2dead82fe5
+=======
+<<<<<<< Updated upstream:Assets/Resources/Materials/TestDeSol.mat.meta
+guid: e1233f8556c66604f8696c68213be2d9
+=======
+guid: cdb35650ac5b60646915aa2dead82fe5
+>>>>>>> Stashed changes:Assets/Resources/TestDeSol.mat.meta
+>>>>>>> Stashed changes
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
