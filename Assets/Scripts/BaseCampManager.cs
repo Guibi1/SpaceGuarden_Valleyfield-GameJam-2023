@@ -9,9 +9,10 @@ public class BaseCampManager : MonoBehaviour
     [SerializeReference] Alien alien1Prefab;
     [SerializeReference] Alien alien2Prefab;
     [SerializeReference] Alien alien3Prefab;
+    [SerializeReference] Transform bossSpawnLocation;
     [SerializeReference] List<Transform> spawnLocations;
 
-    private bool isFighting = true;
+    private bool isFighting = false;
     public int currentTurn = 0;
     private int turnsUntilNextShippement = 0;
     private Plant nextShippement;
@@ -25,6 +26,7 @@ public class BaseCampManager : MonoBehaviour
         }
 
         instance = this;
+        NextTurn();
     }
 
     void Update()
@@ -61,9 +63,15 @@ public class BaseCampManager : MonoBehaviour
 
             if (currentTurn == 10)
             {
-                Alien boss = LeanPool.Spawn(alien3Prefab, new Vector3(), Quaternion.identity);
-                Vector3 scale = boss.gameObject.transform.localScale * 3;
-                boss.gameObject.transform.localScale = scale;
+                Alien boss = LeanPool.Spawn(alien3Prefab, bossSpawnLocation.position, Quaternion.identity);
+
+                Vector3 localScale = boss.gameObject.transform.localScale;
+                StartCoroutine(SimpleRoutines.LerpCoroutine(1f, 3f, 3f, (x) =>
+                {
+                    boss.gameObject.transform.localScale = localScale * x;
+                }));
+                boss.alienData.health = 400;
+                boss.alienData.damage = 10;
                 return;
             }
 
