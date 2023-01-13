@@ -31,6 +31,7 @@ public class CoinManager : MonoBehaviour
 
     public void OpenShop()
     {
+        Time.timeScale = 0;
         shopCanvas.enabled = true;
         overlayCanvas.enabled = false;
         backgroundCanvas.enabled = true;

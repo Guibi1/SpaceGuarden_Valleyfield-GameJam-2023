@@ -20,13 +20,13 @@ public class PlayerMouvement : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float speedMultiplier = 50f;
     [SerializeField] private float distanceToInteract = 5f;
-    [SerializeField] private float scytheDamage = 20;
+    [SerializeField] private float scytheDamage = 2;
     [SerializeField] private float scytheCooldown = 5;
     [SerializeField] private float plantHealSpeed = 30f;
 
     [Header("References")]
     [SerializeField] private GameObject sprite;
-    [SerializeField] private GameObject notification;
+    [SerializeField] private Notification notification;
     [SerializeField] private Plant plantPrefab;
 
 
@@ -58,7 +58,6 @@ public class PlayerMouvement : MonoBehaviour
         {
             GridManager.instance.editMode = value;
 
-            notification.SetActive(!value);
             Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
             cam.m_XAxis.m_MaxSpeed = value ? 0 : xCamSpeed;
         }
@@ -69,14 +68,29 @@ public class PlayerMouvement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         instance = this;
         rb = GetComponent<Rigidbody>();
+         notification.ShowText("Choisissez un emplacement où placer la plante");
     }
 
     void Update()
     {
         if (plantToHeal != null)
         {
-            plantNotif.ShowText(plantToHeal.HP >= plantToHeal.plantData.health ? "Plant is full health" : "Hold E to heal plant");
+            plantNotif.ShowText(plantToHeal.HP >= plantToHeal.plantData.health ? "La plante est en bonne santé" : "Laissez E enfoncé pour soigner la plante");
         }
+
+        // if (EditMode)
+        // {
+        //     notification.ShowText("Choisissez un emplacement où placer la plante");
+        // }
+        // else if (plantPrefab != null)
+        // {
+        //     notification.ShowText("Appuyez sur E pour planter votre semance");
+        // }
+        // else
+        // {
+        // notification.HideText();
+        // }
+
         scytheLastUsed += Time.deltaTime;
 
         // Look at cam
@@ -121,7 +135,7 @@ public class PlayerMouvement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             // Shop
-            if (Vector3.Distance(transform.localPosition, BaseCampManager.instance.transform.localPosition) <= distanceToInteract)
+            if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
             {
                 CoinManager.instance.OpenShop();
             }
@@ -136,7 +150,7 @@ public class PlayerMouvement : MonoBehaviour
             if (plantToHeal != null)
             {
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
-                if(!plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Play();
+                if (!plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Play();
             }
         }
         else
