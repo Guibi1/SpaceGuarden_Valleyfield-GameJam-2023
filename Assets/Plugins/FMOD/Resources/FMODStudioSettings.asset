@@ -214,10 +214,10 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
-  HasSourceProject: 0
-  HasPlatforms: 0
+  HasSourceProject: 1
+  HasPlatforms: 1
   sourceProjectPath: 
-  sourceBankPath: Assets/FMODBanks/Desktop
+  sourceBankPath: 
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -238,11 +238,8 @@ MonoBehaviour:
   VirtualChannelSettings: []
   RealChannelSettings: []
   Plugins: []
-  MasterBanks:
-  - Master
-  Banks:
-  - MUSIC
-  - SFX
+  MasterBanks: []
+  Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
@@ -268,7 +265,7 @@ MonoBehaviour:
   - {fileID: 3682189537956408496}
   - {fileID: 6127987440237326384}
   - {fileID: 8641845685324832727}
-  MigratedPlatforms: 0c000000150000000b0000000a00000009000000120000000800000005000000060000000200000001000000
+  MigratedPlatforms: 0a0000000b0000000500000006000000120000001500000008000000090000000c0000000200000001000000
 --- !u!114 &107440559405855631
 MonoBehaviour:
   m_ObjectHideFlags: 0

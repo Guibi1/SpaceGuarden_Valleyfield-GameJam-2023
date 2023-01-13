@@ -153,7 +153,7 @@ public class PlayerMouvement : MonoBehaviour
         }
     }
 
-
+ 
 
     public void SetCameraVectors(Vector3 forward, Vector3 right)
     {
