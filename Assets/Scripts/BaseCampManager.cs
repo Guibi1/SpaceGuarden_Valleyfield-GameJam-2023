@@ -18,7 +18,7 @@ public class BaseCampManager : MonoBehaviour
     private bool isFighting = false;
     public int currentTurn = 0;
     private int turnsUntilNextShippement = 0;
-    public Plant nextShippement;
+    private Plant nextShippement;
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class BaseCampManager : MonoBehaviour
         }
 
         instance = this;
-        // NextTurn();
+        NextTurn();
     }
 
     void Update()
@@ -58,10 +58,9 @@ public class BaseCampManager : MonoBehaviour
         turnsUntilNextShippement -= 1;
         if (turnsUntilNextShippement == 0 && nextShippement != null)
         {
-            // LeanPool.Spawn(nextShippement, transform);
-            PlayerMouvement.instance.PickUpPlant(nextShippement);
+            SpaceShip.instance.GoDown(nextShippement);
             nextShippement = null;
-            cooldownNextWave = 6f;
+            cooldownNextWave = 10f;
         }
 
         if (currentTurn == 10)
@@ -76,8 +75,6 @@ public class BaseCampManager : MonoBehaviour
 
         StartCoroutine(SimpleRoutines.WaitTime(waitTime, () =>
         {
-
-
             currentTurn += 1;
             isFighting = true;
 
@@ -134,5 +131,6 @@ public class BaseCampManager : MonoBehaviour
         if (turnsUntilNextShippement != 0) return;
         nextShippement = plant;
         turnsUntilNextShippement = plant.plantData.timeToShip;
+        SpaceShip.instance.GoUp();
     }
 }
