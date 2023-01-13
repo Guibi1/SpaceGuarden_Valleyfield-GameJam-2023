@@ -209,7 +209,7 @@ public class Alien : Agent
             return;
         }
 
-        alienAnimator.SetBool("Attacking", true);
+        alienAnimator.SetTrigger("Attack");
         HitEntity(currentTargetPlant);
     }
 
@@ -220,7 +220,7 @@ public class Alien : Agent
         {
             return;
         }
-        alienAnimator.SetBool("Attacking", true);
+        alienAnimator.SetTrigger("Attack");
         HitEntity(PlantManager.instance.center);
     }
 
