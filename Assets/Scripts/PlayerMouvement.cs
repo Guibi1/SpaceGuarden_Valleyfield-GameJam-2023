@@ -20,7 +20,7 @@ public class PlayerMouvement : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private float speedMultiplier = 50f;
     [SerializeField] private float distanceToInteract = 5f;
-    [SerializeField] private float scytheDamage = 20;
+    [SerializeField] private float scytheDamage = 2;
     [SerializeField] private float scytheCooldown = 5;
     [SerializeField] private float plantHealSpeed = 30f;
 
@@ -136,7 +136,7 @@ public class PlayerMouvement : MonoBehaviour
             if (plantToHeal != null)
             {
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
-                if(!plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Play();
+                if (!plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Play();
             }
         }
         else
