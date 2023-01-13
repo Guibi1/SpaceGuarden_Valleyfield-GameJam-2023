@@ -110,8 +110,10 @@ public class PlayerMouvement : MonoBehaviour
             }
             else if (GridManager.instance.selectedTile != null)
             {
-                Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
-                GridManager.instance.selectedTile.Plant(plant);
+                GridManager.instance.selectedTile.Plant(plantPrefab);
+                EditMode = false;
+                plantPrefab = null;
+                playertype = PlayerTypes.Scythe;
             }
         }
 
@@ -147,8 +149,8 @@ public class PlayerMouvement : MonoBehaviour
 
     public void SetCameraVectors(Vector3 forward, Vector3 right)
     {
-        cameraVectorForward = forward;
-        cameraVectorRight = right;
+        cameraVectorForward = forward.normalized;
+        cameraVectorRight = right.normalized;
     }
 
     public void Fire()
