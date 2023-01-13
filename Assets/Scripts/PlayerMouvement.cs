@@ -3,6 +3,7 @@ using Lean.Pool;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class PlayerMouvement : MonoBehaviour
 {
@@ -36,6 +37,12 @@ public class PlayerMouvement : MonoBehaviour
     private float scytheLastUsed = 0f;
 
     private PlayerTypes _playertype;
+    
+    //Sound
+    public StudioEventEmitter emitterWalk;
+    public StudioEventEmitter emitterSwing;
+    public StudioEventEmitter emitterHealPlant;
+
     public PlayerTypes playertype
     {
         get => _playertype;
@@ -83,6 +90,7 @@ public class PlayerMouvement : MonoBehaviour
         Vector3 targetPos = new Vector3(verticalAxis, 0, horizontalAxis).normalized;
         if (playerState == PlayerStates.Normal && !EditMode)
         {
+            emitterWalk.Play();
             rb.velocity = (cameraVectorForward * targetPos.x + targetPos.z * cameraVectorRight) * speedMultiplier;
             if (horizontalAxis > 0)
             {
@@ -94,12 +102,16 @@ public class PlayerMouvement : MonoBehaviour
             }
         }
         SpriteManager.instance.SetWalking(!(horizontalAxis == 0 && verticalAxis == 0));
+        emitterWalk.Stop();
 
         // On mouse click
         if (Input.GetKeyDown(KeyCode.Mouse0) && playerState == PlayerStates.Normal)
         {
             if (!EditMode)
+            {
                 Fire();
+                emitterSwing.Play();
+            }
             else if (GridManager.instance.selectedTile != null)
                 PlacePlant();
         }
@@ -121,9 +133,13 @@ public class PlayerMouvement : MonoBehaviour
         {
             if (plantToHeal != null)
             {
+                emitterHealPlant.Play();
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
             }
         }
+        
+        //--------HEALSOUND----------
+        emitterHealPlant.Stop();
 
         //TODO : REMOVE THIS SHIT
         if (Input.GetKeyDown(KeyCode.P))
