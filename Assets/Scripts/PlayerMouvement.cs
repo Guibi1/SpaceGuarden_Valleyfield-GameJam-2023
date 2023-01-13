@@ -69,7 +69,6 @@ public class PlayerMouvement : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         instance = this;
         rb = GetComponent<Rigidbody>();
-         notification.ShowText("Choisissez un emplacement où placer la plante");
     }
 
     void Update()
@@ -168,6 +167,8 @@ public class PlayerMouvement : MonoBehaviour
 
     public void PickUpPlant(Plant plant)
     {
+        
+        notification.ShowText("Choisissez un emplacement où placer la plante");
         plantPrefab = plant;
         playertype = PlayerTypes.Plant;
     }
