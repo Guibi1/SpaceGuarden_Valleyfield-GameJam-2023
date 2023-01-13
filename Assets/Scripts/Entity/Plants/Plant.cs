@@ -20,6 +20,7 @@ public abstract class Plant : Entity
 
     private Coroutine ActiveRoutine;
     private Coroutine ConstructionRoutine;
+    public ParticleSystem plantSweat;
 
     public abstract IEnumerator Execute();
     public abstract IEnumerator Preparing();
