@@ -37,6 +37,8 @@ public class PlayerMouvement : MonoBehaviour
     private Notification plantNotif;
     private float scytheLastUsed = 0f;
 
+    private GameObject instruction;
+
     public StudioEventEmitter emitterWalk;
     public StudioEventEmitter emitterSwing;
     public StudioEventEmitter emitterHeal;
@@ -80,15 +82,15 @@ public class PlayerMouvement : MonoBehaviour
 
         if (EditMode)
         {
-            notification.ShowText("Choisissez un emplacement où placer la plante");
+            notification.ShowText("Cliquer sur une cases loin de vous pour la planter");
         }
         else if (plantPrefab != null)
         {
-            notification.ShowText("Appuyez sur E pour planter votre semence");
+            notification.ShowText("Appuyer sur E pour planter votre semence");
         }
         else
         {
-            if(notification != null)
+            if (notification != null)
             {
                 notification.HideText();
             }

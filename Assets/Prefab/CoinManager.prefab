@@ -937,7 +937,7 @@ MonoBehaviour:
         m_MethodName: Buy
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2192080856558194289, guid: 58de083ba9fe38b4a8731a2d3d4427c1, type: 3}
+          m_ObjectArgument: {fileID: 2606441615659966966, guid: 6b3efe27749fc5e439edd4468111d41a, type: 3}
           m_ObjectArgumentAssemblyTypeName: Plant, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4207,7 +4207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100 $
+  m_text: 20 $
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ea1c0f0a75c2adb418fd1671509d7dc9, type: 2}
   m_sharedMaterial: {fileID: 6339516970775107001, guid: ea1c0f0a75c2adb418fd1671509d7dc9, type: 2}
@@ -4505,7 +4505,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3883758309505312110}
-  - {fileID: 8880249396321283851}
   m_Father: {fileID: 658154591513832319}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
