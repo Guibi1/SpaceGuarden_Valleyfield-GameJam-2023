@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 
 public class CoinManager : MonoBehaviour
@@ -5,6 +6,10 @@ public class CoinManager : MonoBehaviour
     public static CoinManager instance;
 
     [SerializeReference] public Canvas shopCanvas;
+
+    [Header("Camera")]
+    [SerializeReference] public CinemachineFreeLook cam;
+    [SerializeField] public float xCamSpeed = 300f;
 
     public int coins { get; private set; } = 100;
     public bool shopIsOpen
@@ -14,6 +19,7 @@ public class CoinManager : MonoBehaviour
         {
             shopCanvas.enabled = value;
             Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
+            cam.m_XAxis.m_MaxSpeed = value ? 0 : xCamSpeed;
         }
     }
 
