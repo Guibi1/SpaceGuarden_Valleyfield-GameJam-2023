@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5473836807394059290}
   - component: {fileID: 5473836807394059289}
-  - component: {fileID: 5473836807394059288}
   - component: {fileID: 5473836807394059287}
   - component: {fileID: 5473836807394059286}
   - component: {fileID: 5473836807394059291}
+  - component: {fileID: 4014566443784732810}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -28,8 +28,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5473836807394059285}
-  m_LocalRotation: {x: 0.2222293, y: 0, z: 0, w: 0.9749945}
-  m_LocalPosition: {x: 0, y: 0.72, z: -1.18}
+  m_LocalRotation: {x: 0.17151533, y: 0.000000008478229, z: -0.0000000014760186, w: 0.9851815}
+  m_LocalPosition: {x: -2.99, y: 0.9, z: 1.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -63,7 +63,7 @@ Camera:
   far clip plane: 5000
   field of view: 91.23
   orthographic: 1
-  orthographic size: 7.95
+  orthographic size: 5.5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -79,14 +79,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5473836807394059288
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5473836807394059285}
-  m_Enabled: 1
 --- !u!114 &5473836807394059287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,3 +158,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 756114822e296f04487c4e0d203c2f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4014566443784732810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5473836807394059285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
