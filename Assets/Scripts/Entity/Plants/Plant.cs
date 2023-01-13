@@ -9,7 +9,6 @@ public abstract class Plant : Entity
 {
     [SerializeField] public PlantData plantData;
     [SerializeField] protected AoEPlant aoEPlant;
-    [SerializeField] private HealthBar hb;
 
 
     protected bool useAnimator;
@@ -20,40 +19,30 @@ public abstract class Plant : Entity
 
     private Coroutine ActiveRoutine;
     private Coroutine ConstructionRoutine;
-     
+
     public abstract IEnumerator Execute();
     public abstract IEnumerator Preparing();
 
-    public override void OnHit(float damage)
+
+
+    public override void Start()
     {
-        base.OnHit(damage);
-        hb.currentHealth = HP;
-    }
-
-
-    public virtual void Start()
-    {
-
-        hb.maxHealth = plantData.health;
+        HP = plantData.health;
+        healthBar.maxHealth = HP;
 
         if (healArea != null)
         {
             SetHealth(plantData.health);
             LeanPool.Spawn(healArea, transform).transform.localPosition = Vector3.zero;
         }
-      
-        
-        ChangeState(State.Active);
 
+        ChangeState(State.Active);
     }
 
-    public void SetHealth(float health) 
+    public void SetHealth(float health)
     {
         HP = Mathf.Clamp(health, 0f, plantData.health);
-        hb.currentHealth = HP;
     }
-
-
 
 
     [Button]
@@ -79,8 +68,9 @@ public abstract class Plant : Entity
     }
 
     public enum State { Construction, Active, DeActive }
-    
-    [ShowInInspector] [ReadOnly]
+
+    [ShowInInspector]
+    [ReadOnly]
     private State state;
     public enum AttackState { Idle, Attacking }
 
