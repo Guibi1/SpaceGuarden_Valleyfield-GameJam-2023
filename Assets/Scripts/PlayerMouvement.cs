@@ -138,9 +138,8 @@ public class PlayerMouvement : MonoBehaviour
                 emitterHeal.Play();
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
             }
-            //--- HEAL ---
-            emitterHeal.Stop();
         }
+        emitterHeal.Stop();
 
         //TODO : REMOVE THIS SHIT
         if (Input.GetKeyDown(KeyCode.P))
