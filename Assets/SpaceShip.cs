@@ -18,6 +18,9 @@ public class SpaceShip : MonoBehaviour
     public StudioEventEmitter emitterup;
 
     private float ok;
+
+    [SerializeField]
+    private Transform SpawnPoint;
     
     private void Start()
     {
@@ -53,10 +56,20 @@ public class SpaceShip : MonoBehaviour
         
         
     }
+    
+
+    public void PickUp()
+    {
+        Destroy(reference);
+    }
+
+    public Plant reference;
 
     [Button]
     public void GoDown()
     {
+        // le texte
+        reference = Instantiate(BaseCampManager.instance.nextShippement, SpawnPoint.transform.position,  Quaternion.identity);
         goUp = false;
     }
 

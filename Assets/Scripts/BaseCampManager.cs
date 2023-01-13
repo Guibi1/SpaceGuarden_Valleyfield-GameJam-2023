@@ -15,7 +15,7 @@ public class BaseCampManager : MonoBehaviour
     private bool isFighting = false;
     public int currentTurn = 0;
     private int turnsUntilNextShippement = 0;
-    private Plant nextShippement;
+    public Plant nextShippement;
 
     void Start()
     {
