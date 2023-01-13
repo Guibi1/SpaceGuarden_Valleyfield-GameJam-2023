@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Lean.Pool;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using FMODUnity;
 
 
 public class Alien : Agent
@@ -35,6 +36,8 @@ public class Alien : Agent
 
     [SerializeField] private GameObject sprite;
 
+    public StudioEventEmitter emmitterKill;
+    public StudioEventEmitter emmiterHit;
 
     private void OnEnable()
     {
@@ -156,6 +159,7 @@ public class Alien : Agent
     public override void OnHit(float damage)
     {
         base.OnHit(damage);
+        emmiterHit.Play();
         sprite.GetComponent<SpriteRenderer>().color = Color.red;
     }
 
@@ -163,6 +167,7 @@ public class Alien : Agent
     public override void Die()
     {
         base.Die();
+        emmitterKill.Play();
         alienAnimator.SetTrigger("Death");
     }
 

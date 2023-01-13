@@ -119,6 +119,8 @@ GameObject:
   - component: {fileID: 5683676939840238043}
   - component: {fileID: 1706079321}
   - component: {fileID: 7787467243644872595}
+  - component: {fileID: 8261788480268359966}
+  - component: {fileID: 2342427435958675134}
   m_Layer: 0
   m_Name: CrawlerAlien
   m_TagString: Alien
@@ -172,6 +174,8 @@ MonoBehaviour:
   alienData: {fileID: 11400000, guid: 3711f618bbe42d24f91dc7879e5716b3, type: 2}
   StartingBehaviorState: 1
   sprite: {fileID: 738716282}
+  emmitterKill: {fileID: 2342427435958675134}
+  emmiterHit: {fileID: 8261788480268359966}
 --- !u!195 &5683676939840238046
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -237,6 +241,66 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8261788480268359966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683676939840238047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2018179349
+      Data2: 1303344806
+      Data3: -1166178392
+      Data4: 956277195
+    Path: event:/SFX/Interactions/sfx_HitEnemy
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2342427435958675134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683676939840238047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1143993307
+      Data2: 1155536617
+      Data3: 170316194
+      Data4: -169634350
+    Path: event:/SFX/Interactions/sfx_KillEnemy
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5683676940291855557
 GameObject:
   m_ObjectHideFlags: 0
