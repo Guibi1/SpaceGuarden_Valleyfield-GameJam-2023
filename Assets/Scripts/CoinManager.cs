@@ -1,6 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering;
 
 public class CoinManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class CoinManager : MonoBehaviour
     [SerializeReference] private CinemachineFreeLook cam;
     [SerializeField] private float xCamSpeed = 300f;
 
+    public Volume volume;
+    
     private int _coins = 100;
     public int coins
     {
@@ -37,6 +40,7 @@ public class CoinManager : MonoBehaviour
         backgroundCanvas.enabled = true;
         Cursor.lockState = CursorLockMode.None;
         cam.m_XAxis.m_MaxSpeed = 0;
+        volume.sharedProfile.components[0].active = true;
     }
 
     public void OpenPause()
@@ -47,6 +51,7 @@ public class CoinManager : MonoBehaviour
         backgroundCanvas.enabled = true;
         Cursor.lockState = CursorLockMode.None;
         cam.m_XAxis.m_MaxSpeed = 0;
+        volume.sharedProfile.components[0].active = true;
     }
 
     public void CloseAll()
@@ -58,6 +63,7 @@ public class CoinManager : MonoBehaviour
         backgroundCanvas.enabled = false;
         Cursor.lockState = CursorLockMode.Locked;
         cam.m_XAxis.m_MaxSpeed = xCamSpeed;
+        volume.sharedProfile.components[0].active = false;
     }
 
     void Start()
