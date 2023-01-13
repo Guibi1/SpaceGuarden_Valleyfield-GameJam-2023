@@ -73,6 +73,7 @@ public class CoinManager : MonoBehaviour
         Time.timeScale = 1;
         shopCanvas.enabled = false;
         pauseCanvas.enabled = false;
+        deathCanvas.enabled = false;
         overlayCanvas.enabled = true;
         backgroundCanvas.enabled = false;
         Cursor.lockState = CursorLockMode.Locked;
