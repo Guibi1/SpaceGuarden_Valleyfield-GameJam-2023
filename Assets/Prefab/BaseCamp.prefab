@@ -61,7 +61,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  textMesh: {fileID: 0}
   currentTurn: 0
+  nextShippement: {fileID: 0}
 --- !u!114 &2221486804251431474
 MonoBehaviour:
   m_ObjectHideFlags: 0

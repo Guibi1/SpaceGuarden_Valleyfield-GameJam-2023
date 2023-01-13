@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
+using TMPro;
 
 public class BaseCampManager : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class BaseCampManager : MonoBehaviour
     [SerializeReference] Alien alien3Prefab;
     [SerializeReference] Transform bossSpawnLocation;
     [SerializeReference] List<Transform> spawnLocations;
-    [SerializeField] private Notification notification;
+    [SerializeField] private TextMeshPro textMesh;
 
 
     private bool isFighting = false;
@@ -39,14 +40,14 @@ public class BaseCampManager : MonoBehaviour
             NextTurn();
         }
 
-        // Shop
-        if (Vector3.Distance(transform.position, PlayerMouvement.instance.transform.position) <= 6f)
+
+        if (nextShippement != null)
         {
-            notification.ShowText("Appuyez sur E pour acheter une plante");
+            textMesh.text = "Votre plante arrive dans " + turnsUntilNextShippement + " tours";
         }
         else
         {
-            notification.HideText();
+            textMesh.text = "Appuyez sur E pour ouvrir la boutique";
         }
     }
 
@@ -75,8 +76,8 @@ public class BaseCampManager : MonoBehaviour
 
         StartCoroutine(SimpleRoutines.WaitTime(waitTime, () =>
         {
-   
-            
+
+
             currentTurn += 1;
             isFighting = true;
 
