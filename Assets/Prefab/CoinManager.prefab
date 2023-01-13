@@ -1135,8 +1135,8 @@ MonoBehaviour:
   cam: {fileID: 0}
   xCamSpeed: 300
   volume: {fileID: 0}
-  moneyTMP: {fileID: 0}
-  roundTMP: {fileID: 0}
+  moneyTMP: {fileID: 6580404352505589457}
+  roundTMP: {fileID: 1534903717}
 --- !u!114 &6193145229832671282
 MonoBehaviour:
   m_ObjectHideFlags: 0

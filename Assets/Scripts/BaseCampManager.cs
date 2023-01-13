@@ -29,7 +29,7 @@ public class BaseCampManager : MonoBehaviour
         }
 
         instance = this;
-        // NextTurn();
+        NextTurn();
     }
 
     void Update()
