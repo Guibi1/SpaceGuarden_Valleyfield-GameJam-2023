@@ -81,6 +81,7 @@ public abstract class Plant : Entity
     private State state;
     public enum AttackState { Idle, Attacking }
 
+    [ShowInInspector]
     private AttackState attackState;
 
     [Button]

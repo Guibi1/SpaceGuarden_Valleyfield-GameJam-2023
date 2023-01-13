@@ -73,6 +73,7 @@ public class TileManager : MonoBehaviour
     {
         Plant plant = LeanPool.Spawn(prefab, transform).GetComponent<Plant>();
         plant.transform.localPosition = Vector3.zero;
+        PlayerMouvement.instance.notification.HideText();
     }
 
 }
