@@ -67,7 +67,7 @@ public class SpaceShip : MonoBehaviour
         if (reference != null)
         {
             PlayerMouvement.instance.PickUpPlant(reference);
-            Destroy(reference);
+            Destroy(reference.gameObject);
         }
     }
 
@@ -76,8 +76,7 @@ public class SpaceShip : MonoBehaviour
     [Button]
     public void GoDown(Plant plant)
     {
-        // le texte
-        reference = Instantiate(plant, SpawnPoint.transform.position, Quaternion.identity);
+        reference = Instantiate(plant, SpawnPoint.transform.position, Quaternion.identity, transform);
         goUp = false;
     }
 

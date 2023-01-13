@@ -17,7 +17,7 @@ public class Notification : MonoBehaviour
     {
         targetPosition = new Vector3(0, visibleY, 0);
         targetOpacity = 1;
-        tmp.text = messgae;
+        GetComponentInChildren<TextMeshProUGUI>().text = messgae;
     }
 
     public void HideText()

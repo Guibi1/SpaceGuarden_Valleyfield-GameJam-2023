@@ -137,7 +137,14 @@ public class PlayerMouvement : MonoBehaviour
             // Shop
             if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
             {
-                CoinManager.instance.OpenShop();
+                if (SpaceShip.instance.reference != null)
+                {
+                    SpaceShip.instance.PickUp();
+                }
+                else if (BaseCampManager.instance.turnsUntilNextShippement <= 0)
+                {
+                    CoinManager.instance.OpenShop();
+                }
             }
             // Edit mode
             else if (playertype == PlayerTypes.Plant)
