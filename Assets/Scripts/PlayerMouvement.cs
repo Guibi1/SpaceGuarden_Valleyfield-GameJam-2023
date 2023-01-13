@@ -110,8 +110,10 @@ public class PlayerMouvement : MonoBehaviour
             }
             else if (GridManager.instance.selectedTile != null)
             {
-                Plant plant = LeanPool.Spawn(plantPrefab).GetComponent<Plant>();
-                GridManager.instance.selectedTile.Plant(plant);
+                GridManager.instance.selectedTile.Plant(plantPrefab);
+                EditMode = false;
+                plantPrefab = null;
+                playertype = PlayerTypes.Scythe;
             }
         }
 
