@@ -47,6 +47,8 @@ public class Alien : Agent
 
     private void Update()
     {
+        sprite.GetComponent<SpriteRenderer>().color = Color.Lerp(sprite.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * 8f);
+
 
         switch (Behavior)
         {
@@ -166,7 +168,13 @@ public class Alien : Agent
     {
         base.OnHit(damage);
         hb.currentHealth = HP;
+
+        sprite.GetComponent<SpriteRenderer>().color = Color.red;
+
+
     }
+
+
 
     public override void Die() { 
         base.Die();

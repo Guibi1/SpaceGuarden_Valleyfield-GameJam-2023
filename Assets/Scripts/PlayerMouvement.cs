@@ -122,13 +122,17 @@ public class PlayerMouvement : MonoBehaviour
             {
                 CoinManager.instance.shopIsOpen = true;
             }
-            else if (plantToHeal != null)
-            {
-                plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
-            }
+
             else if (playertype == PlayerTypes.Plant)
             {
                 EditMode = !EditMode;
+            }
+        }
+        else if (Input.GetKey(KeyCode.E))
+        {
+            if (plantToHeal != null)
+            {
+                plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
             }
         }
 
