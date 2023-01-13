@@ -26,10 +26,15 @@ public class TomatoHitbox : MonoBehaviour
 
     public void DoDamageToEnemies(float damage)
     {
-        foreach(var item in aliens)
+        foreach (GameObject alien in aliens)
         {
-            if (item == null) aliens.Remove(item);
-            item.GetComponent<Alien>().OnHit(damage);
+            if (alien == null)
+            {
+                aliens.Remove(alien);
+                continue;
+            }
+
+            alien.GetComponent<Alien>().OnHit(damage);
         }
     }
 }

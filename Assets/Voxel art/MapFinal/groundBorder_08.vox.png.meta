@@ -1,20 +1,12 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: 0b87fefaffc60584483c977f20ac048f
-=======
-guid: c0977c8d86cd1de40b4a8e2245b6b617
->>>>>>> Stashed changes
+guid: ec8152969ee13574fa775dad44229140
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-<<<<<<< Updated upstream
-    enableMipMap: 0
-=======
     enableMipMap: 1
->>>>>>> Stashed changes
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -41,46 +33,27 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-<<<<<<< Updated upstream
-    filterMode: 0
-=======
     filterMode: 1
->>>>>>> Stashed changes
     aniso: 1
     mipBias: 0
     wrapU: 0
     wrapV: 0
     wrapW: 0
-<<<<<<< Updated upstream
-  nPOTScale: 0
-  lightmap: 0
-  compressionQuality: 50
-  spriteMode: 1
-=======
   nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
->>>>>>> Stashed changes
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-<<<<<<< Updated upstream
-  spritePixelsToUnits: 15
-=======
   spritePixelsToUnits: 100
->>>>>>> Stashed changes
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
-<<<<<<< Updated upstream
-  textureType: 8
-=======
   textureType: 0
->>>>>>> Stashed changes
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -97,11 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-<<<<<<< Updated upstream
-    textureCompression: 0
-=======
     textureCompression: 1
->>>>>>> Stashed changes
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -132,17 +101,49 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
-<<<<<<< Updated upstream
-    spriteID: 5e97eb03825dee720800000000000000
-=======
     spriteID: 
->>>>>>> Stashed changes
     internalID: 0
     vertices: []
     indices: 
