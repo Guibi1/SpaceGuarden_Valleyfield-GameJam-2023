@@ -114,13 +114,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5683676939840238040}
+  - component: {fileID: 2299772247275639786}
   - component: {fileID: 5683676939840238046}
   - component: {fileID: 5683676939840238043}
   - component: {fileID: 1706079321}
   - component: {fileID: 7787467243644872595}
   - component: {fileID: 8261788480268359966}
   - component: {fileID: 2342427435958675134}
-  - component: {fileID: 2299772247275639786}
   m_Layer: 0
   m_Name: Slug
   m_TagString: Alien
@@ -146,6 +146,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2299772247275639786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683676939840238047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a561dfe8ce5d8640bbaf50e6998f0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthPoint: 0
+  allowPooling: 0
+  healthBar: {fileID: 5360457814824376209}
+  splashDamagePrefab: {fileID: 0}
+  deathAnimation: 1
+  deathAnimationTime: 0.5
+  dying: 0
+  navMeshAgent: {fileID: 5683676939840238046}
+  detectPlantThreshold: 3
+  detectCenterThresold: 3
+  alienAnimator: {fileID: 738716286}
+  Behavior: 0
+  searchState: 0
+  alienData: {fileID: 11400000, guid: 4b2abd5942f47ac48a37e81015ccaec3, type: 2}
+  StartingBehaviorState: 2
+  sprite: {fileID: 738716282}
+  emmitterKill: {fileID: 2342427435958675134}
+  emmiterHit: {fileID: 8261788480268359966}
 --- !u!195 &5683676939840238046
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -271,36 +301,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!114 &2299772247275639786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5683676939840238047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a561dfe8ce5d8640bbaf50e6998f0a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _healthPoint: 0
-  allowPooling: 0
-  healthBar: {fileID: 5360457814824376209}
-  splashDamagePrefab: {fileID: 0}
-  deathAnimation: 1
-  deathAnimationTime: 0.5
-  dying: 0
-  navMeshAgent: {fileID: 5683676939840238046}
-  detectPlantThreshold: 3
-  detectCenterThresold: 3
-  alienAnimator: {fileID: 738716286}
-  Behavior: 0
-  searchState: 0
-  alienData: {fileID: 11400000, guid: 4b2abd5942f47ac48a37e81015ccaec3, type: 2}
-  StartingBehaviorState: 0
-  sprite: {fileID: 738716282}
-  emmitterKill: {fileID: 2342427435958675134}
-  emmiterHit: {fileID: 8261788480268359966}
 --- !u!1 &5683676940291855557
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,8 +68,15 @@ public class BaseCampManager : MonoBehaviour
             OptionsManager.instance.TrophyWon = true;
         }
 
-        StartCoroutine(SimpleRoutines.WaitTime(cooldownNextWave, () =>
+        float waitTime = cooldownNextWave;
+
+        if (currentTurn == 0)
+            waitTime = 10f;
+
+        StartCoroutine(SimpleRoutines.WaitTime(waitTime, () =>
         {
+   
+            
             currentTurn += 1;
             isFighting = true;
 
@@ -87,7 +94,7 @@ public class BaseCampManager : MonoBehaviour
                 return;
             }
 
-            int nbEnemies1 = Mathf.FloorToInt(4f * Mathf.Sqrt(2.5f * currentTurn) + 2f);
+            int nbEnemies1 = Mathf.FloorToInt(2f * Mathf.Sqrt(2.5f * currentTurn) + 2f);
             int nbEnemies2 = currentTurn >= 5 ? Mathf.FloorToInt(1.25f * currentTurn) : 0;
             int nbEnemies3 = currentTurn >= 15 ? Mathf.FloorToInt((currentTurn / 5f) - 2f) : 0;
 
@@ -126,6 +133,5 @@ public class BaseCampManager : MonoBehaviour
         if (turnsUntilNextShippement != 0) return;
         nextShippement = plant;
         turnsUntilNextShippement = plant.plantData.timeToShip;
-        print(turnsUntilNextShippement);
     }
 }

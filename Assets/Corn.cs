@@ -10,24 +10,18 @@ public class Corn : Plant
     public AlienDetector AlienDetector;
     public override IEnumerator Execute()
     {
-        float closest = Mathf.Infinity;
-        Alien closestAlien = null;
-        foreach(Alien a in AlienManager.instance.aliens)
-        {
-            if(Vector3.Distance(transform.position, a.transform.position) < closest)
-            {
-                closest = Vector3.Distance(transform.position, a.transform.position);
-                closestAlien = a;
-            }
-        }
+        Alien alien = AlienDetector.GetComponent<Alien>();
 
-        if (closestAlien == null)
-            yield break;
-            
-        GameObject corn = LeanPool.Spawn(CornPrefab, cornSpawnPoint);
-        SingleCorn singleCorn = corn.GetComponent<SingleCorn>(); 
+        if (alien)
+        {
+            GameObject corn = LeanPool.Spawn(CornPrefab, cornSpawnPoint);
+            SingleCorn singleCorn = corn.GetComponent<SingleCorn>(); 
         
-        singleCorn.target = closestAlien.gameObject.transform;
+            singleCorn.target = alien.gameObject.transform;
+            
+            print("launch" + alien.name);
+        }
+            
         
         
         yield return new WaitForEndOfFrame();

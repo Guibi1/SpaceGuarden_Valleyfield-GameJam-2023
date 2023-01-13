@@ -12,6 +12,7 @@ public class SingleCorn : MonoBehaviour
     public float randomness = 0.1f;
     void Start()
     {
+        return;
         StartCoroutine(SimpleRoutines.WaitTime(1, () =>
         {
             // Randomly adjust rotation speed and direction

@@ -52,6 +52,8 @@ public class Alien : Agent
 
         if (!AlienManager.instance.aliens.Contains(this))
             AlienManager.instance.aliens.Add(this);
+
+        navMeshAgent.speed = alienData.speed;
     }
 
     private void Update()
@@ -89,7 +91,6 @@ public class Alien : Agent
             //There is no more plant so behavior is now searching center
             case SearchState.Center:
 
-                alienAnimator.SetBool("Attacking", false);
 
                 if (GoToCenter())
                 {
@@ -99,7 +100,6 @@ public class Alien : Agent
 
                 break;
             case SearchState.Plant:
-                alienAnimator.SetBool("Attacking", false);
 
                 if (currentTargetPlant == null)
                 {
@@ -108,7 +108,7 @@ public class Alien : Agent
                     // No more plants
                     if (currentTargetPlant == null)
                     {
-                        Behavior = BehaviorState.WantsCenter;
+                        searchState = SearchState.Center;
                         return;
                     }
                 }
