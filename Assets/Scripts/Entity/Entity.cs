@@ -56,6 +56,7 @@ public class Entity : MonoBehaviour
 
     public virtual void Die()
     {
+        CoinManager.instance.GainCoins(1);
         StartCoroutine(DieRoutine());
     }
 
