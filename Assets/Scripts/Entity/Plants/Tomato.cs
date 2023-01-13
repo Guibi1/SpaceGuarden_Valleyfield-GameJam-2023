@@ -1,18 +1,14 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
 
 public class Tomato : Plant
 {
-
     public GameObject TopPart;
     public GameObject tomato;
     public float height;
     public float bottom;
-    public float damage;
 
     public ParticleSystem particle1;
     public ParticleSystem particle2;
@@ -27,7 +23,7 @@ public class Tomato : Plant
     public AnimationCurve curveCrush;
     public AnimationCurve curveUp;
     public TomatoHitbox hitbox;
-    
+
     public override IEnumerator Execute()
     {
         yield return new WaitForEndOfFrame();
@@ -48,13 +44,13 @@ public class Tomato : Plant
             particle1.Play();
             particle2.Play();
             particle3.Play();
-            hitbox.DoDamageToEnemies(damage);
+            hitbox.DoDamageToEnemies(plantData.damage);
         }));
 
 
 
     }
-    
+
     public override IEnumerator Preparing()
     {
         yield return new WaitForEndOfFrame();

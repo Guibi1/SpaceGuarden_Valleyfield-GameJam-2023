@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7630602950679962629}
   - component: {fileID: 7630602950679962628}
+  - component: {fileID: 343727213}
   m_Layer: 0
   m_Name: PlantsGrid
   m_TagString: Untagged
@@ -51,3 +52,18 @@ MonoBehaviour:
   tilePrefab: {fileID: 5139806265037869733, guid: e1f467466ff4bb846baceb09b7651580, type: 3}
   selectedTile: {fileID: 0}
   editMode: 0
+--- !u!114 &343727213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7630602950679962627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64972dd44f1f62e4dae9459c08d2c946, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plants:
+  - {fileID: 0}
+  center: {fileID: 0}

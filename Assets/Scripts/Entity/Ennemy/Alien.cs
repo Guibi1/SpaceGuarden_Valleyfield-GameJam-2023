@@ -44,8 +44,8 @@ public class Alien : Agent
 
     public override void Start()
     {
+        healthBar.maxHealth = alienData.health;
         HP = alienData.health;
-        healthBar.maxHealth = HP;
     }
 
     private void Update()

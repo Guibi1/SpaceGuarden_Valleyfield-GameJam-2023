@@ -27,8 +27,8 @@ public abstract class Plant : Entity
 
     public override void Start()
     {
+        healthBar.maxHealth = plantData.health;
         HP = plantData.health;
-        healthBar.maxHealth = HP;
 
         if (healArea != null)
         {

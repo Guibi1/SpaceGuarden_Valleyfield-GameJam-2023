@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06336353230b3441accf6fd073dc838, type: 3}
   m_Name: CrawlerAlienData
   m_EditorClassIdentifier: 
-  health: 5
+  health: 10
   damageSpeed: 3
   damage: 1
   speed: 25
