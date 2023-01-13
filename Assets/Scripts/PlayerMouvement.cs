@@ -88,7 +88,10 @@ public class PlayerMouvement : MonoBehaviour
         }
         else
         {
-            notification.HideText();
+            if(notification != null)
+            {
+                notification.HideText();
+            }
         }
 
         scytheLastUsed += Time.deltaTime;
