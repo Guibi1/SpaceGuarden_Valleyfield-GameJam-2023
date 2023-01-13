@@ -136,6 +136,14 @@ public class PlayerMouvement : MonoBehaviour
             if (plantToHeal != null)
             {
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
+                if(!plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Play();
+            }
+        }
+        else
+        {
+            if (plantToHeal != null)
+            {
+                if (plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Stop();
             }
         }
     }
