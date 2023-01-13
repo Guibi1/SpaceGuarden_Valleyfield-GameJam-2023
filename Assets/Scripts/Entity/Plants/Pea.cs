@@ -23,7 +23,7 @@ public class Pea : Plant
 
     private IEnumerator DeleteAfterTime(GameObject peaBall)
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f); 
         if (peaBall.activeSelf && peaBall.activeInHierarchy)
         {
             LeanPool.Despawn(peaBall);
@@ -50,13 +50,19 @@ public class Pea : Plant
 
     private void OnTriggerEnter(Collider other)
     {
+        print("OnTriggerENter");
         if (aimedAlien != null)
             return;
         
         if (other.CompareTag("Alien"))
         {
-            print("allienenter");
-//            aimedAlien = aimedAlien.GetComponentInParent<Alien>();
+            print("CapsuleAlien");
+            aimedAlien = other.GetComponent<Alien>();
+
+            if (aimedAlien == null)
+            {
+                other.GetComponentInParent<Alien>();
+            }
         }
     }
     
@@ -65,10 +71,14 @@ public class Pea : Plant
         if (aimedAlien != null)
             return;
         
-        if (other.CompareTag("Alien"))
+        if (other.CompareTag("CapsuleAlien"))
         {
-            print("alienin");
-   //         aimedAlien = aimedAlien.GetComponentInParent<Alien>();
+            aimedAlien = other.GetComponent<Alien>();
+
+            if (aimedAlien == null)
+            {
+                other.GetComponentInParent<Alien>();
+            }
         }
     }
 }
