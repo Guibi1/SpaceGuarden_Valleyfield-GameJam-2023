@@ -32,9 +32,11 @@ public class Tomato : Plant
         {
             TopPart.transform.position = new Vector3(TopPart.transform.position.x, f, TopPart.transform.position.z);
             tomatoes.ForEach(x => x.SetActive(false));
-            int pos = (int)(8 - Math.Floor((TopPart.transform.position.y + 0.8) * 8));
-            print(pos);
-            tomatoes[pos].SetActive(true);
+            int pos = (int)(8 - Math.Floor((TopPart.transform.position.y + 0.8f) * 8));
+            if (pos < tomatoes.Length)
+            {
+                tomatoes[pos].SetActive(true);
+            }
 
         }, TopPart.transform.position.y, bottom, plantData.executeTime, curveCrush));
 
@@ -56,9 +58,11 @@ public class Tomato : Plant
         {
             TopPart.transform.position = new Vector3(TopPart.transform.position.x, f, TopPart.transform.position.z);
             tomatoes.ForEach(x => x.SetActive(false));
-            int pos = (int)(8 - Math.Floor((TopPart.transform.position.y + 0.8) * 8));
-            print(pos);
-            tomatoes[pos].SetActive(true);
+            int pos = (int)(8 - Math.Floor((TopPart.transform.position.y + 0.8f) * 8));
+            if (pos < tomatoes.Length)
+            {
+                tomatoes[pos].SetActive(true);
+            }
         }, TopPart.transform.position.y, bottom + height, plantData.preparingTime, curveUp));
     }
 }

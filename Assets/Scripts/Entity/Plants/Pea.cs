@@ -11,19 +11,24 @@ public class Pea : Plant
     public GameObject PeaBall;
     public Transform aimPoint;
     public float shootspeed;
+    public Animator customAnimator;
     public override IEnumerator Execute()
     {
         if (aimedAlien == null) yield break;
         
+        
         GameObject peaBall = LeanPool.Spawn(PeaBall);
+        peaBall.transform.position = aimPoint.transform.position;
         peaBall.GetComponent<Rigidbody>().velocity = aimPoint.forward * shootspeed;
 
+        customAnimator.Play("Pea");
+        
         StartCoroutine(DeleteAfterTime(peaBall));
     }
 
     private IEnumerator DeleteAfterTime(GameObject peaBall)
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(5f); 
         if (peaBall.activeSelf && peaBall.activeInHierarchy)
         {
             LeanPool.Despawn(peaBall);
@@ -32,6 +37,7 @@ public class Pea : Plant
 
     public override IEnumerator Preparing()
     {
+        customAnimator.Play("Idle");
         yield return null;
     }
 
@@ -55,8 +61,12 @@ public class Pea : Plant
         
         if (other.CompareTag("Alien"))
         {
-            print("allienenter");
-//            aimedAlien = aimedAlien.GetComponentInParent<Alien>();
+            aimedAlien = other.GetComponent<Alien>();
+
+            if (aimedAlien == null)
+            {
+                other.GetComponentInParent<Alien>();
+            }
         }
     }
     
@@ -65,10 +75,14 @@ public class Pea : Plant
         if (aimedAlien != null)
             return;
         
-        if (other.CompareTag("Alien"))
+        if (other.CompareTag("CapsuleAlien"))
         {
-            print("alienin");
-   //         aimedAlien = aimedAlien.GetComponentInParent<Alien>();
+            aimedAlien = other.GetComponent<Alien>();
+
+            if (aimedAlien == null)
+            {
+                other.GetComponentInParent<Alien>();
+            }
         }
     }
 }

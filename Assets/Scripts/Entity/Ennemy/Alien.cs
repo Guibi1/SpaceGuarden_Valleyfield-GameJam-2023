@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Lean.Pool;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ using UnityEngine;
 public class Alien : Agent
 {
     public enum BehaviorState {Inactive, WantsPlant, WantsCenter}
+
+    [SerializeField] private Animator alienAnimator;
 
     [ReadOnly]
     public BehaviorState Behavior ;
@@ -45,7 +48,6 @@ public class Alien : Agent
         {
             case BehaviorState.Inactive:
                 return;
-                break;
             case BehaviorState.WantsPlant:
 
                 SearchSwitchCase(SearchState.Plant);
@@ -61,7 +63,7 @@ public class Alien : Agent
         }
 
 
-        sprite.transform.LookAt(Camera.main.transform);
+//        sprite.transform.LookAt(Camera.main.transform);
         
     }
 
@@ -75,7 +77,9 @@ public class Alien : Agent
                     
             //There is no more plant so behavior is now searching center
             case SearchState.Center:
-                
+
+                alienAnimator.SetBool("Attacking", false);
+
                 if (GoToCenter())
                 {
                     navMeshAgent.isStopped = true;
@@ -84,7 +88,8 @@ public class Alien : Agent
                 
                 break;
             case SearchState.Plant:
-                        
+                alienAnimator.SetBool("Attacking", false);
+
                 if (currentTargetPlant == null)
                 {
                     currentTargetPlant = FindClosestPlant();
@@ -152,6 +157,11 @@ public class Alien : Agent
 
     }
 
+    public override void Die() { 
+        base.Die();
+        alienAnimator.SetTrigger("Death");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // not Already attacking plant or not inactive
@@ -162,6 +172,12 @@ public class Alien : Agent
                 currentTargetPlant = other.GetComponent<Plant>();
                 searchState = SearchState.Plant;
             }
+        }
+
+        if (other.CompareTag("PeaBall"))
+        {
+            OnHit(1);
+            LeanPool.Despawn(other.gameObject);
         }
     }
 
@@ -174,17 +190,19 @@ public class Alien : Agent
             searchState = SearchState.Inactive;
             return;
         }
-        
+
+        alienAnimator.SetBool("Attacking", true);
         HitEntity(currentTargetPlant);
     }
     
     private void AttackCenter()
     {
+
         if (PlantManager.instance.center == null || PlantManager.instance.center.dying)
         {
             return;
         }
-        
+        alienAnimator.SetBool("Attacking", true);
         HitEntity(PlantManager.instance.center);
     }
 
@@ -200,6 +218,8 @@ public class Alien : Agent
     }
 
     private float currentAttackTime = 0;
+    
+    
     
     
 }
