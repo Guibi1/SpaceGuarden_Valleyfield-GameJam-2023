@@ -27,7 +27,7 @@ public class PlayerMouvement : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject sprite;
-    [SerializeField] private Notification notification;
+    public Notification notification;
     [SerializeField] private Plant plantPrefab;
 
 
@@ -167,7 +167,6 @@ public class PlayerMouvement : MonoBehaviour
 
     public void PickUpPlant(Plant plant)
     {
-        
         notification.ShowText("Choisissez un emplacement où placer la plante");
         plantPrefab = plant;
         playertype = PlayerTypes.Plant;
