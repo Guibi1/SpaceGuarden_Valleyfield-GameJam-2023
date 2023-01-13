@@ -406,6 +406,9 @@ GameObject:
   - component: {fileID: 5360800108805587084}
   - component: {fileID: 1078594863}
   - component: {fileID: 1141418103}
+  - component: {fileID: 4322880705023197939}
+  - component: {fileID: 7989790959018338409}
+  - component: {fileID: 3776852740016228080}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -453,9 +456,11 @@ MonoBehaviour:
   plantHealSpeed: 5
   sprite: {fileID: 592834260801822005}
   notification: {fileID: 1086984646974498199}
-  baseCamp: {fileID: 0}
   plantPrefab: {fileID: 0}
   playerState: 0
+  emitterWalk: {fileID: 4322880705023197939}
+  emitterSwing: {fileID: 7989790959018338409}
+  emitterHealPlant: {fileID: 3776852740016228080}
   AliensInRange: []
 --- !u!54 &1078594863
 Rigidbody:
@@ -486,6 +491,96 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.12
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4322880705023197939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530729297781859804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1395061019
+      Data2: 1269477085
+      Data3: -1190516835
+      Data4: 1625644643
+    Path: event:/SFX/Player/Play_Footsteps
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &7989790959018338409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530729297781859804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2143357272
+      Data2: 1194856010
+      Data3: 1244993922
+      Data4: -1588430279
+    Path: event:/SFX/Player/sfx_swingWeapon
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &3776852740016228080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530729297781859804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 68312028
+      Data2: 1155824115
+      Data3: 546382525
+      Data4: 1244517719
+    Path: event:/SFX/Interactions/sfx_HealPlant
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6059065015964204591
 GameObject:
   m_ObjectHideFlags: 0
