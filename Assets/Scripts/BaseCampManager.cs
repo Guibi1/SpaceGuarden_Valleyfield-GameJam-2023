@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
+using TMPro;
 
 public class BaseCampManager : MonoBehaviour
 {
@@ -11,13 +12,13 @@ public class BaseCampManager : MonoBehaviour
     [SerializeReference] Alien alien3Prefab;
     [SerializeReference] Transform bossSpawnLocation;
     [SerializeReference] List<Transform> spawnLocations;
-    [SerializeField] private Notification notification;
+    [SerializeField] private TextMeshPro textMesh;
 
 
     private bool isFighting = false;
     public int currentTurn = 0;
     private int turnsUntilNextShippement = 0;
-    public Plant nextShippement;
+    private Plant nextShippement;
 
     void Start()
     {
@@ -39,14 +40,14 @@ public class BaseCampManager : MonoBehaviour
             NextTurn();
         }
 
-        // Shop
-        if (Vector3.Distance(transform.position, PlayerMouvement.instance.transform.position) <= 6f)
+
+        if (nextShippement != null)
         {
-            notification.ShowText("Appuyez sur E pour acheter une plante");
+            textMesh.text = "Votre plante arrive dans " + turnsUntilNextShippement + " tours";
         }
         else
         {
-            notification.HideText();
+            textMesh.text = "Appuyez sur E pour ouvrir la boutique";
         }
     }
 
@@ -57,10 +58,9 @@ public class BaseCampManager : MonoBehaviour
         turnsUntilNextShippement -= 1;
         if (turnsUntilNextShippement == 0 && nextShippement != null)
         {
-            // LeanPool.Spawn(nextShippement, transform);
-            PlayerMouvement.instance.PickUpPlant(nextShippement);
+            SpaceShip.instance.GoDown(nextShippement);
             nextShippement = null;
-            cooldownNextWave = 6f;
+            cooldownNextWave = 10f;
         }
 
         if (currentTurn == 10)
@@ -75,8 +75,6 @@ public class BaseCampManager : MonoBehaviour
 
         StartCoroutine(SimpleRoutines.WaitTime(waitTime, () =>
         {
-   
-            
             currentTurn += 1;
             isFighting = true;
 
@@ -133,5 +131,6 @@ public class BaseCampManager : MonoBehaviour
         if (turnsUntilNextShippement != 0) return;
         nextShippement = plant;
         turnsUntilNextShippement = plant.plantData.timeToShip;
+        SpaceShip.instance.GoUp();
     }
 }

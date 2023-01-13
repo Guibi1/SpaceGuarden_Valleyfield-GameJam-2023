@@ -234,7 +234,7 @@ public class PlayerMouvement : MonoBehaviour
                 other.gameObject.GetComponentInParent<Plant>().GetComponentInChildren<Notification>().HideText();
                 plantToHeal.plantSweat.Stop();
             }
-            catch(Exception e){}
+            catch (Exception) { }
             plantToHeal = null;
             plantNotif = null;
         }

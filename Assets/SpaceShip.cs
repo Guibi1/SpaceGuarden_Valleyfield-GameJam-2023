@@ -7,6 +7,9 @@ using Sirenix.OdinInspector;
 
 public class SpaceShip : MonoBehaviour
 {
+    public static SpaceShip instance;
+
+
     public float speed = 2f;
     public float noiseScale = 1.0f;
     public float noiseStrength = 1.0f;
@@ -21,9 +24,10 @@ public class SpaceShip : MonoBehaviour
 
     [SerializeField]
     private Transform SpawnPoint;
-    
+
     private void Start()
     {
+        instance = this;
         ok = transform.position.y + 50f;
     }
 
@@ -46,30 +50,34 @@ public class SpaceShip : MonoBehaviour
                 emitterup.Stop();
                 return;
             }
-         
-            
+
+
             float yPos = Mathf.PerlinNoise(Time.time * noiseScale, 0.0f) * noiseStrength;
             transform.position -= new Vector3(0.0f, yPos * speed * Time.deltaTime * 2f, 0.0f);
-            
-            
+
+
         }
-        
-        
+
+
     }
-    
+
 
     public void PickUp()
     {
-        Destroy(reference);
+        if (reference != null)
+        {
+            PlayerMouvement.instance.PickUpPlant(reference);
+            Destroy(reference);
+        }
     }
 
     public Plant reference;
 
     [Button]
-    public void GoDown()
+    public void GoDown(Plant plant)
     {
         // le texte
-        reference = Instantiate(BaseCampManager.instance.nextShippement, SpawnPoint.transform.position,  Quaternion.identity);
+        reference = Instantiate(plant, SpawnPoint.transform.position, Quaternion.identity);
         goUp = false;
     }
 
