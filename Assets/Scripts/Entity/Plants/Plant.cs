@@ -9,7 +9,9 @@ public abstract class Plant : Entity
 {
     [SerializeField] public PlantData plantData;
     [SerializeField] protected AoEPlant aoEPlant;
-    
+    [SerializeField] private HealthBar hb;
+
+
     protected bool useAnimator;
     [ShowIf("useAnimator")]
     [SerializeField] private Animator animator;
@@ -22,9 +24,18 @@ public abstract class Plant : Entity
     public abstract IEnumerator Execute();
     public abstract IEnumerator Preparing();
 
+    public override void OnHit(float damage)
+    {
+        base.OnHit(damage);
+        hb.currentHealth = HP;
+    }
+
 
     public virtual void Start()
     {
+
+        hb.maxHealth = plantData.health;
+
         if (healArea != null)
         {
             SetHealth(plantData.health);
@@ -38,7 +49,8 @@ public abstract class Plant : Entity
 
     public void SetHealth(float health) 
     {
-        HP  = Mathf.Clamp(health, 0f, plantData.health);
+        HP = Mathf.Clamp(health, 0f, plantData.health);
+        hb.currentHealth = HP;
     }
 
 

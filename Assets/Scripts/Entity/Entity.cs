@@ -15,7 +15,7 @@ public class Entity : MonoBehaviour
 
     public bool dying;
 
-    public void OnHit(float damage)
+    public virtual void OnHit(float damage)
     {
         if (dying)
             return;

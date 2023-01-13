@@ -7,10 +7,12 @@ using UnityEngine;
 
 public class Tomato : Plant
 {
+
     public GameObject TopPart;
     public GameObject tomato;
     public float height;
     public float bottom;
+    public float damage;
 
     public ParticleSystem particle1;
     public ParticleSystem particle2;
@@ -24,6 +26,7 @@ public class Tomato : Plant
 
     public AnimationCurve curveCrush;
     public AnimationCurve curveUp;
+    public TomatoHitbox hitbox;
     
     public override IEnumerator Execute()
     {
@@ -45,6 +48,7 @@ public class Tomato : Plant
             particle1.Play();
             particle2.Play();
             particle3.Play();
+            hitbox.DoDamageToEnemies(damage);
         }));
 
 

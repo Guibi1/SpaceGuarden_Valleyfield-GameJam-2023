@@ -26,6 +26,8 @@ public class Alien : Agent
     public AlienData alienData;
 
     public BehaviorState StartingBehaviorState;
+
+    public HealthBar hb;
     
     [Button]
     public void StartAlienBrain()
@@ -39,6 +41,8 @@ public class Alien : Agent
     private void OnEnable()
     {
         StartAlienBrain();
+        hb.maxHealth = alienData.health;
+
     }
 
     private void Update()
@@ -150,11 +154,18 @@ public class Alien : Agent
                 closestVector = PlantManager.instance.plants[i].transform.position;
                 closestDistance = distance;
                 closeByIndex = i;
+
             }
         }
         
         return PlantManager.instance.plants[closeByIndex];
 
+    }
+
+    public override void OnHit(float damage)
+    {
+        base.OnHit(damage);
+        hb.currentHealth = HP;
     }
 
     public override void Die() { 
