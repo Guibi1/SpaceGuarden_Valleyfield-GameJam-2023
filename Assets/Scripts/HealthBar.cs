@@ -14,9 +14,6 @@ public class HealthBar : MonoBehaviour
     private float _currentHealth = 100;
     public float currentHealth
     {
-       
-
-        
         get => _currentHealth;
         set
         {
@@ -29,8 +26,6 @@ public class HealthBar : MonoBehaviour
                 bool wasLow = _currentHealth / maxHealth <= .2f;
                 bool isLow = value / maxHealth <= .2f;
 
-                print("waslow : " + wasLow);
-                print("islow : " + isLow);
                 if (!wasLow && isLow)
                 {
                     StartCoroutine(SimpleRoutines.LerpCoroutine(0, 1, .3f, (t) => healthLine.Color = Color.Lerp(healthColor, lowHealthColor, t)));
@@ -45,12 +40,10 @@ public class HealthBar : MonoBehaviour
                 }
                 _currentHealth = value;
             }
-            catch(Exception e)
+            catch (Exception)
             {
                 print("Object was killed.");
             }
-
-            
         }
     }
 
