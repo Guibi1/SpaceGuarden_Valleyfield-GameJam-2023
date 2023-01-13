@@ -155,9 +155,16 @@ public class PlayerMouvement : MonoBehaviour
         }
         else
         {
+            Debug.Log("1");
             if (plantToHeal != null)
             {
-                if (plantToHeal.plantSweat.isPlaying) plantToHeal.plantSweat.Stop();
+                Debug.Log("2");
+
+                if (plantToHeal.plantSweat.isPlaying)
+                {
+                    Debug.Log("3");
+                    plantToHeal.plantSweat.Stop();
+                }
             }
         }
     }
@@ -226,6 +233,7 @@ public class PlayerMouvement : MonoBehaviour
         if (other.gameObject.CompareTag("PlantHealZone"))
         {
             other.gameObject.GetComponentInParent<Plant>().GetComponentInChildren<Notification>().HideText();
+            plantToHeal.plantSweat.Stop();
             plantToHeal = null;
             plantNotif = null;
         }
