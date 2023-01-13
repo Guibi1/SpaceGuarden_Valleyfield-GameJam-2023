@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 7787467243644872595}
   - component: {fileID: 8261788480268359966}
   - component: {fileID: 2342427435958675134}
+  - component: {fileID: 6790558128483776196}
   m_Layer: 0
   m_Name: Slug
   m_TagString: Alien
@@ -301,6 +302,19 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!135 &6790558128483776196
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683676939840238047}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!1 &5683676940291855557
 GameObject:
   m_ObjectHideFlags: 0
