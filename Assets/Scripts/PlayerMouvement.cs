@@ -82,11 +82,11 @@ public class PlayerMouvement : MonoBehaviour
 
         if (EditMode)
         {
-            notification.ShowText("Appuyer sur E pour planter votre semence");
+            notification.ShowText("Cliquer sur une case loin de vous pour la planter");
         }
         else if (plantPrefab != null)
         {
-            notification.ShowText("Cliquer su une cases loin de vous pour la planter");
+            notification.ShowText("Appuyer sur E pour planter votre semence");
         }
         else
         {
