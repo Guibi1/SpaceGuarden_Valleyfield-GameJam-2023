@@ -29,6 +29,14 @@ public class CoinManager : MonoBehaviour
         shopCanvas.enabled = false;
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            shopIsOpen = false;
+        }
+    }
+
     public void Buy(Plant plant)
     {
         if (plant.plantData.cost > coins) return;
