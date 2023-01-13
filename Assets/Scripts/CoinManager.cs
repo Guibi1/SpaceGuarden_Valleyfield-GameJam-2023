@@ -20,7 +20,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private float xCamSpeed = 300f;
 
     public Volume volume;
-    
+
     private int _coins = 100;
     public int coins
     {
@@ -28,6 +28,8 @@ public class CoinManager : MonoBehaviour
         set
         {
             moneyText.text = value + " $";
+            moneyTMP.text = value + " $";
+
             _coins = value;
         }
     }
@@ -72,9 +74,13 @@ public class CoinManager : MonoBehaviour
         CloseAll();
     }
 
+    public TextMeshProUGUI moneyTMP;
+    public TextMeshProUGUI roundTMP;
+
     void Update()
     {
         roundText.text = "Manche " + BaseCampManager.instance.currentTurn;
+        roundTMP.text = "Manche " + BaseCampManager.instance.currentTurn;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

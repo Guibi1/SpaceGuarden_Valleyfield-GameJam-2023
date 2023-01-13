@@ -1087,6 +1087,7 @@ GameObject:
   - component: {fileID: 658154591513832319}
   - component: {fileID: 658154591513832304}
   - component: {fileID: 6193145229832671282}
+  - component: {fileID: 1521808676}
   m_Layer: 0
   m_Name: CoinManager
   m_TagString: Untagged
@@ -1134,6 +1135,8 @@ MonoBehaviour:
   cam: {fileID: 0}
   xCamSpeed: 300
   volume: {fileID: 0}
+  moneyTMP: {fileID: 0}
+  roundTMP: {fileID: 0}
 --- !u!114 &6193145229832671282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1147,6 +1150,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousSceneName: 
+--- !u!114 &1521808676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658154591513832305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece98701a8f858b4bac41663fb2739c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &708029199331122274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3914,9 +3929,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.4811321, g: 0.3601274, b: 0.20198469, a: 0.5686275}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
+  m_Maskable: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []

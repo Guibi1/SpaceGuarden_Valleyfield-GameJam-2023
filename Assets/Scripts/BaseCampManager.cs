@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
+using TMPro;
 
 public class BaseCampManager : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class BaseCampManager : MonoBehaviour
     [SerializeReference] Alien alien3Prefab;
     [SerializeReference] Transform bossSpawnLocation;
     [SerializeReference] List<Transform> spawnLocations;
+    [SerializeField] private TextMeshPro textMesh;
+
 
     private bool isFighting = false;
     public int currentTurn = 0;
     private int turnsUntilNextShippement = 0;
-    private Plant nextShippement;
+    public Plant nextShippement;
 
     void Start()
     {
@@ -26,7 +29,7 @@ public class BaseCampManager : MonoBehaviour
         }
 
         instance = this;
-        NextTurn();
+        // NextTurn();
     }
 
     void Update()
@@ -36,11 +39,21 @@ public class BaseCampManager : MonoBehaviour
             isFighting = false;
             NextTurn();
         }
+
+
+        if (nextShippement != null)
+        {
+            textMesh.text = "Votre plante arrive dans " + turnsUntilNextShippement + " tours";
+        }
+        else
+        {
+            textMesh.text = "Appuyez sur E pour ouvrir la boutique";
+        }
     }
 
     private void NextTurn()
     {
-        float cooldownNextWave = 2f;
+        float cooldownNextWave = 5f;
 
         turnsUntilNextShippement -= 1;
         if (turnsUntilNextShippement == 0 && nextShippement != null)
@@ -56,8 +69,15 @@ public class BaseCampManager : MonoBehaviour
             OptionsManager.instance.TrophyWon = true;
         }
 
-        StartCoroutine(SimpleRoutines.WaitTime(cooldownNextWave, () =>
+        float waitTime = cooldownNextWave;
+
+        if (currentTurn == 0)
+            waitTime = 10f;
+
+        StartCoroutine(SimpleRoutines.WaitTime(waitTime, () =>
         {
+
+
             currentTurn += 1;
             isFighting = true;
 
@@ -75,7 +95,7 @@ public class BaseCampManager : MonoBehaviour
                 return;
             }
 
-            int nbEnemies1 = Mathf.FloorToInt(4f * Mathf.Sqrt(2.5f * currentTurn) + 2f);
+            int nbEnemies1 = Mathf.FloorToInt(2f * Mathf.Sqrt(2.5f * currentTurn) + 2f);
             int nbEnemies2 = currentTurn >= 5 ? Mathf.FloorToInt(1.25f * currentTurn) : 0;
             int nbEnemies3 = currentTurn >= 15 ? Mathf.FloorToInt((currentTurn / 5f) - 2f) : 0;
 
@@ -114,6 +134,5 @@ public class BaseCampManager : MonoBehaviour
         if (turnsUntilNextShippement != 0) return;
         nextShippement = plant;
         turnsUntilNextShippement = plant.plantData.timeToShip;
-        print(turnsUntilNextShippement);
     }
 }
