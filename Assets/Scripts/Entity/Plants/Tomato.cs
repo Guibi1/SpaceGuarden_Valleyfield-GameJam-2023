@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Sirenix.Utilities;
 using UnityEngine;
+using FMODUnity;
 
 public class Tomato : Plant
 {
@@ -23,6 +24,7 @@ public class Tomato : Plant
     public AnimationCurve curveCrush;
     public AnimationCurve curveUp;
     public TomatoHitbox hitbox;
+    public StudioEventEmitter emitterAttack;
 
     public override IEnumerator Execute()
     {
@@ -44,6 +46,8 @@ public class Tomato : Plant
             particle1.Play();
             particle2.Play();
             particle3.Play();
+            emitterAttack.Play();
+            
             hitbox.DoDamageToEnemies(plantData.damage);
         }));
 

@@ -23,6 +23,18 @@ public class HealthBar : MonoBehaviour
                 healthLine.End = new Vector3(endX, 0);
                 StartCoroutine(SimpleRoutines.WaitTime(.2f, () => StartCoroutine(SimpleRoutines.LerpCoroutine(hitLine.End.x, endX, .4f, (x) => hitLine.End = new Vector3(x, 0)))));
 
+                if (value == 0)
+                {
+                    Color healthTransparent = lowHealthColor;
+                    healthTransparent.a = 0;
+                    Color hit = hitLine.Color;
+                    Color hitTransparent = hitLine.Color;
+                    hitTransparent.a = 0;
+                    StartCoroutine(SimpleRoutines.LerpCoroutine(0, 1, .1f, (t) => healthLine.Color = Color.Lerp(lowHealthColor, healthTransparent, t)));
+                    StartCoroutine(SimpleRoutines.LerpCoroutine(0, 1, .1f, (t) => hitLine.Color = Color.Lerp(hit, hitTransparent, t)));
+                    return;
+                }
+
                 bool wasLow = _currentHealth / maxHealth <= .2f;
                 bool isLow = value / maxHealth <= .2f;
 
@@ -34,10 +46,7 @@ public class HealthBar : MonoBehaviour
                 {
                     StartCoroutine(SimpleRoutines.LerpCoroutine(0, 1, .3f, (t) => healthLine.Color = Color.Lerp(lowHealthColor, healthColor, t)));
                 }
-                if (value == 0)
-                {
 
-                }
                 _currentHealth = value;
             }
             catch (Exception)

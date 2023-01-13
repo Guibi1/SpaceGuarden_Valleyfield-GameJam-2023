@@ -153,7 +153,8 @@ public class Alien : Agent
         int closeByIndex = 0;
         for (int i = 0; i < PlantManager.instance.plants.Count; i++)
         {
-            float distance = Vector3.Distance(PlantManager.instance.plants[i].transform.position, transform.position);
+            Debug.Log(i);
+            float distance = Vector3.Distance(PlantManager.instance.plants[i].transform.position, transform.position);  
             if (distance <= closestDistance)
             {
                 closestDistance = distance;

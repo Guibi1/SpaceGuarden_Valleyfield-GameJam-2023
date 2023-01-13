@@ -1,8 +1,9 @@
 using Cinemachine;
 using Lean.Pool;
-using System;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
+using UnityEngine.SceneManagement;
 
 public class PlayerMouvement : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class PlayerMouvement : MonoBehaviour
     private Notification plantNotif;
     private float scytheLastUsed = 0f;
 
+    public StudioEventEmitter emitterWalk;
+    public StudioEventEmitter emitterSwing;
+    public StudioEventEmitter emitterHeal;
+
     private PlayerTypes _playertype;
     public PlayerTypes playertype
     {
@@ -48,7 +53,7 @@ public class PlayerMouvement : MonoBehaviour
 
     public bool EditMode
     {
-        get => GridManager.instance.editMode;
+        get => SceneManager.GetActiveScene().name == "credits" ? false : GridManager.instance.editMode;
         set
         {
             GridManager.instance.editMode = value;
@@ -101,6 +106,7 @@ public class PlayerMouvement : MonoBehaviour
             if (!EditMode)
             {
                 Fire();
+                emitterSwing.Play();
             }
             else if (GridManager.instance.selectedTile != null)
             {
@@ -112,11 +118,12 @@ public class PlayerMouvement : MonoBehaviour
         // On interact
         if (Input.GetKeyDown(KeyCode.E))
         {
+            // Shop
             if (Vector3.Distance(transform.localPosition, BaseCampManager.instance.transform.localPosition) <= distanceToInteract)
             {
                 CoinManager.instance.shopIsOpen = true;
             }
-
+            // Edit mode
             else if (playertype == PlayerTypes.Plant)
             {
                 EditMode = !EditMode;
@@ -129,13 +136,12 @@ public class PlayerMouvement : MonoBehaviour
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
             }
         }
+    }
 
-        //TODO : REMOVE THIS SHIT
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            notification.SetActive(true);
-            playertype = PlayerTypes.Plant;
-        }
+    public void PickUpPlant(Plant plant)
+    {
+        plantPrefab = plant;
+        playertype = PlayerTypes.Plant;
     }
 
 
