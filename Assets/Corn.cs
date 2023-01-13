@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Lean.Pool;
 using UnityEngine;
 
 public class Corn : Plant
 {
     [SerializeField] private GameObject CornPrefab;
     [SerializeField] private Transform cornSpawnPoint;
+    public AlienDetector AlienDetector;
     public override IEnumerator Execute()
     {
         float closest = Mathf.Infinity;
@@ -19,17 +21,22 @@ public class Corn : Plant
             }
         }
 
-        GameObject corn = Instantiate(CornPrefab, cornSpawnPoint);
-        corn.GetComponent<SingleCorn>().target = closestAlien.gameObject.transform;
+        if (closestAlien == null)
+            yield break;
+            
+        GameObject corn = LeanPool.Spawn(CornPrefab, cornSpawnPoint);
+        SingleCorn singleCorn = corn.GetComponent<SingleCorn>(); 
         
+        singleCorn.target = closestAlien.gameObject.transform;
+        
+        
+        yield return new WaitForEndOfFrame();
 
-        
-        throw new System.NotImplementedException();
     }
 
     public override IEnumerator Preparing()
     {
-        throw new System.NotImplementedException();
+        yield return new WaitForEndOfFrame();
     }
 
 }
