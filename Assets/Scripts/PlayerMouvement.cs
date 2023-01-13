@@ -155,14 +155,11 @@ public class PlayerMouvement : MonoBehaviour
         }
         else
         {
-            Debug.Log("1");
             if (plantToHeal != null)
             {
-                Debug.Log("2");
 
                 if (plantToHeal.plantSweat.isPlaying)
                 {
-                    Debug.Log("3");
                     plantToHeal.plantSweat.Stop();
                 }
             }
