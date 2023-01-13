@@ -12,7 +12,7 @@ public class BaseCampManager : MonoBehaviour
     [SerializeReference] List<Transform> spawnLocations;
 
     private bool isFighting = true;
-    private int currentTurn = 0;
+    public int currentTurn = 0;
     private int turnsUntilNextShippement = 0;
     private Plant nextShippement;
 
