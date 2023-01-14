@@ -46,14 +46,14 @@ public class SpaceShip : MonoBehaviour
         }
         else
         {
-            if (Vector3.Distance(transform.position, place.transform.position) < 0.1f)
+            if (transform.position.y < place.transform.position.y)
             {
                 emitterup.Stop();
                 return;
             }
 
             float yPos = Mathf.PerlinNoise(Time.time * noiseScale, 0.0f) * noiseStrength;
-            transform.position -= new Vector3(0.0f, yPos * speed * Time.deltaTime * 4f, 0.0f);
+            transform.position -= new Vector3(0.0f, yPos * speed * Time.deltaTime * 3f, 0.0f);
             
             ;
         }
