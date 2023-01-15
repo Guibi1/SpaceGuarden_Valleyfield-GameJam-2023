@@ -43,13 +43,13 @@ public class PlayerMouvement : MonoBehaviour
     public StudioEventEmitter emitterSwing;
     public StudioEventEmitter emitterHeal;
 
-    private PlayerTypes _playertype;
-    public PlayerTypes playertype
+    [SerializeField] private PlayerTypes _playerType = PlayerTypes.Scythe;
+    public PlayerTypes PlayerType
     {
-        get => _playertype;
+        get => _playerType;
         set
         {
-            _playertype = value;
+            _playerType = value;
             SpriteManager.instance.SetCharType(value);
         }
     }
@@ -81,7 +81,7 @@ public class PlayerMouvement : MonoBehaviour
     {
         if (plantToHeal != null)
         {
-            plantNotif.ShowText(plantToHeal.HP >= plantToHeal.plantData.health ? "La plante est en bonne santé" : "Laissez E enfoncé pour soigner la plante");
+            plantNotif.ShowText(plantToHeal.HP >= plantToHeal.plantData.health ? "La plante est en bonne santé" : "Laissez Espace enfoncé pour soigner la plante");
         }
 
         if (EditMode)
@@ -90,7 +90,7 @@ public class PlayerMouvement : MonoBehaviour
         }
         else if (plantPrefab != null)
         {
-            notification.ShowText("Appuyer sur E pour planter votre semence");
+            notification.ShowText("Appuyer sur Q pour choisir où planter votre semence");
         }
         else
         {
@@ -128,15 +128,14 @@ public class PlayerMouvement : MonoBehaviour
         {
             if (!EditMode)
             {
-                Fire();
-                emitterSwing.Play();
+                Attack();
             }
             else if (GridManager.instance.selectedTile != null)
             {
                 GridManager.instance.selectedTile.Plant(plantPrefab);
                 EditMode = false;
                 plantPrefab = null;
-                playertype = PlayerTypes.Scythe;
+                PlayerType = PlayerTypes.Scythe;
             }
         }
 
@@ -146,7 +145,7 @@ public class PlayerMouvement : MonoBehaviour
             // Shop
             if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
             {
-                if (SpaceShip.instance.referenceVaisseau != null)
+                if (SpaceShip.instance.dummyPlantOnTop != null)
                 {
                     SpaceShip.instance.PickUp();
                 }
@@ -155,14 +154,18 @@ public class PlayerMouvement : MonoBehaviour
                     CoinManager.instance.OpenShop();
                 }
             }
+        }
+        else if (Input.GetKeyDown(KeyCode.Q))
+        {
             // Edit mode
-            else if (playertype == PlayerTypes.Plant)
+            if (PlayerType == PlayerTypes.Plant)
             {
                 EditMode = !EditMode;
             }
         }
-        else if (Input.GetKey(KeyCode.E))
+        else if (Input.GetKey(KeyCode.Space))
         {
+            // Heal
             if (plantToHeal != null)
             {
                 plantToHeal.SetHealth(plantToHeal.HP + Time.deltaTime * plantHealSpeed);
@@ -183,9 +186,8 @@ public class PlayerMouvement : MonoBehaviour
 
     public void PickUpPlant(Plant plant)
     {
-        notification.ShowText("Choisissez un emplacement où placer la plante");
         plantPrefab = plant;
-        playertype = PlayerTypes.Plant;
+        PlayerType = PlayerTypes.Plant;
     }
 
 
@@ -195,12 +197,14 @@ public class PlayerMouvement : MonoBehaviour
         cameraVectorRight = right.normalized;
     }
 
-    public void Fire()
+    public void Attack()
     {
-        if (playertype == PlayerTypes.Plant) return;
+        if (PlayerType == PlayerTypes.Plant) return;
         if (scytheLastUsed < scytheCooldown) return;
+
         scytheLastUsed = 0;
         SpriteManager.instance.attack();
+        emitterSwing.Play();
 
         List<Alien> delete = new List<Alien>();
         foreach (Alien a in AliensInRange)

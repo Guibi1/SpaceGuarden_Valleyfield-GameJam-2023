@@ -40,9 +40,9 @@ public class BaseCampManager : MonoBehaviour
 
         if (turnsUntilNextShippement > 0)
         {
-            textMesh.text = "Votre plante arrive dans " + turnsUntilNextShippement + " tours";
+            textMesh.text = "Votre plante arrive dans " + turnsUntilNextShippement + " tour" + (turnsUntilNextShippement > 1 ? "s" : "");
         }
-        else if (SpaceShip.instance.referenceVaisseau != null)
+        else if (SpaceShip.instance.dummyPlantOnTop != null)
         {
             textMesh.text = "Appuyez sur E pour prendre la plante";
         }

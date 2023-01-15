@@ -64,15 +64,15 @@ public class SpaceShip : MonoBehaviour
     public void PickUp()
     {
         PlayerMouvement.instance.PickUpPlant(BaseCampManager.instance.nextShippement);
-        Destroy(referenceVaisseau.gameObject);
+        Destroy(dummyPlantOnTop.gameObject);
     }
 
-    public Plant referenceVaisseau;
+    public Plant dummyPlantOnTop;
 
     [Button]
     public void GoDown(Plant plant)
     {
-        referenceVaisseau = LeanPool.Spawn(plant, SpawnPoint.transform.position, Quaternion.identity, transform);
+        dummyPlantOnTop = LeanPool.Spawn(plant, SpawnPoint.transform.position, Quaternion.identity, transform);
         goUp = false;
     }
 

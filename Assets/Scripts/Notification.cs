@@ -6,40 +6,69 @@ using UnityEngine.UI;
 
 public class Notification : MonoBehaviour
 {
-    [SerializeReference] private float visibleY = 5f;
+    [SerializeField] private float visibleY = 5f;
+    [SerializeField]
+    private float animationTime = .5f;
     [SerializeReference] private List<Graphic> graphics;
 
+    private float initialY;
     private Vector3 targetPosition;
-    private float targetOpacity;
+    private bool hidden = true;
 
     void Start()
     {
+        initialY = transform.localPosition.y;
+        gameObject.SetActive(false);
         HideText();
     }
 
-    public void ShowText(string messgae)
+    public void ShowText(string message)
     {
-        targetPosition = new Vector3(0, visibleY, 0);
-        targetOpacity = 1;
-        GetComponentInChildren<TextMeshProUGUI>().text = messgae;
+        if (hidden)
+        {
+            StopAllCoroutines();
+            gameObject.SetActive(true);
+            StartCoroutine(SimpleRoutines.LerpCoroutine(transform.localPosition.y, visibleY, animationTime, (y) => transform.localPosition = new Vector3(0, y, 0)));
+            StartCoroutine(SimpleRoutines.LerpCoroutine(graphics[0].color.a, 1, animationTime, (a) =>
+            {
+                foreach (Graphic g in graphics)
+                {
+                    Color color = g.color;
+                    g.color = color;
+                }
+            }));
+        }
+
+        GetComponentInChildren<TextMeshProUGUI>().text = message;
+        hidden = false;
     }
 
     public void HideText()
     {
-        targetPosition = new Vector3(0, -1, 0);
-        targetOpacity = 0;
+        if (!hidden)
+        {
+            StopAllCoroutines();
+            StartCoroutine(SimpleRoutines.LerpCoroutine(transform.localPosition.y, initialY, animationTime, (y) => transform.localPosition = new Vector3(0, y, 0)));
+            StartCoroutine(SimpleRoutines.LerpCoroutine(graphics[0].color.a, 0, animationTime, (a) =>
+            {
+                foreach (Graphic g in graphics)
+                {
+                    Color color = g.color;
+                    g.color = color;
+                }
+            }, () => gameObject.SetActive(false)));
+        }
+
+        hidden = true;
     }
 
     private void FixedUpdate()
     {
-        transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, 8f * Time.deltaTime);
-        foreach (Graphic g in graphics)
-        {
-            Color color = g.color;
-            color.a = Mathf.Lerp(g.color.a, targetOpacity, Time.deltaTime * 8f);
-            g.color = color;
-        }
+        // transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, 8f * Time.deltaTime);
 
-        transform.rotation = GameObject.FindObjectOfType<CinemachineFreeLook>().transform.localRotation;
+
+        // enabled = hide && graphics[0].color.a < .01f;
+
+        // transform.rotation = GameObject.FindObjectOfType<CinemachineFreeLook>().transform.localRotation;
     }
 }
