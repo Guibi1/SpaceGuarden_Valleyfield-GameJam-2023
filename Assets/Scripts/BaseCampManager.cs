@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Lean.Pool;
 using UnityEngine;
 using TMPro;
+using Sirenix.OdinInspector;
 
 public class BaseCampManager : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class BaseCampManager : MonoBehaviour
     [SerializeReference] Alien alien3Prefab;
     [SerializeReference] Transform bossSpawnLocation;
     [SerializeReference] List<Transform> spawnLocations;
-    [SerializeField] private TextMeshPro textMesh;
+    [SerializeReference] private TextMeshProUGUI overlayTextMesh;
 
 
     private bool isFighting = false;
@@ -40,18 +41,26 @@ public class BaseCampManager : MonoBehaviour
 
         if (turnsUntilNextShippement > 0)
         {
-            textMesh.text = "Votre plante arrive dans " + turnsUntilNextShippement + " tour" + (turnsUntilNextShippement > 1 ? "s" : "");
+            overlayTextMesh.text = "Votre plante arrive dans " + turnsUntilNextShippement + " tour" + (turnsUntilNextShippement > 1 ? "s" : "");
         }
-        else if (SpaceShip.instance.dummyPlantOnTop != null)
+        else if (Vector3.Distance(transform.position, PlayerMouvement.instance.transform.position) <= PlayerMouvement.instance.distanceToInteract)
         {
-            textMesh.text = "Appuyez sur E pour prendre la plante";
+            if (SpaceShip.instance.dummyPlantOnTop != null)
+            {
+                overlayTextMesh.text = "Appuyez sur E pour prendre la plante";
+            }
+            else
+            {
+                overlayTextMesh.text = "Appuyez sur E pour ouvrir la boutique";
+            }
         }
         else
         {
-            textMesh.text = "Appuyez sur E pour ouvrir la boutique";
+            overlayTextMesh.text = "";
         }
     }
 
+    [Button]
     private void NextTurn()
     {
         float cooldownNextWave = 5f;

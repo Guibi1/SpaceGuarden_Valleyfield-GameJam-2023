@@ -20,7 +20,7 @@ public class PlayerMouvement : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private float speedMultiplier = 50f;
-    [SerializeField] private float distanceToInteract = 5f;
+    [SerializeField] public float distanceToInteract = 5f;
     [SerializeField] private float scytheDamage = 2;
     [SerializeField] private float scytheCooldown = 5;
     [SerializeField] private float plantHealSpeed = 30f;
