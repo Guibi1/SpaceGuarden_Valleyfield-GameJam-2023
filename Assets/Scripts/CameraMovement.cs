@@ -26,9 +26,13 @@ public class CameraMovement : MonoBehaviour
     [Header("Misc")]
     [SerializeField] private GameObject Camera_Rotate_Around;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
-        instance = this; // Un bon Singleton
         cam = Camera.main;
         cam.transform.localPosition = new Vector3(0, 0, -cameraOffset);
         targetRotation = Camera_Rotate_Around.transform.eulerAngles;

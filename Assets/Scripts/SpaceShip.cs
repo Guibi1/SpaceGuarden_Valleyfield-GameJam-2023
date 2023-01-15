@@ -17,36 +17,39 @@ public class SpaceShip : MonoBehaviour
 
     private bool goUp;
 
-    public Transform place;
-
     public StudioEventEmitter emitterup;
 
-    private float ok;
+    private float initialY;
 
     [SerializeField]
     private Transform SpawnPoint;
 
-    private void Start()
+    private void Awake()
     {
         instance = this;
-        ok = transform.position.y + 25f;
+    }
+
+    private void Start()
+    {
+        initialY = transform.position.y;
     }
 
     void Update()
     {
         if (goUp)
         {
-            if (Vector3.Distance(transform.position, new Vector3(transform.position.x, ok, transform.position.z)) < 0.1f)
+            if (transform.position.y > initialY + 25f)
             {
                 emitterup.Stop();
                 return;
             }
+
             float yPos = Mathf.PerlinNoise(Time.time * noiseScale, 0.0f) * noiseStrength;
             transform.position += new Vector3(0.0f, yPos * speed * Time.deltaTime, 0.0f);
         }
         else
         {
-            if (transform.position.y < place.transform.position.y)
+            if (transform.position.y < initialY)
             {
                 emitterup.Stop();
                 return;
@@ -54,8 +57,6 @@ public class SpaceShip : MonoBehaviour
 
             float yPos = Mathf.PerlinNoise(Time.time * noiseScale, 0.0f) * noiseStrength;
             transform.position -= new Vector3(0.0f, yPos * speed * Time.deltaTime * 3f, 0.0f);
-            
-            ;
         }
     }
 

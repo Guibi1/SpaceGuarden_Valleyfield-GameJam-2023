@@ -12,7 +12,10 @@ public class OptionsManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+    }
 
+    void Start()
+    {
         if (baldToggle != null)
         {
             baldToggle.isOn = Bald;

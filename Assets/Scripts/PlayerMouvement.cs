@@ -66,10 +66,14 @@ public class PlayerMouvement : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        instance = this;
         rb = GetComponent<Rigidbody>();
     }
 

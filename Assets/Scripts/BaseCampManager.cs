@@ -20,15 +20,13 @@ public class BaseCampManager : MonoBehaviour
     public int turnsUntilNextShippement = 0;
     public Plant nextShippement;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
         NextTurn();
     }
 

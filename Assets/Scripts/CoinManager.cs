@@ -81,9 +81,13 @@ public class CoinManager : MonoBehaviour
         volume.sharedProfile.components[0].active = false;
     }
 
-    void Start()
+    private void Awake()
     {
         instance = this;
+    }
+
+    void Start()
+    {
         CloseAll();
     }
 
