@@ -23,6 +23,7 @@ public class SplashText : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         GetComponent<TextMeshProUGUI>().text = poss[Random.Range(0, poss.Length)];
     }
 
