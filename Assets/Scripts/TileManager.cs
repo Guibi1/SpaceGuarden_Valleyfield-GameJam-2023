@@ -71,6 +71,11 @@ public class TileManager : MonoBehaviour
 
     public void Plant(Plant prefab)
     {
+        print(prefab.GetType());
+        if(prefab.GetType() == typeof(Cherry))
+        {
+            ((Cherry)prefab).placed = true;
+        }
         Plant plant = LeanPool.Spawn(prefab, transform).GetComponent<Plant>();
         plant.transform.localPosition = Vector3.zero - new Vector3(0,0.2f,0);
         PlantManager.instance.plants.Add(plant);

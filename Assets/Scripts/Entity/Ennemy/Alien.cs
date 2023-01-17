@@ -140,7 +140,7 @@ public class Alien : Agent
 
     private bool GoToCenter()
     {
-        return GoToPosition(PlantManager.instance.center.transform.position);
+        return GoToPosition(PlantManager.instance.center != null ? PlantManager.instance.center.transform.position : new Vector3());
     }
 
     private Plant FindClosestPlant()

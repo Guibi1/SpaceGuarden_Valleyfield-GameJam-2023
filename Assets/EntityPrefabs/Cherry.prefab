@@ -392,6 +392,8 @@ MonoBehaviour:
   axis: {fileID: 6221299044619334164}
   CherryPrefab: {fileID: 4029669066145953916, guid: 753ef36c09b60a44fba16cb77d0171d0, type: 3}
   spawnpoint: {fileID: 6052945928880255132}
+  placed: 1
+  bullet_speed: 20
 --- !u!114 &406025005784426033
 MonoBehaviour:
   m_ObjectHideFlags: 0

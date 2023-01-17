@@ -6,20 +6,33 @@ using UnityEngine;
 public class cherry_bomb : MonoBehaviour
 {
     public GameObject cherry_explosion;
+    List<Alien> aliensToDamage = new List<Alien>();
+
     private void OnTriggerEnter(Collider collision)
     {
         print(collision.gameObject.tag);
         if (!collision.CompareTag("Alien") && !collision.CompareTag("Floor")) return;
         if (collision.CompareTag("Alien"))
         {
-            collision.gameObject.GetComponent<Alien>().OnHit(40);
+            aliensToDamage.Add(collision.gameObject.GetComponent<Alien>());
         }
-        GameObject anim = LeanPool.Spawn(cherry_explosion);
-        anim.transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
-        Destroy(anim, 2f);
+
+        StartCoroutine(SimpleRoutines.WaitTime(0.25f, () =>
+        {
+            foreach (Alien alien in aliensToDamage)
+            {
+                alien.OnHit(40);
+            }
+            GameObject anim = LeanPool.Spawn(cherry_explosion);
+            anim.transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
+            Destroy(anim, 2f);
 
 
-        Destroy(gameObject);
+            Destroy(gameObject);
+
+        }));
+
+       
 
     }
     

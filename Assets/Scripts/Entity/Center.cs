@@ -12,6 +12,7 @@ public class Center : Entity
 
         if (dying)
         {
+            Time.timeScale = 0; // Game end
             CoinManager.instance.OpenDeath();
         }
     }

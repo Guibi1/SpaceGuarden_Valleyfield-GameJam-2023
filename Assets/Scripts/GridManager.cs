@@ -54,7 +54,6 @@ public class GridManager : MonoBehaviour
         Physics.Raycast(ray, out hit, Mathf.Infinity, mask);
 
         if (hit.collider == null) return;
-        print(hit.collider.name);
 
         if (!hit.collider.CompareTag("Tile")) return;
         TileManager tileManager = hit.collider.gameObject.GetComponent<TileManager>();

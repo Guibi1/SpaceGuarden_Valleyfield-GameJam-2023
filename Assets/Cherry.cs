@@ -13,6 +13,8 @@ public class Cherry : Plant
     public GameObject axis;
     public GameObject CherryPrefab;
     public GameObject spawnpoint;
+    public bool placed;
+    [SerializeField] float bullet_speed;
     public override IEnumerator Execute()
     {
         spawnpoint.SetActive(true);
@@ -21,17 +23,20 @@ public class Cherry : Plant
         StartCoroutine(SimpleRoutines.CustomCurveLerpCoroutine((f) =>
         {
             if (aimedAlien == null) return;
+            if (!placed) return;
+
             axis.transform.localRotation = Quaternion.Euler(new Vector3(axis.transform.localEulerAngles.x, axis.transform.localEulerAngles.y, -f));
         }, 0, 50, plantData.executeTime, curveCrush));
         
         StartCoroutine(SimpleRoutines.WaitTime(plantData.executeTime, () =>
         {
             if (aimedAlien == null) return;
+            if (!placed) return;
             spawnpoint.SetActive(false);
             GameObject cherry = LeanPool.Spawn(CherryPrefab);
             cherry.transform.position = spawnpoint.transform.position;
             cherry.transform.rotation = spawnpoint.transform.rotation;
-            Vector3 vec = new Vector3(cherry.transform.right.x * 10, 0, cherry.transform.right.z * 10);
+            Vector3 vec = new Vector3(cherry.transform.right.x * bullet_speed, 0, cherry.transform.right.z * bullet_speed);
             print(vec.magnitude);
             // Physics moment
 
@@ -60,7 +65,15 @@ public class Cherry : Plant
 
     public override IEnumerator Preparing()
     {
+        StartCoroutine(SimpleRoutines.CustomCurveLerpCoroutine((f) =>
+        {
+            if (aimedAlien == null) return;
+            if (!placed) return;
+
+            axis.transform.localRotation = Quaternion.Euler(new Vector3(axis.transform.localEulerAngles.x, axis.transform.localEulerAngles.y, -f));
+        }, 50, 0, plantData.executeTime, curveCrush));
         yield return null;
+
     }
 
     private void Update()
