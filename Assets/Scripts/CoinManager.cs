@@ -22,7 +22,7 @@ public class CoinManager : MonoBehaviour
 
     public Volume volume;
 
-    private int _coins = 20;
+    private int _coins = 1000; // TODO : replace with 20
     public int coins
     {
         get => _coins;

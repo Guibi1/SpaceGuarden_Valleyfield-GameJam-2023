@@ -121,6 +121,7 @@ MonoBehaviour:
   deathAnimation: 0
   deathAnimationTime: 0
   dying: 0
+  notification: {fileID: 3987211051244911136}
   plantData: {fileID: 11400000, guid: e89e274cae664e04099a26e3c39ee927, type: 2}
   aoEPlant: {fileID: 0}
   animator: {fileID: 0}
@@ -1127,7 +1128,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8036529191981246566, guid: 9900d9374b24fd149a4944c0b5f16039, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 2.341
       objectReference: {fileID: 0}
     - target: {fileID: 8036529191981246566, guid: 9900d9374b24fd149a4944c0b5f16039, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1394,3 +1395,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8419056878535736794, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
   m_PrefabInstance: {fileID: 9119944184652997526}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3987211051244911136 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5315909720833743286, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+  m_PrefabInstance: {fileID: 9119944184652997526}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fce743300b4c8b42b1d6dc86634da78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

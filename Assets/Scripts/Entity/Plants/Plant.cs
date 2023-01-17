@@ -8,6 +8,7 @@ using FMODUnity;
 
 public abstract class Plant : Entity
 {
+    public Notification notification;
     [SerializeField] public PlantData plantData;
     [SerializeField] protected AoEPlant aoEPlant;
 

@@ -86,7 +86,7 @@ public class PlayerMouvement : MonoBehaviour
 
         if (EditMode)
         {
-            notification.ShowText("Cliquer sur une case loin de vous pour la planter");
+            notification.ShowText("Cliquer sur une case pour la planter");
         }
         else if (plantPrefab != null)
         {
@@ -142,16 +142,19 @@ public class PlayerMouvement : MonoBehaviour
         // On interact
         if (Input.GetKeyDown(KeyCode.E))
         {
-            // Shop
-            if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
+            if (plantToHeal == null)
             {
-                if (SpaceShip.instance.dummyPlantOnTop != null)
+                // Shop
+                if (Vector3.Distance(transform.position, BaseCampManager.instance.transform.position) <= distanceToInteract)
                 {
-                    SpaceShip.instance.PickUp();
-                }
-                else if (BaseCampManager.instance.turnsUntilNextShippement <= 0)
-                {
-                    CoinManager.instance.OpenShop();
+                    if (SpaceShip.instance.dummyPlantOnTop != null)
+                    {
+                        SpaceShip.instance.PickUp();
+                    }
+                    else if (BaseCampManager.instance.turnsUntilNextShippement <= 0)
+                    {
+                        CoinManager.instance.OpenShop();
+                    }
                 }
             }
         }
@@ -241,7 +244,7 @@ public class PlayerMouvement : MonoBehaviour
         if (other.gameObject.CompareTag("PlantHealZone"))
         {
             plantToHeal = other.gameObject.GetComponentInParent<Plant>();
-            plantNotif = plantToHeal.GetComponentInChildren<Notification>();
+            plantNotif = plantToHeal.notification;
         }
     }
 
@@ -249,14 +252,17 @@ public class PlayerMouvement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PlantHealZone"))
         {
-            try
+            if (plantNotif)
             {
-                other.gameObject.GetComponentInParent<Plant>().GetComponentInChildren<Notification>().HideText();
-                plantToHeal.plantSweat.Stop();
+                plantNotif.HideText();
             }
-            catch (Exception) { }
-            plantToHeal = null;
-            plantNotif = null;
+
+            if (plantToHeal) {
+                plantToHeal.plantSweat.Stop();
+                plantToHeal = null;
+                plantNotif = null;
+            }
+
         }
     }
 }

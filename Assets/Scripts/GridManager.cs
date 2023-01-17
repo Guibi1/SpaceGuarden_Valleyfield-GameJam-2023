@@ -14,7 +14,7 @@ public class GridManager : MonoBehaviour
     [SerializeField] int tilesNumberZ = 20;
     [SerializeField] float border = 1;
     [SerializeField] float tileSize = 1;
-
+    [SerializeField] LayerMask mask;
 
     [SerializeReference] GameObject tilePrefab;
 
@@ -51,8 +51,10 @@ public class GridManager : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        Physics.Raycast(ray, out hit);
+        Physics.Raycast(ray, out hit, Mathf.Infinity, mask);
+        print(hit);
 
+        print(hit.collider.name);
         if (hit.collider == null) return;
         if (!hit.collider.CompareTag("Tile")) return;
 

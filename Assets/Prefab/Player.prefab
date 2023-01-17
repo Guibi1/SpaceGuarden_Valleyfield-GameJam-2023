@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2023707}
   - component: {fileID: 2023708}
   - component: {fileID: 2023710}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Attack-Hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1412638483}
   - component: {fileID: 1412638482}
   - component: {fileID: 1412638481}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 2072067165}
   - component: {fileID: 2072067164}
   - component: {fileID: 2072067163}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8334005041900932939}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sprite-container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -303,7 +303,7 @@ GameObject:
   - component: {fileID: 4322880705023197939}
   - component: {fileID: 7989790959018338409}
   - component: {fileID: 3776852740016228080}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 8285492205704714421}
   - component: {fileID: 1644364916}
   - component: {fileID: 1644364917}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ GameObject:
   - component: {fileID: 1376079059394091784}
   - component: {fileID: 7640063708809374798}
   - component: {fileID: 1951273059763908804}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -712,9 +712,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2678440434894522378}
     m_Modifications:
+    - target: {fileID: 2567382943910382196, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922196746039836082, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5315909720833743286, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
       propertyPath: visibleY
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508170462063129085, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470874502755865839, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8419056878535736794, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
       propertyPath: m_RootOrder
@@ -763,6 +779,10 @@ PrefabInstance:
     - target: {fileID: 8466973784183332113, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
       propertyPath: m_Name
       value: NotificationPopUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466973784183332113, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
