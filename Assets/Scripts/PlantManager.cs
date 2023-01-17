@@ -14,5 +14,9 @@ public class PlantManager : MonoBehaviour
         instance = this;
         
         Debug.unityLogger.logEnabled = false;
+        
+        #if UNITY_EDITOR
+        Debug.unityLogger.logEnabled = true;
+        #endif
     }
 }
