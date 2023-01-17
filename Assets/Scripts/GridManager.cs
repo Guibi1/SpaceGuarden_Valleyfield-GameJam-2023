@@ -52,12 +52,11 @@ public class GridManager : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         Physics.Raycast(ray, out hit, Mathf.Infinity, mask);
-        print(hit);
 
-        print(hit.collider.name);
         if (hit.collider == null) return;
-        if (!hit.collider.CompareTag("Tile")) return;
+        print(hit.collider.name);
 
+        if (!hit.collider.CompareTag("Tile")) return;
         TileManager tileManager = hit.collider.gameObject.GetComponent<TileManager>();
 
         if (selectedTile != null)

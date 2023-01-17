@@ -31,18 +31,15 @@ public class Tomato : Plant
         yield return new WaitForEndOfFrame();
         StartCoroutine(SimpleRoutines.CustomCurveLerpCoroutine((f) =>
         {
-            print("f is " + f);
-            TopPart.transform.localPosition = new Vector3(TopPart.transform.localPosition.x, f + 0.4f, TopPart.transform.localPosition.z);
+            TopPart.transform.localPosition = new Vector3(TopPart.transform.localPosition.x, f, TopPart.transform.localPosition.z);
             tomatoes.ForEach(x => x.SetActive(false));
-            int pos = (int)(24 - Math.Floor((TopPart.transform.localPosition.y + 0.8f) * 8));
-            print("pos is " + pos);
-
+            int pos = (int)(15 - Math.Floor((TopPart.transform.localPosition.y + 0.8f) * 7));
             if (pos < tomatoes.Length)
             {
                 tomatoes[pos].SetActive(true);
             }
 
-        }, TopPart.transform.localPosition.y, bottom, plantData.executeTime, curveCrush));
+        }, 1.42f, 0.5f, plantData.executeTime, curveCrush));
 
         StartCoroutine(SimpleRoutines.WaitTime(plantData.executeTime, () =>
         {
@@ -63,13 +60,15 @@ public class Tomato : Plant
         yield return new WaitForEndOfFrame();
         StartCoroutine(SimpleRoutines.CustomCurveLerpCoroutine((f) =>
         {
-            TopPart.transform.position = new Vector3(TopPart.transform.position.x, f, TopPart.transform.position.z);
+
+            TopPart.transform.localPosition = new Vector3(TopPart.transform.localPosition.x, f, TopPart.transform.localPosition.z);
             tomatoes.ForEach(x => x.SetActive(false));
-            int pos = (int)(8 - Math.Floor((TopPart.transform.position.y + 0.8f) * 8));
+
+            int pos = (int)(15 - Math.Floor((TopPart.transform.localPosition.y + 0.8f) * 7));            
             if (pos < tomatoes.Length)
             {
                 tomatoes[pos].SetActive(true);
             }
-        }, TopPart.transform.position.y, bottom + height, plantData.preparingTime, curveUp));
+        }, 0.5f, 1.42f, plantData.preparingTime, curveUp));
     }
 }
