@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
+using FMOD.Studio;
 using FMODUnity;
+
 
 public class musicInteractive : MonoBehaviour
 {
@@ -11,9 +13,16 @@ public class musicInteractive : MonoBehaviour
     
     void Start()
     {
+        print("Le name : " + gameObject.name);
         music.Play();
         instance = RuntimeManager.CreateInstance(fmodEvent);
         instance.start();
+    }
+
+    private void OnDestroy()
+    {
+        music.Stop();
+        instance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     private void Update()
