@@ -13,7 +13,6 @@ public class musicInteractive : MonoBehaviour
     
     void Start()
     {
-        print("Le name : " + gameObject.name);
         music.Play();
         instance = RuntimeManager.CreateInstance(fmodEvent);
         instance.start();
