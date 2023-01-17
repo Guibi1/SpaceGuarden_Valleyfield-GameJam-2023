@@ -37,12 +37,10 @@ public class Cherry : Plant
             cherry.transform.position = spawnpoint.transform.position;
             cherry.transform.rotation = spawnpoint.transform.rotation;
             Vector3 vec = new Vector3(cherry.transform.right.x * bullet_speed, 0, cherry.transform.right.z * bullet_speed);
-            print(vec.magnitude);
             // Physics moment
 
             // DeltaT = DeltaX / v
             float deltaT = Vector3.Distance(cherry.transform.position, aimedAlien.transform.position) / vec.magnitude;
-            print("Expected projection time" + deltaT);
 
             // Thought process behind formula
             // DeltaY = vi * DeltaT + 1/2a * DeltaT2 <== physics formula

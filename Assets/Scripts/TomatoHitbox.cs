@@ -9,7 +9,6 @@ public class TomatoHitbox : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        print(other.gameObject.name);
         if (other.CompareTag("Alien"))
         {
             aliens.Add(other.gameObject);

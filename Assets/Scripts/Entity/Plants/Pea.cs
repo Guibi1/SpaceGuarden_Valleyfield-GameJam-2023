@@ -12,10 +12,11 @@ public class Pea : Plant
     public Transform aimPoint;
     public float shootspeed;
     public Animator customAnimator;
+    public bool placed;
     public override IEnumerator Execute()
     {
         if (aimedAlien == null) yield break;
-        
+        if (!placed) yield break;
         
         GameObject peaBall = LeanPool.Spawn(PeaBall);
         peaBall.transform.position = aimPoint.transform.position;
