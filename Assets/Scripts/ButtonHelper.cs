@@ -12,7 +12,7 @@ public class ButtonHelper : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && previousSceneName != null)
+        if (Input.GetKeyDown(KeyCode.Escape) && previousSceneName != "")
         {
             LoadScene(previousSceneName);
         }

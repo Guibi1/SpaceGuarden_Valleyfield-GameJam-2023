@@ -9,6 +9,7 @@ public class CameraManager : MonoBehaviour
         Vector3 right = transform.right;
         right.y = 0f;
 
+        if(PlayerMouvement.instance != null)
         PlayerMouvement.instance.SetCameraVectors(forward, right);
     }
 }
