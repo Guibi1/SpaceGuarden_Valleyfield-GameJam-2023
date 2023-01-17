@@ -54,16 +54,19 @@ public class CoinManager : MonoBehaviour
 
     public void OpenPause()
     {
-        CloseAll();
-        isPlaying = false;
+        if (isPlaying)
+        {
+            CloseAll();
+            isPlaying = false;
 
-        Time.timeScale = 0;
-        pauseCanvas.enabled = true;
-        overlayCanvas.enabled = false;
-        backgroundCanvas.enabled = true;
-        Cursor.lockState = CursorLockMode.None;
-        cam.m_XAxis.m_MaxSpeed = 0;
-        volume.sharedProfile.components[0].active = true;
+            Time.timeScale = 0;
+            pauseCanvas.enabled = true;
+            overlayCanvas.enabled = false;
+            backgroundCanvas.enabled = true;
+            Cursor.lockState = CursorLockMode.None;
+            cam.m_XAxis.m_MaxSpeed = 0;
+            volume.sharedProfile.components[0].active = true;
+        }
     }
 
     public void OpenDeath()
