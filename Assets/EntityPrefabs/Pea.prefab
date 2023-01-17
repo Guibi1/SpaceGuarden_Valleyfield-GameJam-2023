@@ -339,6 +339,7 @@ MonoBehaviour:
   aimPoint: {fileID: 144490828090608362}
   shootspeed: 5
   customAnimator: {fileID: 5231747511062193725}
+  placed: 0
 --- !u!95 &5231747511062193725
 Animator:
   serializedVersion: 5

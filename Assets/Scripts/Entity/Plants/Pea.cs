@@ -23,17 +23,18 @@ public class Pea : Plant
         peaBall.GetComponent<Rigidbody>().velocity = aimPoint.forward * shootspeed;
 
         customAnimator.Play("Pea");
-        
-        StartCoroutine(DeleteAfterTime(peaBall));
+
+        DeleteAfterTime(peaBall);
     }
 
     private IEnumerator DeleteAfterTime(GameObject peaBall)
     {
-        yield return new WaitForSeconds(5f); 
+        yield return new WaitForSeconds(plantData.executeTime - 0.1f); 
         if (peaBall.activeSelf && peaBall.activeInHierarchy)
         {
             LeanPool.Despawn(peaBall);
         }
+
     }
 
     public override IEnumerator Preparing()
