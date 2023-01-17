@@ -12,5 +12,7 @@ public class PlantManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        
+        Debug.unityLogger.logEnabled = false;
     }
 }
