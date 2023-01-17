@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3820079214822355778}
   m_Layer: 0
   m_Name: Elements
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 3004135942373507866}
   m_Layer: 0
   m_Name: Drawer
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3004135943216447811}
   m_Layer: 0
   m_Name: AoE Visualizer
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -246,10 +246,10 @@ GameObject:
   - component: {fileID: 1267946151332005530}
   - component: {fileID: 7992124493364650788}
   - component: {fileID: 2606441615659966966}
-  - component: {fileID: 4918222719266700598}
+  - component: {fileID: 406025005784426033}
   m_Layer: 0
   m_Name: Cherry
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,7 +362,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   healArea: {fileID: 5283655757623206501, guid: 7ddb5dda9d384814bac4b80143f63dd1, type: 3}
   plantSweat: {fileID: 5668908222749549432}
-  emitterKill: {fileID: 4918222719266700598}
+  emitterKill: {fileID: 406025005784426033}
+  Turret: {fileID: 3004135943631412272}
+  aimedAlien: {fileID: 0}
   curveCrush:
     serializedVersion: 2
     m_Curve:
@@ -390,7 +392,7 @@ MonoBehaviour:
   axis: {fileID: 6221299044619334164}
   CherryPrefab: {fileID: 4029669066145953916, guid: 753ef36c09b60a44fba16cb77d0171d0, type: 3}
   spawnpoint: {fileID: 6052945928880255132}
---- !u!114 &4918222719266700598
+--- !u!114 &406025005784426033
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -405,11 +407,11 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: 527856438
-      Data2: 1182164027
-      Data3: -1861225040
-      Data4: 1606959647
-    Path: event:/SFX/Plant/sfx_atk_TomatoPlant
+      Data1: 1162525178
+      Data2: 1138112018
+      Data3: 1133317528
+      Data4: 507460155
+    Path: event:/SFX/Plant/sfx_DestroyedPlant
   Event: 
   PlayEvent: 0
   StopEvent: 0
@@ -431,7 +433,7 @@ GameObject:
   - component: {fileID: 3004135943631412273}
   m_Layer: 0
   m_Name: Meshes
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -469,7 +471,7 @@ GameObject:
   - component: {fileID: 3004135944090225701}
   m_Layer: 0
   m_Name: Disc
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -616,7 +618,7 @@ GameObject:
   - component: {fileID: 4024811059551351596}
   m_Layer: 0
   m_Name: StaticMesh
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -710,7 +712,7 @@ GameObject:
   - component: {fileID: 6889562003236937456}
   m_Layer: 0
   m_Name: Axis
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -743,7 +745,7 @@ GameObject:
   - component: {fileID: 7325153804141165915}
   m_Layer: 0
   m_Name: Base
-  m_TagString: Untagged
+  m_TagString: Plant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -830,6 +832,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: cherry_base.vox
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 91d9bab88a5dd487b922e04e79c3f74c, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 91d9bab88a5dd487b922e04e79c3f74c, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91d9bab88a5dd487b922e04e79c3f74c, type: 3}
 --- !u!4 &3206578921411286121 stripped
@@ -847,6 +857,10 @@ PrefabInstance:
     - target: {fileID: 1447703535194038843, guid: 9900d9374b24fd149a4944c0b5f16039, type: 3}
       propertyPath: m_Name
       value: Plant_Sweat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447703535194038843, guid: 9900d9374b24fd149a4944c0b5f16039, type: 3}
+      propertyPath: m_TagString
+      value: Plant
       objectReference: {fileID: 0}
     - target: {fileID: 8036529191981246566, guid: 9900d9374b24fd149a4944c0b5f16039, type: 3}
       propertyPath: m_RootOrder
@@ -971,6 +985,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6001e41f1ee6b4e56a400d6ea9497aa6, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 6001e41f1ee6b4e56a400d6ea9497aa6, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6001e41f1ee6b4e56a400d6ea9497aa6, type: 3}
 --- !u!4 &7259422232973145257 stripped
@@ -988,6 +1010,10 @@ PrefabInstance:
     - target: {fileID: 4029669066145953916, guid: 753ef36c09b60a44fba16cb77d0171d0, type: 3}
       propertyPath: m_Name
       value: cherry_plant.vox
+      objectReference: {fileID: 0}
+    - target: {fileID: 4029669066145953916, guid: 753ef36c09b60a44fba16cb77d0171d0, type: 3}
+      propertyPath: m_TagString
+      value: Plant
       objectReference: {fileID: 0}
     - target: {fileID: 4370622522026238662, guid: 753ef36c09b60a44fba16cb77d0171d0, type: 3}
       propertyPath: m_RootOrder
@@ -1033,6 +1059,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5359715983204352165, guid: 753ef36c09b60a44fba16cb77d0171d0, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2231661348132303399, guid: 753ef36c09b60a44fba16cb77d0171d0, type: 3}
     - {fileID: 1627064918142503105, guid: 753ef36c09b60a44fba16cb77d0171d0, type: 3}
@@ -1057,6 +1087,22 @@ PrefabInstance:
     - target: {fileID: 746450577669488982, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
       propertyPath: visibleY
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2567382943910382196, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922196746039836082, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5508170462063129085, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7470874502755865839, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_TagString
+      value: Plant
       objectReference: {fileID: 0}
     - target: {fileID: 8419056878535736794, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
       propertyPath: m_RootOrder
@@ -1106,6 +1152,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NotificationPopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 8466973784183332113, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b9ff07dbef91964e99cbbb1c966b61b, type: 3}
 --- !u!4 &655736326561810005 stripped
@@ -1134,6 +1184,10 @@ PrefabInstance:
     - target: {fileID: 1397917920435972164, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397917920435972164, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_TagString
+      value: Plant
       objectReference: {fileID: 0}
     - target: {fileID: 1397917920435972165, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_RootOrder
@@ -1179,6 +1233,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1397917920706625476, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
     - target: {fileID: 1397917920706625530, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1191,6 +1249,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 43750352888151548, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
+    - target: {fileID: 1397917920870913561, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
     - target: {fileID: 1397917920870913567, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1199,9 +1261,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1397917921299880685, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397917921561285985, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_TagString
+      value: Plant
+      objectReference: {fileID: 0}
     - target: {fileID: 1397917921561285991, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961574058630467462, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_TagString
+      value: Plant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}

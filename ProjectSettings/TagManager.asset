@@ -10,6 +10,7 @@ TagManager:
   - PeaBall
   - Plant
   - CapsuleAlien
+  - Floor
   layers:
   - Default
   - TransparentFX
