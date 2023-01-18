@@ -62,7 +62,7 @@ public class Cherry : Plant
 
         }));
 
-
+        emitterAttack.Play();
         yield return null;
     }
 
