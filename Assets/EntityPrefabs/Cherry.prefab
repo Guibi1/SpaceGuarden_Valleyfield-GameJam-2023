@@ -247,6 +247,8 @@ GameObject:
   - component: {fileID: 7992124493364650788}
   - component: {fileID: 2606441615659966966}
   - component: {fileID: 406025005784426033}
+  - component: {fileID: -7703945395656012449}
+  - component: {fileID: -8126810501848219396}
   m_Layer: 0
   m_Name: Cherry
   m_TagString: Plant
@@ -394,6 +396,8 @@ MonoBehaviour:
   spawnpoint: {fileID: 6052945928880255132}
   placed: 1
   bullet_speed: 20
+  emitterAttack: {fileID: -7703945395656012449}
+  emitterImpact: {fileID: -8126810501848219396}
 --- !u!114 &406025005784426033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,6 +418,66 @@ MonoBehaviour:
       Data3: 1133317528
       Data4: 507460155
     Path: event:/SFX/Plant/sfx_DestroyedPlant
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &-7703945395656012449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3004135943406902436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -2107471345
+      Data2: 1261062153
+      Data3: -1355271787
+      Data4: 1972308372
+    Path: event:/SFX/Plant/sfx_atk_CerisePlant
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &-8126810501848219396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3004135943406902436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -27065397
+      Data2: 1155501166
+      Data3: 1696443819
+      Data4: -780793266
+    Path: event:/SFX/Plant/sfx_atk_Explosion
   Event: 
   PlayEvent: 0
   StopEvent: 0

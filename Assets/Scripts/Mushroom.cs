@@ -6,9 +6,11 @@ using FMODUnity;
 
 public class Mushroom : Plant
 {
-    public MushroomHitbox mhb; 
+    public MushroomHitbox mhb;
+    public StudioEventEmitter emitterAttack;
     public override IEnumerator Execute()
     {
+        emitterAttack.Play();
         mhb.DoDamageToEnemies(plantData.damage);
         yield return null;
     }
