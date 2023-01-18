@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 using static UnityEngine.Rendering.DebugUI;
+using FMODUnity;
 
 public class Cherry : Plant
 {
@@ -15,6 +16,8 @@ public class Cherry : Plant
     public GameObject spawnpoint;
     public bool placed;
     [SerializeField] float bullet_speed;
+    public StudioEventEmitter emitterAttack;
+    public StudioEventEmitter emitterImpact;
     public override IEnumerator Execute()
     {
         spawnpoint.SetActive(true);
@@ -57,7 +60,7 @@ public class Cherry : Plant
 
         }));
 
-
+        emitterAttack.Play();
         yield return null;
     }
 

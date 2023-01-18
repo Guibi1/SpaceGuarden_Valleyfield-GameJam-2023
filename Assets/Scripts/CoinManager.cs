@@ -2,6 +2,7 @@ using Cinemachine;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering;
+using System.Diagnostics;
 
 public class CoinManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class CoinManager : MonoBehaviour
 
     public Volume volume;
 
+    private bool isPlaying = true;
+
     private int _coins = 20;
     public int coins
     {
@@ -37,28 +40,40 @@ public class CoinManager : MonoBehaviour
 
     public void OpenShop()
     {
-        Time.timeScale = 0;
-        shopCanvas.enabled = true;
-        overlayCanvas.enabled = false;
-        backgroundCanvas.enabled = true;
-        Cursor.lockState = CursorLockMode.None;
-        cam.m_XAxis.m_MaxSpeed = 0;
-        volume.sharedProfile.components[0].active = true;
+        if (isPlaying)
+        {
+            Time.timeScale = 0;
+            shopCanvas.enabled = true;
+            backgroundCanvas.enabled = true;
+            Cursor.lockState = CursorLockMode.None;
+            cam.m_XAxis.m_MaxSpeed = 0;
+            volume.sharedProfile.components[0].active = true;
+            // todo close the shop info in overlay canvas, in coinManager
+        }
     }
 
     public void OpenPause()
     {
-        Time.timeScale = 0;
-        pauseCanvas.enabled = true;
-        overlayCanvas.enabled = false;
-        backgroundCanvas.enabled = true;
-        Cursor.lockState = CursorLockMode.None;
-        cam.m_XAxis.m_MaxSpeed = 0;
-        volume.sharedProfile.components[0].active = true;
+        if (isPlaying)
+        {
+            CloseAll();
+            isPlaying = false;
+
+            Time.timeScale = 0;
+            pauseCanvas.enabled = true;
+            overlayCanvas.enabled = false;
+            backgroundCanvas.enabled = true;
+            Cursor.lockState = CursorLockMode.None;
+            cam.m_XAxis.m_MaxSpeed = 0;
+            volume.sharedProfile.components[0].active = true;
+        }
     }
 
     public void OpenDeath()
     {
+        isPlaying = false;
+        CloseAll();
+
         Time.timeScale = 0;
         deathCanvas.enabled = true;
         overlayCanvas.enabled = false;
@@ -70,6 +85,7 @@ public class CoinManager : MonoBehaviour
 
     public void CloseAll()
     {
+        isPlaying = true;
         Time.timeScale = 1;
         shopCanvas.enabled = false;
         pauseCanvas.enabled = false;
@@ -79,6 +95,7 @@ public class CoinManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         cam.m_XAxis.m_MaxSpeed = xCamSpeed;
         volume.sharedProfile.components[0].active = false;
+        // todo open the shop info in overlay canvas, in coinManager
     }
 
     private void Awake()
