@@ -131,6 +131,7 @@ public class Alien : Agent
         }
     }
 
+    
 
 
     protected virtual bool GoToPlant()
@@ -153,6 +154,8 @@ public class Alien : Agent
         int closeByIndex = 0;
         for (int i = 0; i < PlantManager.instance.plants.Count; i++)
         {
+            if (PlantManager.instance.plants[i] == null)
+                continue;
             float distance = Vector3.Distance(PlantManager.instance.plants[i].transform.position, transform.position);
             if (distance <= closestDistance)
             {

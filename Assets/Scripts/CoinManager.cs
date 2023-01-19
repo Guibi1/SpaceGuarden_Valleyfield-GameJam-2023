@@ -17,8 +17,6 @@ public class CoinManager : MonoBehaviour
     [SerializeReference] private TextMeshProUGUI moneyText;
     [SerializeReference] private TextMeshProUGUI overlayText;
 
-
-
     [Header("Camera")]
     [SerializeReference] private CinemachineFreeLook cam;
     [SerializeField] private float xCamSpeed = 300f;
@@ -129,7 +127,34 @@ public class CoinManager : MonoBehaviour
                 CloseAll();
             }
         }
+
+        pea.gameObject.SetActive(false);
+        tomato.gameObject.SetActive(false);
+        champi.gameObject.SetActive(false);
+        cerise.gameObject.SetActive(false);
+        
+        if (_coins < 15)
+        {
+            pea.gameObject.SetActive(true);
+        } 
+        if (_coins < 30)
+        {
+            tomato.gameObject.SetActive(true);
+        } 
+        if(_coins < 45)
+        {
+            champi.gameObject.SetActive(true);
+        } 
+        if (_coins < 60)
+        {
+            cerise.gameObject.SetActive(true);
+        }
     }
+
+    public GameObject pea;
+    public GameObject tomato;
+    public GameObject champi;
+    public GameObject cerise;
 
     public void Buy(Plant plant)
     {

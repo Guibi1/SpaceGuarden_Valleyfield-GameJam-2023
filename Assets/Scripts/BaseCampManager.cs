@@ -106,7 +106,7 @@ public class BaseCampManager : MonoBehaviour
             int nbEnemies3 = currentTurn >= 15 ? Mathf.FloorToInt((currentTurn / 5f) - 2f) : 0;
 
             SpawnHorde(alien1Prefab, nbEnemies1);
-            SpawnHorde(alien2Prefab, nbEnemies2);
+            SpawnHorde(alien2Prefab, nbEnemies2 * (currentTurn/2));
             SpawnHorde(alien3Prefab, nbEnemies3);
         }));
     }

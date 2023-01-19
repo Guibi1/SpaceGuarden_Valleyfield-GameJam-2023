@@ -29,10 +29,8 @@ public class Agent : Entity
     public bool GoToPosition(Plant plant)
     {
         navMeshAgent.destination = plant.transform.position;
-        if (navMeshAgent.pathPending)
-        {
-            return false;
-        }
+        currentPlant = plant;
+        
         
         if (navMeshAgent.remainingDistance < detectPlantThreshold)
         {
@@ -41,4 +39,7 @@ public class Agent : Entity
         
         return false;
     }
+    
+    public Plant currentPlant;
+
 }

@@ -1,3 +1,4 @@
+using System;
 using Lean.Pool;
 using Shapes;
 using UnityEngine;
@@ -71,24 +72,30 @@ public class TileManager : MonoBehaviour
 
     public void Plant(Plant prefab)
     {
-        if(prefab.GetType() == typeof(Cherry))
-        {
-            ((Cherry)prefab).placed = true;
-        }
-
-        if (prefab.GetType() == typeof(Pea))
-        {
-            ((Pea)prefab).placed = true;
-        }
-
-
+        
         Plant plant = LeanPool.Spawn(prefab, transform).GetComponent<Plant>();
+        
+        if(plant.GetType() == typeof(Cherry))
+        {
+            ((Cherry)plant).placed = true;
+        }
+
+        if (plant.GetType() == typeof(Pea))
+        {
+            ((Pea)plant).placed = true;
+        }
+        
+        
         plant.transform.localPosition = Vector3.zero - new Vector3(0,0.2f,0);
         PlantManager.instance.plants.Add(plant);
         PlayerMouvement.instance.notification.HideText();
+        OnPlantPlanted?.Invoke(plant);
     }
+    public static event Action<Plant> OnPlantPlanted;
 
 }
+
+
 
 public enum TileState
 {

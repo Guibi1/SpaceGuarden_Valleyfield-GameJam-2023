@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,16 @@ public class PlantManager : MonoBehaviour
     public List<Plant> plants = new List<Plant>();
 
     public Center center;
+
+    private void OnEnable()
+    {
+        TileManager.OnPlantPlanted += NewPlant;
+    }
+
+    private void NewPlant(Plant obj)
+    {
+        plants.Add(obj);
+    }
 
     private void Awake()
     {

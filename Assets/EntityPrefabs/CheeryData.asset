@@ -15,7 +15,7 @@ MonoBehaviour:
   cost: 60
   health: 10
   damage: 8
-  timeToShip: 2
+  timeToShip: 1
   intervalBetweenExecute: 3
   executeTime: 0.5
   preparingTime: 0

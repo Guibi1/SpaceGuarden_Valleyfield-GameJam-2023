@@ -77,6 +77,7 @@ public class PlayerMouvement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+
     void Update()
     {
         if (plantToHeal != null)
