@@ -83,6 +83,7 @@ public class PlayerMouvement : MonoBehaviour
         if (plantToHeal != null)
         {
             plantNotif.ShowText(plantToHeal.HP >= plantToHeal.plantData.health ? "La plante est en bonne santé" : "Laissez Espace enfoncé pour soigner la plante");
+            plantToHeal.DrawAoE();
         }
 
         if (EditMode)
@@ -98,6 +99,8 @@ public class PlayerMouvement : MonoBehaviour
             if (notification != null)
             {
                 notification.HideText();
+
+        
             }
         }
 
@@ -219,7 +222,7 @@ public class PlayerMouvement : MonoBehaviour
                 continue;
             }
 
-            a.OnHit(scytheDamage);
+            a.OnHit(scytheDamage, gameObject);
         }
 
         foreach (Alien a in delete)
@@ -259,9 +262,11 @@ public class PlayerMouvement : MonoBehaviour
             }
 
             if (plantToHeal) {
+                plantToHeal.HideAoE();
                 plantToHeal.plantSweat.Stop();
                 plantToHeal = null;
                 plantNotif = null;
+                
             }
 
         }

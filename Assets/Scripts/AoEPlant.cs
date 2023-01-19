@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Shapes;
@@ -11,6 +12,11 @@ public class AoEPlant : MonoBehaviour
 
     public Coroutine FadeAppear;
     public Coroutine FadeDisapear;
+
+    private void OnEnable()
+    {
+        AlphaDisapear();
+    }
 
     [Button]
     public void AlphaAppear()

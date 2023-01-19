@@ -31,8 +31,9 @@ public class Entity : MonoBehaviour
         healthBar.maxHealth = HP;
     }
 
-    public virtual void OnHit(float damage)
+    public virtual void OnHit(float damage, Object triggerer)
     {
+        print("Victim : " + name +"triggerer :" + triggerer.name);
         if (dying)
             return;
 

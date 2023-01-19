@@ -63,6 +63,7 @@ public class BaseCampManager : MonoBehaviour
     [Button]
     private void NextTurn()
     {
+        AlienManager.instance.killedAlien = 0;
         float cooldownNextWave = 5f;
 
         turnsUntilNextShippement -= 1;
@@ -119,6 +120,7 @@ public class BaseCampManager : MonoBehaviour
 
     private void SpawnRecursive(Alien prefab, int i, int max)
     {
+        AlienManager.instance.spawnedAlien = i;
         if (i == max)
             return;
 

@@ -20,7 +20,7 @@ public class cherry_bomb : MonoBehaviour
         {
             foreach (Alien alien in aliensToDamage)
             {
-                alien.OnHit(40);
+                alien.OnHit(40, gameObject);
             }
             GameObject anim = LeanPool.Spawn(cherry_explosion);
             anim.transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);

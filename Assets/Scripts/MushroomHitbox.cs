@@ -33,7 +33,7 @@ public class MushroomHitbox : MonoBehaviour
                 continue;
             }
 
-            alien.GetComponent<Alien>().OnHit(damage);
+            alien.GetComponent<Alien>().OnHit(damage, gameObject);
         }
 
         foreach (GameObject alien in delete)

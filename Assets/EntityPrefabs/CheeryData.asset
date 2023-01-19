@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e244d80e429f2eb45bf7ed8532684b64, type: 3}
   m_Name: CheeryData
   m_EditorClassIdentifier: 
-  cost: 60
+  cost: 1
   health: 10
   damage: 8
   timeToShip: 1

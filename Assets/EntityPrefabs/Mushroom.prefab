@@ -124,7 +124,7 @@ MonoBehaviour:
   dying: 0
   notification: {fileID: 3987211051244911136}
   plantData: {fileID: 11400000, guid: e89e274cae664e04099a26e3c39ee927, type: 2}
-  aoEPlant: {fileID: 0}
+  aoEPlant: {fileID: 5703364818075717405}
   animator: {fileID: 0}
   healArea: {fileID: 5283655757623206501, guid: 7ddb5dda9d384814bac4b80143f63dd1, type: 3}
   plantSweat: {fileID: 7518676631637492118}
@@ -262,7 +262,7 @@ MonoBehaviour:
   angUnitInput: 1
   angRadiansStart: 0
   angRadiansEnd: 2.3561945
-  radius: 1
+  radius: 5
   radiusSpace: 0
   thickness: 0.27
   thicknessSpace: 0
@@ -413,7 +413,7 @@ MonoBehaviour:
   angUnitInput: 1
   angRadiansStart: 0
   angRadiansEnd: 2.3561945
-  radius: 0.95
+  radius: 4.95
   radiusSpace: 0
   thickness: 0.1
   thicknessSpace: 0

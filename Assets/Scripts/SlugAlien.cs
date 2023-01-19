@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class SlugAlien : Alien
 {
-    public override void OnHit(float damage)
+    public override void OnHit(float damage, Object triggerer)
     {
-        Debug.Log("Hello, world!");
-        base.OnHit(damage);
+        base.OnHit(damage, triggerer);
         
     }
 

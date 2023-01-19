@@ -35,9 +35,7 @@ public class shopUiHover : MonoBehaviour
 
     public void OnMouseLeave()
     {
-        if (plantData.cost > CoinManager.instance.coins)
-            return;
-        
+
         spriteRenderer.sprite = defaultState;
         transform.localScale = new Vector3(1f, 1f, 1f);
     }

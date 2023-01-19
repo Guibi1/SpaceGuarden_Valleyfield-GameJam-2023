@@ -5,6 +5,7 @@ using Lean.Pool;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using FMODUnity;
+using Object = UnityEngine.Object;
 
 
 public class Alien : Agent
@@ -170,9 +171,9 @@ public class Alien : Agent
         return PlantManager.instance.plants[closeByIndex];
     }
 
-    public override void OnHit(float damage)
+    public override void OnHit(float damage, Object triggerer)
     {
-        base.OnHit(damage);
+        base.OnHit(damage, triggerer);
         emmiterHit.Play();
         renderer.color = Color.red;
     }
@@ -182,6 +183,7 @@ public class Alien : Agent
     {
         base.Die();
         AlienManager.instance.aliens.Remove(this);
+        AlienManager.instance.killedAlien += 1;
         emmitterKill.Play();
         alienAnimator.SetTrigger("Death");
     }
@@ -200,7 +202,7 @@ public class Alien : Agent
 
         if (other.CompareTag("PeaBall"))
         {
-            OnHit(1);
+            OnHit(1, gameObject);
             LeanPool.Despawn(other.gameObject);
         }
     }
@@ -237,7 +239,7 @@ public class Alien : Agent
         if (currentAttackTime > alienData.damageSpeed)
         {
             currentAttackTime = 0;
-            entity.OnHit(alienData.damage);
+            entity.OnHit(alienData.damage, gameObject);
         }
     }
 

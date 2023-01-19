@@ -1,15 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class Center : Entity
 {
+    public float maxHealth;
 
-
-    public override void OnHit(float damage)
+    private void OnEnable()
     {
-        base.OnHit(damage);
+        maxHealth = HP;
+    }
 
+    public override void OnHit(float damage, Object triggerer)
+    {
+        base.OnHit(damage, triggerer);
+        Debug.Log("on hit");
         if (dying)
         {
             Time.timeScale = 0; // Game end

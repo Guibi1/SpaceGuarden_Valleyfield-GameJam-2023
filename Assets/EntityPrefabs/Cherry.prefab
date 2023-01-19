@@ -151,7 +151,7 @@ MonoBehaviour:
   angUnitInput: 1
   angRadiansStart: 0
   angRadiansEnd: 2.3561945
-  radius: 1
+  radius: 10
   radiusSpace: 0
   thickness: 0.27
   thicknessSpace: 0
@@ -360,7 +360,7 @@ MonoBehaviour:
   dying: 0
   notification: {fileID: 3749876232933630521}
   plantData: {fileID: 11400000, guid: 035a092355e6ecc41a7467a743223aec, type: 2}
-  aoEPlant: {fileID: 0}
+  aoEPlant: {fileID: 3004135943216447811}
   animator: {fileID: 0}
   healArea: {fileID: 5283655757623206501, guid: 7ddb5dda9d384814bac4b80143f63dd1, type: 3}
   plantSweat: {fileID: 5668908222749549432}
@@ -592,7 +592,7 @@ MonoBehaviour:
   angUnitInput: 1
   angRadiansStart: 0
   angRadiansEnd: 2.3561945
-  radius: 0.95
+  radius: 10.05
   radiusSpace: 0
   thickness: 0.1
   thicknessSpace: 0
@@ -763,7 +763,7 @@ BoxCollider:
   m_GameObject: {fileID: 4024811059551351598}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 0.622415, z: 1}
   m_Center: {x: 0, y: -0.18879282, z: 0}

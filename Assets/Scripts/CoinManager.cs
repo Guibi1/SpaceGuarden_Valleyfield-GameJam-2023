@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering;
 using System.Diagnostics;
+using UnityEngine.UI.ProceduralImage;
 
 public class CoinManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class CoinManager : MonoBehaviour
     [SerializeReference] private TextMeshProUGUI roundText;
     [SerializeReference] private TextMeshProUGUI moneyText;
     [SerializeReference] private TextMeshProUGUI overlayText;
+    [SerializeReference] private TextMeshProUGUI ennemies;
 
     [Header("Camera")]
     [SerializeReference] private CinemachineFreeLook cam;
@@ -111,10 +113,28 @@ public class CoinManager : MonoBehaviour
     public TextMeshProUGUI moneyTMP;
     public TextMeshProUGUI roundTMP;
 
+
+    public ProceduralImage ProceduralImage;
+    public ProceduralImage flower;
+
+    public Center center;
     void Update()
     {
         roundText.text = "Manche " + BaseCampManager.instance.currentTurn;
         roundTMP.text = "Manche " + BaseCampManager.instance.currentTurn;
+        flower.fillAmount = (float) center._healthPoint /(float) center.maxHealth;
+        
+        if (AlienManager.instance.aliens.Count != 0)
+        {
+            ennemies.text = AlienManager.instance.killedAlien + "/" + AlienManager.instance.spawnedAlien;
+            ProceduralImage.fillAmount = (float) AlienManager.instance.killedAlien / (float) AlienManager.instance.spawnedAlien;
+        }
+        else
+        {
+            ProceduralImage.fillAmount = 0;
+            ennemies.text = "preparing";
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
