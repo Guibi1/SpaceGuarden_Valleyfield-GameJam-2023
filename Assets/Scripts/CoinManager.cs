@@ -15,6 +15,8 @@ public class CoinManager : MonoBehaviour
     [SerializeReference] private Canvas backgroundCanvas;
     [SerializeReference] private TextMeshProUGUI roundText;
     [SerializeReference] private TextMeshProUGUI moneyText;
+    [SerializeReference] private TextMeshProUGUI overlayText;
+
 
 
     [Header("Camera")]
@@ -48,7 +50,7 @@ public class CoinManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             cam.m_XAxis.m_MaxSpeed = 0;
             volume.sharedProfile.components[0].active = true;
-            // todo close the shop info in overlay canvas, in coinManager
+            overlayText.enabled = false;
         }
     }
 
@@ -95,7 +97,7 @@ public class CoinManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         cam.m_XAxis.m_MaxSpeed = xCamSpeed;
         volume.sharedProfile.components[0].active = false;
-        // todo open the shop info in overlay canvas, in coinManager
+        overlayText.enabled = true;
     }
 
     private void Awake()
