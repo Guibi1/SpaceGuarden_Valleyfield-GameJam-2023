@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.ParticleSystem;
 using static UnityEngine.Rendering.DebugUI;
+using FMODUnity;
 
 public class Cherry : Plant
 {
@@ -15,6 +16,8 @@ public class Cherry : Plant
     public GameObject spawnpoint;
     public bool placed;
     [SerializeField] float bullet_speed;
+    public StudioEventEmitter emitterAttack;
+    public StudioEventEmitter emitterImpact;
     public override IEnumerator Execute()
     {
         spawnpoint.SetActive(true);
@@ -37,12 +40,10 @@ public class Cherry : Plant
             cherry.transform.position = spawnpoint.transform.position;
             cherry.transform.rotation = spawnpoint.transform.rotation;
             Vector3 vec = new Vector3(cherry.transform.right.x * bullet_speed, 0, cherry.transform.right.z * bullet_speed);
-            print(vec.magnitude);
             // Physics moment
 
             // DeltaT = DeltaX / v
             float deltaT = Vector3.Distance(cherry.transform.position, aimedAlien.transform.position) / vec.magnitude;
-            print("Expected projection time" + deltaT);
 
             // Thought process behind formula
             // DeltaY = vi * DeltaT + 1/2a * DeltaT2 <== physics formula
@@ -59,7 +60,7 @@ public class Cherry : Plant
 
         }));
 
-
+        emitterAttack.Play();
         yield return null;
     }
 

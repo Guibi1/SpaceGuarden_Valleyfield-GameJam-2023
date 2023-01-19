@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 5703364817951855355}
   - component: {fileID: 8795317614665242974}
   - component: {fileID: 3450600826937598350}
+  - component: {fileID: -545698168485014965}
   m_Layer: 0
   m_Name: Mushroom
   m_TagString: Untagged
@@ -129,6 +130,7 @@ MonoBehaviour:
   plantSweat: {fileID: 7518676631637492118}
   emitterKill: {fileID: 3450600826937598350}
   mhb: {fileID: 1084770199}
+  emitterAttack: {fileID: -545698168485014965}
 --- !u!114 &3450600826937598350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +151,36 @@ MonoBehaviour:
       Data3: 1133317528
       Data4: 507460155
     Path: event:/SFX/Plant/sfx_DestroyedPlant
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &-545698168485014965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703364817951855354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1644339988
+      Data2: 1315910234
+      Data3: 1774926228
+      Data4: -70786273
+    Path: event:/SFX/Plant/sfx_atk_MushPlant
   Event: 
   PlayEvent: 0
   StopEvent: 0

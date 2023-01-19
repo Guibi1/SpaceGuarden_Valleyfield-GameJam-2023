@@ -279,6 +279,7 @@ GameObject:
   - component: {fileID: 1267946151332005530}
   - component: {fileID: 7992124493364650788}
   - component: {fileID: -5245863703658061314}
+  - component: {fileID: -8620761712694928407}
   m_Layer: 0
   m_Name: Pea
   m_TagString: Untagged
@@ -339,6 +340,8 @@ MonoBehaviour:
   aimPoint: {fileID: 144490828090608362}
   shootspeed: 5
   customAnimator: {fileID: 5231747511062193725}
+  emitterAttack: {fileID: -8620761712694928407}
+  placed: 0
 --- !u!95 &5231747511062193725
 Animator:
   serializedVersion: 5
@@ -421,6 +424,36 @@ MonoBehaviour:
       Data3: 1133317528
       Data4: 507460155
     Path: event:/SFX/Plant/sfx_DestroyedPlant
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &-8620761712694928407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3004135943406902436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1263110526
+      Data2: 1265369679
+      Data3: 541114767
+      Data4: -1684291609
+    Path: event:/SFX/Plant/sfx_atk_PeaShooterPlant
   Event: 
   PlayEvent: 0
   StopEvent: 0

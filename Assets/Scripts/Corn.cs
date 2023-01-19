@@ -19,7 +19,6 @@ public class Corn : Plant
         
             singleCorn.target = alien.gameObject.transform;
             
-            print("launch" + alien.name);
         }
             
         

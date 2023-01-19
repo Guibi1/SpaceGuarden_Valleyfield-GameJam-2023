@@ -10,7 +10,6 @@ public class cherry_bomb : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        print(collision.gameObject.tag);
         if (!collision.CompareTag("Alien") && !collision.CompareTag("Floor")) return;
         if (collision.CompareTag("Alien"))
         {

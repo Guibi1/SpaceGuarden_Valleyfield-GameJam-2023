@@ -1391,6 +1391,7 @@ MonoBehaviour:
   backgroundCanvas: {fileID: 8210690366863706897}
   roundText: {fileID: 1534903717}
   moneyText: {fileID: 6580404352505589457}
+  overlayText: {fileID: 2073795989}
   cam: {fileID: 0}
   xCamSpeed: 300
   volume: {fileID: 0}
