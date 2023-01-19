@@ -39,8 +39,11 @@ public class Alien : Agent
     public StudioEventEmitter emmitterKill;
     public StudioEventEmitter emmiterHit;
 
+    private SpriteRenderer renderer;
+    
     private void OnEnable()
     {
+        renderer = sprite.GetComponent<SpriteRenderer>();
         StartAlienBrain();
     }
 
@@ -58,7 +61,7 @@ public class Alien : Agent
 
     private void Update()
     {
-        sprite.GetComponent<SpriteRenderer>().color = Color.Lerp(sprite.GetComponent<SpriteRenderer>().color, Color.white, Time.deltaTime * 8f);
+        renderer.color = Color.Lerp(renderer.color, Color.white, Time.deltaTime);
 
 
         switch (Behavior)
@@ -171,7 +174,7 @@ public class Alien : Agent
     {
         base.OnHit(damage);
         emmiterHit.Play();
-        sprite.GetComponent<SpriteRenderer>().color = Color.red;
+        renderer.color = Color.red;
     }
 
 
