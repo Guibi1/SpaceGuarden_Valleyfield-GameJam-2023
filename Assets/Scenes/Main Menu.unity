@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1273,6 +1273,8 @@ GameObject:
   - component: {fileID: 1247020690}
   - component: {fileID: 1247020694}
   - component: {fileID: 1247020693}
+  - component: {fileID: 1247020695}
+  - component: {fileID: 1247020696}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -1454,6 +1456,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultSize: 1.18
   hoverSize: 1.21
+--- !u!114 &1247020695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247020688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 419855081
+      Data2: 1212746757
+      Data3: -1037812837
+      Data4: 2000782960
+    Path: event:/SFX/Ui/sfx_ui_hover
+  Event: 
+  PlayEvent: 13
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &1247020696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247020688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 125574228
+      Data2: 1331725231
+      Data3: 665420216
+      Data4: 1163396275
+    Path: event:/SFX/Ui/sfx_ui_click
+  Event: 
+  PlayEvent: 15
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1510182414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,6 +2397,8 @@ GameObject:
   - component: {fileID: 2612644174084659103}
   - component: {fileID: 2612644174084659091}
   - component: {fileID: 2612644174084659104}
+  - component: {fileID: 2612644174084659106}
+  - component: {fileID: 2612644174084659105}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -2390,3 +2454,35 @@ MonoBehaviour:
   startPosition: {fileID: 993007617}
   endPosition: {fileID: 309184182}
   speed: 0.008
+--- !u!114 &2612644174084659105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612644174084659101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9468c5f457ace64f8d4df6d642b107f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadEvent: 7
+  UnloadEvent: 0
+  Banks:
+  - Master
+  - SFX
+  CollisionTag: 
+  PreloadSamples: 0
+--- !u!114 &2612644174084659106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2612644174084659101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
