@@ -102,12 +102,12 @@ public class BaseCampManager : MonoBehaviour
                 return;
             }
 
-            int nbEnemies1 = Mathf.FloorToInt(2f * Mathf.Sqrt(2.5f * currentTurn) + 2f);
-            int nbEnemies2 = currentTurn >= 5 ? Mathf.FloorToInt(1.25f * currentTurn) : 0;
-            int nbEnemies3 = currentTurn >= 15 ? Mathf.FloorToInt((currentTurn / 5f) - 2f) : 0;
+            int nbEnemies1 = Mathf.FloorToInt(2f * Mathf.Sqrt(2.75f * currentTurn) + 2f);
+            int nbEnemies2 = currentTurn >= 5 ? Mathf.FloorToInt(1.35f * currentTurn) : 0;
+            int nbEnemies3 = currentTurn >= 9 ? Mathf.FloorToInt((currentTurn / 5f) - 2f) : 0;
 
             SpawnHorde(alien1Prefab, nbEnemies1);
-            SpawnHorde(alien2Prefab, nbEnemies2 * (currentTurn/2));
+            SpawnHorde(alien2Prefab, nbEnemies2);
             SpawnHorde(alien3Prefab, nbEnemies3);
         }));
     }
@@ -115,6 +115,10 @@ public class BaseCampManager : MonoBehaviour
 
     public void SpawnHorde(Alien prefab, int count)
     {
+        if (currentTurn > 5)
+        {
+            prefab.alienData.health += 1;
+        }
         SpawnRecursive(prefab, 0, count);
     }
 
@@ -124,8 +128,11 @@ public class BaseCampManager : MonoBehaviour
         if (i == max)
             return;
 
-        LeanPool.Spawn(prefab, spawnLocations[i % spawnLocations.Count].position, Quaternion.identity);
-        StartCoroutine(SimpleRoutines.WaitTime(1f / spawnLocations.Count, () => SpawnRecursive(prefab, i + 1, max)));
+        Alien alien = LeanPool.Spawn(prefab, spawnLocations[i % spawnLocations.Count].position, Quaternion.identity);
+
+     
+        
+        StartCoroutine(SimpleRoutines.WaitTime(5f / spawnLocations.Count, () => SpawnRecursive(prefab, i + 1, max)));
     }
 
     public void SpawnHorde(Alien prefab, int count, Vector3 position)

@@ -312,7 +312,7 @@ SphereCollider:
   m_GameObject: {fileID: 5683676939840238047}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.25
   m_Center: {x: 0, y: 0.42, z: 0}
@@ -442,6 +442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
+    - target: {fileID: 1397917920435972164, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397917920435972165, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -498,6 +502,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1397917920706625476, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1397917920706625530, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -506,6 +514,22 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 43750352888151548, guid: a3d1f56cebf202c448b6fb479f61a9dc, type: 2}
+    - target: {fileID: 1397917920870913561, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397917921299880685, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397917921561285985, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3961574058630467462, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d965b621c402b7f429a58530ef95dbc7, type: 3}
 --- !u!114 &5360457814824376209 stripped

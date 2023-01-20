@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TomatoData
   m_EditorClassIdentifier: 
   cost: 30
-  health: 5
+  health: 10
   damage: 2
   timeToShip: 1
   intervalBetweenExecute: 1

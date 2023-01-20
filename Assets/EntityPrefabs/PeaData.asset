@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PeaData
   m_EditorClassIdentifier: 
   cost: 15
-  health: 10
+  health: 20
   damage: 4
   timeToShip: 1
   intervalBetweenExecute: 0.5

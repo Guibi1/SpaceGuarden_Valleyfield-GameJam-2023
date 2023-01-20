@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CheeryData
   m_EditorClassIdentifier: 
   cost: 60
-  health: 10
+  health: 20
   damage: 8
   timeToShip: 1
   intervalBetweenExecute: 3
