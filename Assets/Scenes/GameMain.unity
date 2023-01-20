@@ -12024,6 +12024,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.5300002
       objectReference: {fileID: 0}
+    - target: {fileID: 1752760786174354322, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4048903857332031312, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: distanceToInteract
       value: 8
@@ -12048,13 +12052,29 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1.53
       objectReference: {fileID: 0}
+    - target: {fileID: 7011307808806032596, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011307808806032596, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
+      propertyPath: Params.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7011307808806032596, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
+      propertyPath: Params.Array.data[2].Name
+      value: GameState
+      objectReference: {fileID: 0}
     - target: {fileID: 7580056222562082408, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000021952484
+      value: 0.00000002195248
       objectReference: {fileID: 0}
     - target: {fileID: 7580056222562082408, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000010497972
+      value: -0.000000010497971
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584531618690498328, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7752501264919026653, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12146,7 +12166,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1361479307}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -18916,6 +18936,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 835136982}
     - target: {fileID: 658154591513832304, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 658154591525922910}
+    - target: {fileID: 658154591513832304, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
       propertyPath: center
       value: 
       objectReference: {fileID: 1937736531}
@@ -18928,9 +18952,33 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 316056061}
     - target: {fileID: 658154591513832304, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
+      propertyPath: gameOverSound
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 658154591513832304, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
+      propertyPath: fmodEvent.Path
+      value: event:/Music/Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 658154591513832304, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
       propertyPath: ProceduralImage
       value: 
       objectReference: {fileID: 1932242233}
+    - target: {fileID: 658154591513832304, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
+      propertyPath: fmodEvent.Guid.Data1
+      value: 1470370708
+      objectReference: {fileID: 0}
+    - target: {fileID: 658154591513832304, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
+      propertyPath: fmodEvent.Guid.Data2
+      value: 1274824361
+      objectReference: {fileID: 0}
+    - target: {fileID: 658154591513832304, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
+      propertyPath: fmodEvent.Guid.Data3
+      value: 1370543505
+      objectReference: {fileID: 0}
+    - target: {fileID: 658154591513832304, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
+      propertyPath: fmodEvent.Guid.Data4
+      value: -133740927
+      objectReference: {fileID: 0}
     - target: {fileID: 658154591513832305, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
       propertyPath: m_Name
       value: CoinManager
@@ -19235,10 +19283,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionTag: 
   Emitters:
-  - Target: {fileID: 1361479308}
+  - Target: {fileID: 658154591525922910}
     Params:
     - Name: GameState
       Value: 1
+  TriggerEvent: 0
+--- !u!114 &658154591525922910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658154591525922905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1470370708
+      Data2: 1274824361
+      Data3: 1370543505
+      Data4: -133740927
+    Path: event:/Music/Music
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Enemies
+    Value: 0
+  - Name: GameState
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &658154591525922911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658154591525922905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744a208c85da6d04c861d81b992e4ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Emitters:
+  - Target: {fileID: 1361479308}
+    Params:
+    - Name: Enemies
+      Value: 0
   TriggerEvent: 0
 --- !u!1001 &1492166586017279750
 PrefabInstance:
