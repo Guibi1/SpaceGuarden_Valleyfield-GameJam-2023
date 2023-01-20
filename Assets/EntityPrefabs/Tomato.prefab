@@ -261,6 +261,7 @@ MonoBehaviour:
   allowPooling: 0
   healthBar: {fileID: 6243088037330966537}
   splashDamagePrefab: {fileID: 280132441, guid: 7344f238b308c5d40a0669807bfc3114, type: 3}
+  splashDamageY: 1
   deathAnimation: 0
   deathAnimationTime: 0
   dying: 0
@@ -532,7 +533,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2192080856954426260
 MonoBehaviour:
