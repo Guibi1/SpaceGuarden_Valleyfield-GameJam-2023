@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine.Rendering;
 using System.Diagnostics;
 using UnityEngine.UI.ProceduralImage;
+using FMODUnity;
 
 public class CoinManager : MonoBehaviour
 {
@@ -18,6 +19,16 @@ public class CoinManager : MonoBehaviour
     [SerializeReference] private TextMeshProUGUI moneyText;
     [SerializeReference] private TextMeshProUGUI overlayText;
     [SerializeReference] private TextMeshProUGUI ennemies;
+    
+
+
+
+    //MUSIC FIX I GUESS IDK
+    public StudioEventEmitter music;
+    public FMOD.Studio.EventInstance instanceMusic;
+    public EventReference fmodEvent;
+    private float enemies, healt;
+
 
     [Header("Camera")]
     [SerializeReference] private CinemachineFreeLook cam;
@@ -39,6 +50,8 @@ public class CoinManager : MonoBehaviour
             _coins = value;
         }
     }
+
+   
 
     public void OpenShop()
     {
@@ -73,6 +86,7 @@ public class CoinManager : MonoBehaviour
 
     public void OpenDeath()
     {
+        instanceMusic.setParameterByName("GameState", 1);
         isPlaying = false;
         CloseAll();
 
@@ -107,7 +121,17 @@ public class CoinManager : MonoBehaviour
 
     void Start()
     {
+        //music.Play();
+        instanceMusic = RuntimeManager.CreateInstance(fmodEvent);
+        instanceMusic.start();
         CloseAll();
+        
+    }
+
+    private void OnDestroy()
+    {
+        music.Stop();
+        instanceMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
     public TextMeshProUGUI moneyTMP;
@@ -120,6 +144,9 @@ public class CoinManager : MonoBehaviour
     public Center center;
     void Update()
     {
+        instanceMusic.setParameterByName("Enemies", AlienManager.instance.aliens.Count);
+        instanceMusic.setParameterByName("Healt", 1);
+
         roundText.text = "Manche " + BaseCampManager.instance.currentTurn;
         roundTMP.text = "Manche " + BaseCampManager.instance.currentTurn;
         flower.fillAmount = (float) center._healthPoint /(float) center.maxHealth;
