@@ -564,6 +564,8 @@ MonoBehaviour:
   healthLine: {fileID: 231831509781933895}
   hitLine: {fileID: 231831509948712610}
   lowHealthColor: {r: 0.8679245, g: 0.06959773, b: 0.06959773, a: 1}
+  displayHP: 0
+  displayText: {fileID: 0}
 --- !u!114 &7068106700548343842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,7 +704,8 @@ MonoBehaviour:
   _healthPoint: 20
   allowPooling: 0
   healthBar: {fileID: 231831510756331808}
-  splashDamagePrefab: {fileID: 0}
+  splashDamagePrefab: {fileID: 280132441, guid: 7344f238b308c5d40a0669807bfc3114, type: 3}
+  splashDamageY: 1
   deathAnimation: 1
   deathAnimationTime: 0.5
   dying: 0

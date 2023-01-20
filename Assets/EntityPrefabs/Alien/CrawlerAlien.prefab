@@ -161,14 +161,14 @@ MonoBehaviour:
   _healthPoint: 20
   allowPooling: 0
   healthBar: {fileID: 5360457814824376209}
-  splashDamagePrefab: {fileID: 0}
+  splashDamagePrefab: {fileID: 280132441, guid: 7344f238b308c5d40a0669807bfc3114, type: 3}
+  splashDamageY: 1
   deathAnimation: 1
   deathAnimationTime: 0.5
   dying: 0
   navMeshAgent: {fileID: 5683676939840238046}
   detectPlantThreshold: 3.32
   detectCenterThresold: 2.57
-  currentPlant: {fileID: 0}
   alienAnimator: {fileID: 738716286}
   Behavior: 0
   searchState: 0

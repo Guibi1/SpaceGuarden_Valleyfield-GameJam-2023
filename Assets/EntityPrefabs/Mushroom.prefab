@@ -118,7 +118,7 @@ MonoBehaviour:
   _healthPoint: 0
   allowPooling: 0
   healthBar: {fileID: 8754706149177856587}
-  splashDamagePrefab: {fileID: 0}
+  splashDamagePrefab: {fileID: 280132441, guid: 7344f238b308c5d40a0669807bfc3114, type: 3}
   deathAnimation: 0
   deathAnimationTime: 0
   dying: 0

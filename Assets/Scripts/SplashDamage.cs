@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SplashDamage : MonoBehaviour
 {
-    [SerializeReference] Camera cam;
     [SerializeReference] Rigidbody rb;
     [SerializeReference] TextMeshProUGUI text;
 
@@ -15,9 +14,9 @@ public class SplashDamage : MonoBehaviour
 
     void Start()
     {
-        float maxForce = 2500f;
-        float minForce = 2000f;
-        rb.AddForce(RandomForce(minForce, maxForce), 5000f, RandomForce(minForce, maxForce));
+        float maxForce = 1500f;
+        float minForce = 1000f;
+        rb.AddForce(RandomForce(minForce, maxForce), 3000f, RandomForce(minForce, maxForce));
 
         Color color = text.color;
         StartCoroutine(SimpleRoutines.LerpCoroutine(1f, 0f, 1.4f,
@@ -28,11 +27,6 @@ public class SplashDamage : MonoBehaviour
             },
             () => LeanPool.Despawn(this)
         ));
-    }
-
-    void Update()
-    {
-        transform.LookAt(cam.transform);
     }
 
     float RandomForce(float min, float max)
