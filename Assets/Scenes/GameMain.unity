@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12034,11 +12034,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5434498395498023244, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000008358538
+      value: -0.000000008358538
       objectReference: {fileID: 0}
     - target: {fileID: 5434498395498023244, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000002037091
+      value: 0.000000002037091
       objectReference: {fileID: 0}
     - target: {fileID: 6234656394939400113, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: visibleY
@@ -12066,11 +12066,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7580056222562082408, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000021952486
+      value: 0.00000002195248
       objectReference: {fileID: 0}
     - target: {fileID: 7580056222562082408, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000010497974
+      value: -0.000000010497971
       objectReference: {fileID: 0}
     - target: {fileID: 7584531618690498328, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_Enabled
@@ -12082,15 +12082,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08545824
+      value: 0.08545823
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000016918028
+      value: -9.556284e-10
       objectReference: {fileID: 0}
     - target: {fileID: 7906235554235601364, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000014510931
+      value: 8.196627e-11
       objectReference: {fileID: 0}
     - target: {fileID: 8238767966599743359, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12102,11 +12102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8238767966599743359, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000016717076
+      value: -0.000000016717076
       objectReference: {fileID: 0}
     - target: {fileID: 8238767966599743359, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000040741814
+      value: 0.0000000040741814
       objectReference: {fileID: 0}
     - target: {fileID: 8238767967956812670, guid: 4992b83c1583589488b57b14bcd682b8, type: 3}
       propertyPath: m_RootOrder
@@ -18982,6 +18982,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 765798314228921927, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
+      propertyPath: m_text
+      value: Plante centrale
+      objectReference: {fileID: 0}
     - target: {fileID: 1509860614104909611, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -19101,6 +19105,10 @@ PrefabInstance:
     - target: {fileID: 6687192660185559145, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 506
+      objectReference: {fileID: 0}
+    - target: {fileID: 7379964850278606825, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
+      propertyPath: m_text
+      value: Ennemis
       objectReference: {fileID: 0}
     - target: {fileID: 7379964850278606825, guid: fa0fe7f27306c6441a5547eccbf23b42, type: 3}
       propertyPath: m_fontSize
