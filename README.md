@@ -11,7 +11,7 @@ This game was made during the 2023 Valleyfield Game Jam, Its theme was "Garden".
 
 ## Play
 
-Visit our [itch.io page](https://www.youtube.com/watch?v=dQw4w9WgXcQ) to download the game files !
+Visit our [itch.io page](https://aeroska.itch.io/space-guarden) to download the game files !
 
 ## Contribute
 
